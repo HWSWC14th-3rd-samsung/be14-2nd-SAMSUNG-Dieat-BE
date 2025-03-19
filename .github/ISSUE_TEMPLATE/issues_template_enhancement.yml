@@ -1,11 +1,8 @@
----
 name: "\U0001F4D2 Issues"
 about: 이슈 작성
 title: ''
 labels: ''
 assignees: ''
-
----
 
 body:
   - type: textarea
@@ -18,8 +15,8 @@ body:
   - type: textarea
     attributes:
       label: ✅ 작업할 내용
-      description: 할 일을 체크박스 형태로 작성해주세요.
-      placeholder: 최대한 세분화 해서 적어주세요!
+      description: 할 일을 체크박스 형태로 작성해 주세요.
+      placeholder: 최대한 세분화 해서 적어 주세요!
     validations:
       required: true
   - type: textarea
