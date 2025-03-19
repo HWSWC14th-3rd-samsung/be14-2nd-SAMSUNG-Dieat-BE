@@ -52,29 +52,7 @@ gradle-app.setting
 !gradle-wrapper.properties
 
 # Cache of project
-.gradletasknamecache
-
-# Eclipse Gradle plugin generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
-
-### Gradle Patch ###
-# Java heap dump
-*.hprof
-
-# IntelliJ IDEA 관련 파일 무시
-.idea/
-*.iml
-out/
-
-# Gradle 관련 파일 무시
-.gradle/
-build/
-
-# OS에서 생성되는 파일 무시 (macOS, Windows 등)
-.DS_Store
-Thumbs.db
-
+.gradleta시
+.yml
+.yaml
 # End of https://www.toptal.com/developers/gitignore/api/gradle,java,database
