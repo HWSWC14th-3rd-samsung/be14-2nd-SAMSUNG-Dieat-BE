@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="126666cf-0a07-4106-b56a-c962fe4fb35c" name="Changes" comment="" />
+    <list default="true" id="126666cf-0a07-4106-b56a-c962fe4fb35c" name="Changes" comment="entity 파일 추가 및 PersonalMemberDTO, MemberService 초안 작성" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,11 +115,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742386661531</updated>
-      <workItem from="1742386663476" duration="2017000" />
+      <workItem from="1742386663476" duration="2394000" />
     </task>
+    <task id="LOCAL-00001" summary="entity 파일 추가 및 PersonalMemberDTO, MemberService 초안 작성">
+      <option name="closed" value="true" />
+      <created>1742388884169</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1742388884169</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="entity 파일 추가 및 PersonalMemberDTO, MemberService 초안 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="entity 파일 추가 및 PersonalMemberDTO, MemberService 초안 작성" />
   </component>
 </project>
