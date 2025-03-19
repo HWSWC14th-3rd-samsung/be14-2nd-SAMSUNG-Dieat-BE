@@ -4,7 +4,7 @@ INSERT INTO `tbl_user_info` (
   `user_level`,
   `user_nickname`,
   `user_susp_end_dt`,
-  `user_rpt_cnt`,
+  `user_rpt_cnt`
 ) VALUES
 (1,   0, 3,  'hiphopcat',         NULL, 1),
 (2,   0, 5,  'pinkrose',         NULL, 2),
