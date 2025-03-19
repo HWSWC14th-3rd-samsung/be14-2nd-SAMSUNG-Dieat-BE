@@ -70,7 +70,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "SJ",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/이성준/Documents/be14-2nd-SAMSUNG-Dieat-BE/dieat/src/main/java/com/samsung/dieat/weight/command",
+    "last_opened_file_path": "C:/Users/이성준/Documents/be14-2nd-SAMSUNG-Dieat-BE/dieat/src/main/java/com/samsung/dieat/weight/command/entity",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,11 +82,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\이성준\Documents\be14-2nd-SAMSUNG-Dieat-BE\dieat\src\main\java\com\samsung\dieat\weight\command" />
-      <recent name="C:\Users\이성준\Documents\be14-2nd-SAMSUNG-Dieat-BE\dieat\src\main\java\com\samsung\dieat\user_data_food\command" />
-      <recent name="C:\Users\이성준\Documents\be14-2nd-SAMSUNG-Dieat-BE\dieat\src\main\java\com\samsung\dieat\success_post\command" />
-      <recent name="C:\Users\이성준\Documents\be14-2nd-SAMSUNG-Dieat-BE\dieat\src\main\java\com\samsung\dieat\subscribe\command" />
-      <recent name="C:\Users\이성준\Documents\be14-2nd-SAMSUNG-Dieat-BE\dieat\src\main\java\com\samsung\dieat\report\command" />
+      <recent name="C:\Users\이성준\Documents\be14-2nd-SAMSUNG-Dieat-BE\dieat\src\main\java\com\samsung\dieat\weight\command\entity" />
+      <recent name="C:\Users\이성준\Documents\be14-2nd-SAMSUNG-Dieat-BE\dieat\src\main\java\com\samsung\dieat\user_data_food\command\entity" />
+      <recent name="C:\Users\이성준\Documents\be14-2nd-SAMSUNG-Dieat-BE\dieat\src\main\java\com\samsung\dieat\success_post\command\entity" />
+      <recent name="C:\Users\이성준\Documents\be14-2nd-SAMSUNG-Dieat-BE\dieat\src\main\java\com\samsung\dieat\subscribe\command\entity" />
+      <recent name="C:\Users\이성준\Documents\be14-2nd-SAMSUNG-Dieat-BE\dieat\src\main\java\com\samsung\dieat\report\command\entity" />
     </key>
   </component>
   <component name="RunManager">
@@ -115,7 +115,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742386661531</updated>
-      <workItem from="1742386663476" duration="2512000" />
+      <workItem from="1742386663476" duration="2910000" />
     </task>
     <task id="LOCAL-00001" summary="entity 파일 추가 및 PersonalMemberDTO, MemberService 초안 작성">
       <option name="closed" value="true" />
