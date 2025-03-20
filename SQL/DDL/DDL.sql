@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS `tbl_point`;
 DROP TABLE IF EXISTS `tbl_free_post`;
 DROP TABLE IF EXISTS `tbl_deleted_user`;
 DROP TABLE IF EXISTS `tbl_comment`;
-DROP TABLE IF EXISTS `tbl_point_day`;
+DROP TABLE IF EXISTS `tbl_daily_point`;
 DROP TABLE IF EXISTS `tbl_qna_post`;
 DROP TABLE IF EXISTS `tbl_image`;
 
@@ -288,7 +288,7 @@ CREATE TABLE `tbl_open_data_food` (
                                       `odf_sugar`     FLOAT         NULL CHECK ( odf_sugar >= 0 ),
                                       `odf_update_dt` DATETIME      NOT NULL,
                                       CONSTRAINT `PK_TBL_OPEN_DATA_FOOD`
-                                          PRIMARY KEY (`odf_code`)
+                                        PRIMARY KEY (`odf_code`)
 );
 
 -- 2-18) tbl_point (독립)
@@ -383,16 +383,16 @@ CREATE TABLE `tbl_comment` (
                                    PRIMARY KEY (`cmt_code`)
 );
 
--- 2-24) tbl_point_day (독립)
-CREATE TABLE `tbl_point_day` (
-                                 `pnt_dy_code`    INT                NOT NULL AUTO_INCREMENT,
-                                 `pnt_dy_rcv_amt` INT                NOT NULL,
-                                 `pnt_dy_rcv_dt`  DATETIME           NOT NULL,
-                                 `pnt_dy_rcv_type` ENUM('type1','type2') NOT NULL,
-                                 `pnt_dy_rcv_code` INT               NOT NULL,
+-- 2-24) tbl_daily_point (독립)
+CREATE TABLE `tbl_daily_point` (
+                                 `d_point_code`    INT                NOT NULL AUTO_INCREMENT,
+                                 `d_point_rcv_amt` INT                NOT NULL,
+                                 `d_point_rcv_dt`  DATETIME           NOT NULL,
+                                 `d_point_rcv_type` ENUM('type1','type2') NOT NULL,
+                                 `d_point_rcv_code` INT               NOT NULL,
                                  `user_code`      INT                NOT NULL,
-                                 CONSTRAINT `PK_TBL_POINT_DAY`
-                                     PRIMARY KEY (`pnt_dy_code`)
+                                 CONSTRAINT `PK_TBL_DAILY_POINT`
+                                     PRIMARY KEY (`d_point_code`)
 );
 
 -- 2-25) tbl_qna_post (독립)
