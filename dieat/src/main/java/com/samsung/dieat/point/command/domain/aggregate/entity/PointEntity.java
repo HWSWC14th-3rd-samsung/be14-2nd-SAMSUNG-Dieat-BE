@@ -1,5 +1,6 @@
 package com.samsung.dieat.point.command.domain.aggregate.entity;
 
+import com.samsung.dieat.member.command.domain.aggregate.entity.UserEntity;
 import com.samsung.dieat.point.command.domain.enums.PType;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ public class PointEntity {
 
     @ManyToOne
     @JoinColumn(name = "point_user_code", nullable = false)
-    private Member member;      // 회원 정보 연관 관계 매핑
+    private UserEntity member;      // 회원 정보 연관 관계 매핑
 
     @Column(name = "point_amt", nullable = false, length = 50000)
     private int point_amt;

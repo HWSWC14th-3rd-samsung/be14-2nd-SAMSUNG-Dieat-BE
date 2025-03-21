@@ -1,0 +1,23 @@
+server:
+  port: 0
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3307/samsungdb
+    username: root
+    password: 1123
+
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    database: mysql
+    properties:
+      hibernate:
+        '[format_sql]': true
+
+logging:
+  level:
+    com:
+      samsung:
+        dieat: debug
