@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class DailyPointDTO {
     private int dPointCode;
     private Long dPointUserCode;
-    private int dPointAmt;
+    private int dPointRcvAmt;
     private LocalDateTime dPointRcvDt;
     private PType dPointRcvType;
     private int dPointRcvCode;

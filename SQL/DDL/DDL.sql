@@ -297,8 +297,8 @@ CREATE TABLE `tbl_point` (
                              `point_user_code` INT         NOT NULL,
                              `point_amt`       INT         NOT NULL,
                              `point_rcv_dt`    DATETIME    NOT NULL,
+                             `point_rcv_type`  ENUM('REGIST_USERFOOD','ACCURATE_USERFOOD','REVIEW_USERFOOD','MEAL','DIET','FREE','SUCCESS') NOT NULL,
                              `point_rcv_code`  INT         NOT NULL,
-                             `point_rcv_type`  VARCHAR(50) NOT NULL,
                              CONSTRAINT `PK_TBL_POINT`
                                  PRIMARY KEY (`point_code`),
                              CONSTRAINT `FK_tbl_user_info_TO_tbl_point_1`
@@ -390,20 +390,6 @@ CREATE TABLE `tbl_comment` (
                                        REFERENCES `tbl_user_info` (`user_code`)
 );
 
-CREATE TABLE `tbl_daily_point` (
-                                   `d_point_code`    INT                NOT NULL AUTO_INCREMENT,
-                                   `d_point_rcv_amt` INT                NOT NULL,
-                                   `d_point_rcv_dt`  DATETIME           NOT NULL,
-                                   `d_point_rcv_type` ENUM('REGIST_USERFOOD','ACCURATE_USERFOOD','REVIEW_USERFOOD','MEAL','DIET','FREE','SUCCESS') NOT NULL,
-                                   `d_point_rcv_code` INT               NOT NULL,
-                                   `user_code`      INT                NOT NULL,
-                                   CONSTRAINT `PK_TBL_DAILY_POINT`
-                                       PRIMARY KEY (`d_point_code`),
-                                   CONSTRAINT `FK_tbl_user_info_TO_tbl_daily_point_1`
-                                       FOREIGN KEY (`user_code`)
-                                           REFERENCES `tbl_user_info` (`user_code`)
-);
-
 CREATE TABLE `tbl_qna_post` (
                                 `qna_code`       INT          NOT NULL AUTO_INCREMENT,
                                 `qna_title`      VARCHAR(255) NOT NULL,
@@ -417,6 +403,20 @@ CREATE TABLE `tbl_qna_post` (
                                 CONSTRAINT `FK_tbl_user_info_TO_tbl_qna_post_1`
                                     FOREIGN KEY (`user_code`)
                                         REFERENCES `tbl_user_info` (`user_code`)
+);
+
+CREATE TABLE `tbl_daily_point` (
+                                   `d_point_code`    INT                NOT NULL AUTO_INCREMENT,
+                                   `d_point_user_code` INT                NOT NULL,
+                                   `d_point_rcv_amt` INT                NOT NULL,
+                                   `d_point_rcv_dt`  DATETIME           NOT NULL,
+                                   `d_point_rcv_type` ENUM('REGIST_USERFOOD','ACCURATE_USERFOOD','REVIEW_USERFOOD','MEAL','DIET','FREE','SUCCESS') NOT NULL,
+                                   `d_point_rcv_code` INT               NOT NULL,
+                                   CONSTRAINT `PK_TBL_DAILY_POINT`
+                                       PRIMARY KEY (`d_point_code`),
+                                   CONSTRAINT `FK_tbl_user_info_TO_tbl_daily_point_1`
+                                       FOREIGN KEY (`d_point_user_code`)
+                                           REFERENCES `tbl_user_info` (`user_code`)
 );
 
 CREATE TABLE `tbl_qna_comment` (
