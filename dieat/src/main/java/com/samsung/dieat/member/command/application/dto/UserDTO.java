@@ -1,4 +1,4 @@
-package com.samsung.dieat.member.command.domain.aggregate.vo;
+package com.samsung.dieat.member.command.application.dto;
 
 import lombok.*;
 
@@ -7,13 +7,16 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class RequestRegistUserVO {
+public class UserDTO {
     private String userName;
     private String userId;
     private String userPwd;
+    private String nickName;
     private String userEmail;
     private String userTel;
     private String userGender;
     private String userBirthday;
-    private String nickName;
+
+    private java.util.Date userEnrollDt;
+
 }
