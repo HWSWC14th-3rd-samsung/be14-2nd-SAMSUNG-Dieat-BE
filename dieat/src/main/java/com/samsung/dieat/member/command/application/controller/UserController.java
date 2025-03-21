@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +39,14 @@ public class UserController {
     @PostMapping("users")
     public ResponseEntity<ResponseRegistUserVO> registUser(@RequestBody RequestRegistUserVO newUser) {
         UserDTO userDTO = modelMapper.map(newUser, UserDTO.class);
+
+
+
         userService.registUser(userDTO);
+        ResponseRegistUserVO successRegistUser = modelMapper.map(userDTO, ResponseRegistUserVO.class);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                             .body(successRegistUser);
+
     }
 }
