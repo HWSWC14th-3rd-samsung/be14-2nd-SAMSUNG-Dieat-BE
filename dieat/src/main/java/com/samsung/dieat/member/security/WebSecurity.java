@@ -4,6 +4,7 @@ import jakarta.servlet.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,10 +20,12 @@ import java.util.Collections;
 public class WebSecurity {
 
     private JwtAuthenticationProvider jwtAuthenticationProvider;
+    private Environment env;                //의존성 주입 DI
 
     @Autowired
-    public WebSecurity(JwtAuthenticationProvider jwtAuthenticationProvider) {
+    public WebSecurity(JwtAuthenticationProvider jwtAuthenticationProvider,Environment env) {
         this.jwtAuthenticationProvider = jwtAuthenticationProvider;
+        this.env = env;
     }
 
     @Bean
@@ -48,6 +51,6 @@ public class WebSecurity {
     }
 
     private Filter getAuthenticationFilter(AuthenticationManager authenticationManager){
-        return new AuthenticationFilter(authenticationManager);
+        return new AuthenticationFilter(authenticationManager, env);
     }
 }
