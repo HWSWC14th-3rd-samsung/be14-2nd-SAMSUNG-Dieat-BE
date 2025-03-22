@@ -50,6 +50,10 @@ public class UserServiceImpl implements UserService {
 
         UserEntity loginUser = userRepository.findByUserId(userId);
 
+        if(loginUser == null) {
+            throw new UsernameNotFoundException(userId + "아이디가 존재하지 않습니다.");
+        }
+
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
