@@ -15,7 +15,7 @@
         <result property="mealFat" column="meal_fat"/>
         <result property="userCode" column="user_code"/>
     </resultMap>
-    <select id="selectMealByUserCode" parameterType="_int" resultMap="mealResultMap">
+    <select id="selectMealsByUserCode" parameterType="_int" resultMap="mealResultMap">
         SELECT
                meal_code
              , meal_dt
@@ -62,19 +62,6 @@
              , user_code
           FROM tbl_meal
     </select>
-    <select id="selectUserMeals" resultMap="mealResultMap">
-        SELECT
-        meal_code
-        , meal_dt
-        , meal_title
-        , meal_desc
-        , meal_calories
-        , meal_carbs
-        , meal_sugar
-        , meal_protein
-        , meal_fat
-        , user_code
-        FROM tbl_meal
-    </select>
+
 
 </mapper>

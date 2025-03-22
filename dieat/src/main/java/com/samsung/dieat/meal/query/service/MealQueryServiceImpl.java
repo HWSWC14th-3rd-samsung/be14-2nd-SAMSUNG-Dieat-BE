@@ -1,5 +1,7 @@
 package com.samsung.dieat.meal.query.service;
 
+import com.samsung.dieat.meal.command.domain.aggregate.entity.MealFood;
+import com.samsung.dieat.meal.command.domain.repository.MealFoodJpaRepository;
 import com.samsung.dieat.meal.query.dao.MealQueryMapper;
 import com.samsung.dieat.meal.query.dto.MealDefaultSelectCondition;
 import com.samsung.dieat.meal.query.dto.MealQueryDTO;
@@ -13,20 +15,34 @@ import java.util.List;
 public class MealQueryServiceImpl implements MealQueryService {
 
     private final MealQueryMapper mealQueryMapper;
+    private final MealFoodJpaRepository mealFoodJpaRepository;
 
     @Override
     public List<MealQueryDTO> findAllMeals() {
-        System.out.println(mealQueryMapper.selectAllMeals());
         return mealQueryMapper.selectAllMeals();
     }
 
     @Override
     public List<MealQueryDTO> findMealsByUserCode(int userCode) {
-        return mealQueryMapper.selectMealByUserCode(userCode);
+        List<MealQueryDTO> meals = mealQueryMapper.selectMealsByUserCode(userCode);
+
+        for (MealQueryDTO meal : meals) {
+            List<MealFood> mealFoods = mealFoodJpaRepository.findByMealCodeWithMeal(meal.getMealCode());
+            meal.setMealFoods(mealFoods);
+        }
+
+        return meals;
     }
 
     @Override
     public MealQueryDTO findMealsDefault(MealDefaultSelectCondition condition) {
-        return mealQueryMapper.selectMealsDefault(condition);
+        MealQueryDTO meal = mealQueryMapper.selectMealsDefault(condition);
+
+        if (meal != null) {
+            List<MealFood> mealFoods = mealFoodJpaRepository.findByMealCodeWithMeal(meal.getMealCode());
+            meal.setMealFoods(mealFoods);
+        }
+
+        return meal;
     }
 }
