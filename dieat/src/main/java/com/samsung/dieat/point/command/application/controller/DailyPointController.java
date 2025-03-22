@@ -1,5 +1,7 @@
 package com.samsung.dieat.point.command.application.controller;
 
+
+import com.samsung.dieat.point.command.application.service.DailyPointService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +18,8 @@ public class DailyPointController {
 
     @Autowired
     public DailyPointController(Environment env, ModelMapper modelMapper, DailyPointService dailyPointService) {
-                this.env = env;
-                this.modelMapper = modelMapper;
-                this.dailyPointService = dailyPointService;
-            }
+        this.env = env;
+        this.modelMapper = modelMapper;
+        this.dailyPointService = dailyPointService;
+    }
 }
