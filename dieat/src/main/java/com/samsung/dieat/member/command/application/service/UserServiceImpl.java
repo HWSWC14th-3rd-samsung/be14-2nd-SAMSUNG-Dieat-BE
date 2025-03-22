@@ -6,11 +6,17 @@ import com.samsung.dieat.member.command.domain.repository.UserRepository;
 import org.bouncycastle.crypto.generators.BCrypt;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -44,6 +50,10 @@ public class UserServiceImpl implements UserService {
 
         UserEntity loginUser = userRepository.findByUserId(userId);
 
-        return new User(loginUser());
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+
+        return new User(loginUser.getUserId(), loginUser.getEncryptedPwd(),  true, true, true, true, grantedAuthorities);
     }
 }
