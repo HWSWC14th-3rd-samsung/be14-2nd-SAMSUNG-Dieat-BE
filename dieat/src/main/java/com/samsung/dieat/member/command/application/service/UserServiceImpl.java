@@ -6,6 +6,8 @@ import com.samsung.dieat.member.command.domain.repository.UserRepository;
 import org.bouncycastle.crypto.generators.BCrypt;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,5 +37,13 @@ public class UserServiceImpl implements UserService {
         registUser.setEncryptedPwd(bCryptPasswordEncoder.encode(userDTO.getUserPwd()));
 
         userRepository.save(registUser);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+
+        UserEntity loginUser = userRepository.findByUserId(userId);
+
+        return new User(loginUser());
     }
 }
