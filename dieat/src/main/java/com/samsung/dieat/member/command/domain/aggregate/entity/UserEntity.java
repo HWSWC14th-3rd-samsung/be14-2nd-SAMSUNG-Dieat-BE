@@ -25,7 +25,7 @@ public class UserEntity {
 
 //    @Column(name="user_pwd", nullable = false)
 //    private String userPwd;                                                 //회원비밀번호
-    @Column(name="encrypted_pwd", nullable=false)
+    @Column(name="user_pwd", nullable=false)
     private String encryptedPwd;
 
     @Column(name="user_nickname", table = "tbl_user_info", nullable = false, unique = true)

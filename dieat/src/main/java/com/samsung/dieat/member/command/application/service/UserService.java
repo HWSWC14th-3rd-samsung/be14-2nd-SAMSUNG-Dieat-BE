@@ -2,8 +2,9 @@ package com.samsung.dieat.member.command.application.service;
 
 
 import com.samsung.dieat.member.command.application.dto.UserDTO;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
     void registUser(UserDTO userDTO);
 }
