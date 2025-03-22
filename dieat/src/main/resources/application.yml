@@ -1,0 +1,28 @@
+server:
+  port: 8111
+
+spring:
+  application:
+    name: dieat-user-service
+
+  ## db config
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3307/samsung
+    username: root
+    password: mariadb
+
+  ## jpa config
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    database: mysql
+    properties:
+      hibernate:
+        '[format_sql]': true
+
+
+
+
+

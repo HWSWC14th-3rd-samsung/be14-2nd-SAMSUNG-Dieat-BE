@@ -7,8 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-public class ResponseRegistUserVO {
-    private String userName;
-    private String userNickname;
-
+public class RequestLoginVO {
+    private String userId;
+    private String userPwd;
 }

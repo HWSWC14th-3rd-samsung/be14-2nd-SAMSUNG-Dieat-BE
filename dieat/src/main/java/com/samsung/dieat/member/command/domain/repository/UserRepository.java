@@ -1,7 +1,9 @@
 package com.samsung.dieat.member.command.domain.repository;
 
-import org.springframework.stereotype.Repository;
+import com.samsung.dieat.member.command.domain.aggregate.entity.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Repository
-public class UserRepository {
+
+
+public interface  UserRepository extends JpaRepository<UserEntity, Long> {
 }
