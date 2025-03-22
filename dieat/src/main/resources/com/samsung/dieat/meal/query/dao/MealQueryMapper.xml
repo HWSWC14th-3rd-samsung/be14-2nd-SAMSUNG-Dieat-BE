@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.samsung.dieat.meal.query.dao.MealQueryMapper">
+    <resultMap id="mealResultMap" type="com.samsung.dieat.meal.query.dto.MealQueryDTO">
+        <id property="mealCode" column="meal_code"/>
+        <result property="mealDt" column="meal_dt"/>
+        <result property="mealTitle" column="meal_title"/>
+        <result property="mealDesc" column="meal_desc"/>
+        <result property="mealCalories" column="meal_calories"/>
+        <result property="mealCarbs" column="meal_carbs"/>
+        <result property="mealSugar" column="meal_sugar"/>
+        <result property="mealProtein" column="meal_protein"/>
+        <result property="mealFat" column="meal_fat"/>
+        <result property="userCode" column="user_code"/>
+    </resultMap>
+    <select id="selectMealByUserCode" parameterType="_int" resultMap="mealResultMap">
+        SELECT
+               meal_code
+             , meal_dt
+             , meal_title
+             , meal_desc
+             , meal_calories
+             , meal_carbs
+             , meal_sugar
+             , meal_protein
+             , meal_fat
+             , user_code
+          FROM tbl_meal
+         WHERE user_code = #{userCode}
+    </select>
+    <select id="selectMealsDefault"
+            parameterType="com.samsung.dieat.meal.query.dto.MealDefaultSelectCondition"
+            resultMap="mealResultMap">
+        SELECT
+               meal_code
+             , meal_dt
+             , meal_title
+             , meal_desc
+             , meal_calories
+             , meal_carbs
+             , meal_sugar
+             , meal_protein
+             , meal_fat
+             , user_code
+          FROM tbl_meal
+         WHERE user_code = #{userCode}
+           AND meal_dt LIKE CONCAT(#{mealDt}, '%')
+    </select>
+    <select id="selectAllMeals" resultMap="mealResultMap">
+        SELECT
+               meal_code
+             , meal_dt
+             , meal_title
+             , meal_desc
+             , meal_calories
+             , meal_carbs
+             , meal_sugar
+             , meal_protein
+             , meal_fat
+             , user_code
+          FROM tbl_meal
+    </select>
+    <select id="selectUserMeals" resultMap="mealResultMap">
+        SELECT
+        meal_code
+        , meal_dt
+        , meal_title
+        , meal_desc
+        , meal_calories
+        , meal_carbs
+        , meal_sugar
+        , meal_protein
+        , meal_fat
+        , user_code
+        FROM tbl_meal
+    </select>
+
+</mapper>
