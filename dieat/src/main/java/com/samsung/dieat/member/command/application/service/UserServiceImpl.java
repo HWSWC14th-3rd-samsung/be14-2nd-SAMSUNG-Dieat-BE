@@ -6,9 +6,17 @@ import com.samsung.dieat.member.command.domain.repository.UserRepository;
 import org.bouncycastle.crypto.generators.BCrypt;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -35,5 +43,33 @@ public class UserServiceImpl implements UserService {
         registUser.setEncryptedPwd(bCryptPasswordEncoder.encode(userDTO.getUserPwd()));
 
         userRepository.save(registUser);
+    }
+
+    @Override
+    public UserDTO getUserById(String memNo) {
+        UserEntity foundUser = userRepository.findById(Long.parseLong(memNo)).get();
+
+        UserDTO userDTO = modelMapper.map(foundUser, UserDTO.class);
+
+        return userDTO;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+
+        UserEntity loginUser = userRepository.findByUserId(userId);
+
+        if(loginUser == null) {
+            throw new UsernameNotFoundException(userId + "아이디가 존재하지 않습니다.");
+        }
+
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        if("ADMIN".equals(loginUser.getRole())) {
+            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        } else {
+            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        }
+
+        return new User(loginUser.getUserId(), loginUser.getEncryptedPwd(),  true, true, true, true, grantedAuthorities);
     }
 }

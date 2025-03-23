@@ -1,3 +1,4 @@
+
 package com.samsung.dieat.point.command.domain.aggregate.entity;
 
 import com.samsung.dieat.member.command.domain.aggregate.entity.UserEntity;
@@ -39,3 +40,4 @@ public class PointEntity {
     private int pointRcvCode;
 
 }
+

@@ -1,3 +1,4 @@
+
 package com.samsung.dieat.point.command.domain.aggregate.entity;
 
 import com.samsung.dieat.member.command.domain.aggregate.entity.UserEntity;
@@ -39,3 +40,4 @@ public class DailyPointEntity {
     @Column(name = "d_point_rcv_code", nullable = false, length = 1000)         // 포인트 적립 대상 코드
     private int dPointRcvCode;
 }
+
