@@ -23,8 +23,7 @@ public class UserEntity {
     @Column(name="user_id", nullable = false, unique = true)
     private String userId;                                                  //회원아이디(ID 개념)
 
-//    @Column(name="user_pwd", nullable = false)
-//    private String userPwd;                                                 //회원비밀번호
+                                              //회원비밀번호
     @Column(name="user_pwd", nullable=false)
     private String encryptedPwd;
 
@@ -45,5 +44,8 @@ public class UserEntity {
 
     @Column(name = "user_enroll_dt", nullable = false)
     private java.util.Date userEnrollDt;
+
+    @Column(name = "user_role", table = "tbl_user_info", nullable = false)
+    private String role;
 
 }
