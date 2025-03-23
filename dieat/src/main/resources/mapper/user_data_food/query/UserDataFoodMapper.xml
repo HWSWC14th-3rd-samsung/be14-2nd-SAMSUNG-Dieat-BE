@@ -43,11 +43,14 @@
     <resultMap id="UdfName" type="com.samsung.dieat.user_data_food.query.dto.ResponseUdfName">
         <result property="udfName" column="udf_name"/>
     </resultMap>
-    <select id="findByLikeName" parameterType="String" resultMap="UdfName">
+    <select id="findByMultipleKeywords" parameterType="String" resultMap="UdfName">
         SELECT
                udf_name
           FROM samsung.tbl_user_data_food
-         WHERE REPLACE(udf_name, ' ', '') LIKE CONCAT('%', REPLACE(#{likeName}, ' ', ''), '%')
+          WHERE
+            <foreach item="word" collection="keywords" separator=" AND ">
+                REPLACE(REPLACE(REPLACE(udf_name, '(', ''), ')', ''), ' ', '') LIKE CONCAT('%', REPLACE(REPLACE(REPLACE(#{word}, '(', ''), ')', ''), ' ', ''), '%')
+            </foreach>
          GROUP BY udf_name
     </select>
 
