@@ -3,17 +3,16 @@ package com.samsung.dieat.member.command.application.controller;
 import com.samsung.dieat.member.command.application.dto.UserDTO;
 import com.samsung.dieat.member.command.application.service.UserService;
 import com.samsung.dieat.member.command.domain.aggregate.vo.RequestRegistUserVO;
+import com.samsung.dieat.member.command.domain.aggregate.vo.ResponseFindUserVO;
 import com.samsung.dieat.member.command.domain.aggregate.vo.ResponseRegistUserVO;
+import org.springframework.beans.factory.annotation.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
@@ -22,6 +21,9 @@ public class UserController {
     private Environment env;
     private UserService userService;
     private ModelMapper modelMapper;
+
+    @Value("${admin.secret}")
+    private String adminSecretCode;
 
     @Autowired
     public UserController(Environment env, UserService userService, ModelMapper modelMapper) {
@@ -38,8 +40,17 @@ public class UserController {
 
     @PostMapping("users")
     public ResponseEntity<ResponseRegistUserVO> registUser(@RequestBody RequestRegistUserVO newUser) {
+        log.info("adminSecretCode: '{}'", adminSecretCode);
+        log.info("inviteCode: '{}'", newUser.getInviteCode());
+
         UserDTO userDTO = modelMapper.map(newUser, UserDTO.class);
 
+
+        if(newUser.getInviteCode() != null && newUser.getInviteCode().trim().equals(adminSecretCode.trim())){
+            userDTO.setRole("ADMIN");
+        } else {
+            userDTO.setRole("USER");
+        }
 
 
         userService.registUser(userDTO);
@@ -48,5 +59,17 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED)
                              .body(successRegistUser);
 
+
+
+    }
+
+    @GetMapping("/users/{memNo}")
+    public ResponseEntity<ResponseFindUserVO> getUsers(@PathVariable String memNo) {
+        UserDTO userDTO = userService.getUserById(memNo);
+
+        ResponseFindUserVO findUserVO = modelMapper.map(userDTO, ResponseFindUserVO.class);
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(findUserVO);
     }
 }

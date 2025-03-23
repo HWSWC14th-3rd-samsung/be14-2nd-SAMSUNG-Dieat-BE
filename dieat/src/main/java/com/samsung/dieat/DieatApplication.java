@@ -10,6 +10,8 @@ public class DieatApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DieatApplication.class, args);
+        System.out.println("현재 인코딩: " + System.getProperty("file.encoding")); // UTF-8이어야 함
+
     }
 
 }

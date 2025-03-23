@@ -18,5 +18,6 @@ public class UserDTO {
     private String userBirthday;
 
     private java.util.Date userEnrollDt;
+    private String role;
 
 }

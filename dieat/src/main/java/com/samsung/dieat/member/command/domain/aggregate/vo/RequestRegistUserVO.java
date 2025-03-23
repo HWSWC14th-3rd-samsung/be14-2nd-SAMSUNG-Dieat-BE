@@ -16,4 +16,5 @@ public class RequestRegistUserVO {
     private String userTel;
     private String userGender;
     private String userBirthday;
+    private String inviteCode;
 }
