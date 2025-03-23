@@ -32,4 +32,7 @@ public class UserInfoEntity {
 
     @Column(name = "user_rpt_cnt")
     private int userRptCnt;
+
+    @Column(name = "user_role")
+    private String userRole;
 }

@@ -46,6 +46,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDTO getUserById(String memNo) {
+        UserEntity foundUser = userRepository.findById(Long.parseLong(memNo)).get();
+
+        UserDTO userDTO = modelMapper.map(foundUser, UserDTO.class);
+
+        return userDTO;
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
 
         UserEntity loginUser = userRepository.findByUserId(userId);
@@ -55,8 +64,11 @@ public class UserServiceImpl implements UserService {
         }
 
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        if("ADMIN".equals(loginUser.getRole())) {
+            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        } else {
+            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        }
 
         return new User(loginUser.getUserId(), loginUser.getEncryptedPwd(),  true, true, true, true, grantedAuthorities);
     }

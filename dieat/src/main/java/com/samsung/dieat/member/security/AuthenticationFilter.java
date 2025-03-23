@@ -56,8 +56,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                                             HttpServletResponse response,
                                             FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
-        log.info("로그인 성공 이후 spring security가 Authentication 객체로 관리되어 넘어옴: {}" + authResult);
-        log.info("시크릿 키: {}", env.getProperty("token.sercret"));
+
         String userId = ((User)authResult.getPrincipal()).getUsername();
         List<String> roles = authResult.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority).collect(Collectors.toList());
@@ -68,8 +67,10 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         String token = Jwts.builder()
                 .setClaims(claims)
                 .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(env.getProperty("token.expiration_time"))))
-                .signWith(SignatureAlgorithm.HS512, env.getProperty("token.sercret"))
+                .signWith(SignatureAlgorithm.HS512, env.getProperty("token.secret"))
                 .compact();
+
+        response.addHeader("token", token);
 
     }
 }
