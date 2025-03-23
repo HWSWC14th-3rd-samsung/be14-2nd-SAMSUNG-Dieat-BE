@@ -13,7 +13,7 @@ public interface MealQueryService {
 
     List<MealQueryDTO> findMealsByUserCode(int userCode);
 
-    MealQueryDTO findMealsDefault(MealDefaultSelectCondition condition);
+    List<MealQueryDTO> findMealsDefault(MealDefaultSelectCondition condition);
 
 }
 

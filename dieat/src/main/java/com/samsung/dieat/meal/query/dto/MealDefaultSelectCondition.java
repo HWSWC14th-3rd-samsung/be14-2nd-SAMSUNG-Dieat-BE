@@ -4,7 +4,6 @@ package com.samsung.dieat.meal.query.dto;
 
 import lombok.*;
 
-import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor

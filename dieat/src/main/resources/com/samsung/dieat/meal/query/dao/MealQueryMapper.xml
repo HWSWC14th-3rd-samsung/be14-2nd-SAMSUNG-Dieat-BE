@@ -3,7 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.samsung.dieat.meal.query.dao.MealQueryMapper">
-    <resultMap id="mealResultMap" type="com.samsung.dieat.meal.query.dto.MealQueryDTO">
+
+    <resultMap id="MealQueryResultMap" type="com.samsung.dieat.meal.query.dto.MealQueryDTO">
         <id property="mealCode" column="meal_code"/>
         <result property="mealDt" column="meal_dt"/>
         <result property="mealTitle" column="meal_title"/>
@@ -15,53 +16,54 @@
         <result property="mealFat" column="meal_fat"/>
         <result property="userCode" column="user_code"/>
     </resultMap>
-    <select id="selectMealsByUserCode" parameterType="_int" resultMap="mealResultMap">
+
+    <select id="selectMealsByUserCode" resultMap="MealQueryResultMap">
         SELECT
-               meal_code
-             , meal_dt
-             , meal_title
-             , meal_desc
-             , meal_calories
-             , meal_carbs
-             , meal_sugar
-             , meal_protein
-             , meal_fat
-             , user_code
-          FROM tbl_meal
-         WHERE user_code = #{userCode}
-    </select>
-    <select id="selectMealsDefault"
-            parameterType="com.samsung.dieat.meal.query.dto.MealDefaultSelectCondition"
-            resultMap="mealResultMap">
-        SELECT
-               meal_code
-             , meal_dt
-             , meal_title
-             , meal_desc
-             , meal_calories
-             , meal_carbs
-             , meal_sugar
-             , meal_protein
-             , meal_fat
-             , user_code
-          FROM tbl_meal
-         WHERE user_code = #{userCode}
-           AND meal_dt LIKE CONCAT(#{mealDt}, '%')
-    </select>
-    <select id="selectAllMeals" resultMap="mealResultMap">
-        SELECT
-               meal_code
-             , meal_dt
-             , meal_title
-             , meal_desc
-             , meal_calories
-             , meal_carbs
-             , meal_sugar
-             , meal_protein
-             , meal_fat
-             , user_code
-          FROM tbl_meal
+        m.meal_code
+        , m.meal_dt
+        , m.meal_title
+        , m.meal_desc
+        , m.meal_calories
+        , m.meal_carbs
+        , m.meal_sugar
+        , m.meal_protein
+        , m.meal_fat
+        , m.user_code
+        FROM tbl_meal m
+        WHERE m.user_code = #{userCode}
     </select>
 
+    <select id="selectMealsDefault" resultMap="MealQueryResultMap"
+            parameterType="com.samsung.dieat.meal.query.dto.MealDefaultSelectCondition">
+        SELECT
+        m.meal_code
+        , m.meal_dt
+        , m.meal_title
+        , m.meal_desc
+        , m.meal_calories
+        , m.meal_carbs
+        , m.meal_sugar
+        , m.meal_protein
+        , m.meal_fat
+        , m.user_code
+        FROM tbl_meal m
+        WHERE m.user_code = #{userCode}
+        AND m.meal_dt = #{mealDt}
+    </select>
+
+    <select id="selectAllMeals" resultMap="MealQueryResultMap">
+        SELECT
+        meal_code
+        , meal_dt
+        , meal_title
+        , meal_desc
+        , meal_calories
+        , meal_carbs
+        , meal_sugar
+        , meal_protein
+        , meal_fat
+        , user_code
+        FROM tbl_meal
+    </select>
 
 </mapper>

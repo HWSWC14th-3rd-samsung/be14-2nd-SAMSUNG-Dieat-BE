@@ -24,25 +24,11 @@ public class MealQueryServiceImpl implements MealQueryService {
 
     @Override
     public List<MealQueryDTO> findMealsByUserCode(int userCode) {
-        List<MealQueryDTO> meals = mealQueryMapper.selectMealsByUserCode(userCode);
-
-        for (MealQueryDTO meal : meals) {
-            List<MealFood> mealFoods = mealFoodJpaRepository.findByMealCodeWithMeal(meal.getMealCode());
-            meal.setMealFoods(mealFoods);
-        }
-
-        return meals;
+        return mealQueryMapper.selectMealsByUserCode(userCode);
     }
 
     @Override
-    public MealQueryDTO findMealsDefault(MealDefaultSelectCondition condition) {
-        MealQueryDTO meal = mealQueryMapper.selectMealsDefault(condition);
-
-        if (meal != null) {
-            List<MealFood> mealFoods = mealFoodJpaRepository.findByMealCodeWithMeal(meal.getMealCode());
-            meal.setMealFoods(mealFoods);
-        }
-
-        return meal;
+    public List<MealQueryDTO> findMealsDefault(MealDefaultSelectCondition condition) {
+        return mealQueryMapper.selectMealsDefault(condition);
     }
 }

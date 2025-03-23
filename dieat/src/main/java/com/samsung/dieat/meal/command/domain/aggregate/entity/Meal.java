@@ -4,11 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -16,6 +14,7 @@ import java.util.List;
 public class Meal {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "meal_code")
     private int mealCode;
 
@@ -29,19 +28,19 @@ public class Meal {
     private String mealDesc;
 
     @Column(name = "meal_calories")
-    private int mealCalories;
+    private float mealCalories;
 
     @Column(name = "meal_carbs")
-    private int mealCarbs;
+    private float mealCarbs;
 
     @Column(name = "meal_sugar")
-    private int mealSugar;
+    private float mealSugar;
 
     @Column(name = "meal_protein")
-    private int mealProtein;
+    private float mealProtein;
 
     @Column(name = "meal_fat")
-    private int mealFat;
+    private float mealFat;
 
     @Column(name = "user_code")
     private int userCode;

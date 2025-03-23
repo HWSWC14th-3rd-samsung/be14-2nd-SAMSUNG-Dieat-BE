@@ -1,17 +1,18 @@
-package com.samsung.dieat.meal.query.dto;
+package com.samsung.dieat.meal.command.application.dto;
 
-import com.samsung.dieat.meal.command.domain.aggregate.entity.MealFood;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@Setter
 @ToString
-public class MealQueryDTO {
-    private int mealCode;
+public class MealFoodCommandDTO {
+    private int userCode;
     private String mealDt;
     private String mealTitle;
     private String mealDesc;
@@ -20,8 +21,5 @@ public class MealQueryDTO {
     private float mealSugar;
     private float mealProtein;
     private float mealFat;
-    private int userCode;
-
-    private List<MealFoodQueryDTO> mealFoods;
+    private List<MealFoodCommandDTO> mealFoods;
 }
-
