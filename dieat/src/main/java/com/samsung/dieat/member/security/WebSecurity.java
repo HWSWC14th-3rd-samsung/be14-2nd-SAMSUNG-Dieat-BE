@@ -39,7 +39,8 @@ public class WebSecurity {
         http.csrf((csrf) -> csrf.disable());
 
         http.authorizeHttpRequests(authz -> authz.requestMatchers(new AntPathRequestMatcher("/users/**")).permitAll()
-                .anyRequest().authenticated()
+//                .anyRequest().authenticated()
+                                .anyRequest().permitAll()
         )
                 .authenticationManager(authenticationManager())
                 .sessionManagement(session ->
