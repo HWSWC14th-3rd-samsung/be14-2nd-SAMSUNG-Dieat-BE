@@ -1,7 +1,9 @@
 package com.samsung.dieat.user_data_food.query.controller;
 
+import com.samsung.dieat.user_data_food.query.dto.ResponseUdfName;
+import com.samsung.dieat.user_data_food.query.dto.ResponseUserDataFood;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +20,7 @@ public class UserDataFoodQueryController {
 
     private final UserDataFoodQueryService userDataFoodQueryService;
 
-    @GetMapping("/{udfCode}")
+    @GetMapping("/code/{udfCode}")
     public ResponseEntity<UserDataFoodDTO> getUserDataFoodByUdfCode(@PathVariable int udfCode) {
         UserDataFoodDTO result = userDataFoodQueryService.getUserDataFoodByUdfCode(udfCode);
         return ResponseEntity.status(HttpStatus.OK).body(result);   // 200 + 데이터 반환
@@ -48,4 +50,20 @@ public class UserDataFoodQueryController {
             }
         }*/
     }
+
+    @GetMapping("/like/{likeName}")
+    public ResponseEntity<List<ResponseUdfName>> getUserDataFoodByLikeName(@PathVariable String likeName) {
+        List<ResponseUdfName> result = userDataFoodQueryService.getUserDataFoodByLikeName(likeName);
+        if (result.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.OK).build();    // 검색 결과가 없어도 OK
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @GetMapping("/name/{udfName}")
+    public ResponseEntity<List<ResponseUserDataFood>> getUserDataFoodWithNickname(@PathVariable String udfName) {
+        List<ResponseUserDataFood> result = userDataFoodQueryService.getUserDataFoodWithNickname(udfName);
+        return ResponseEntity.ok(result);
+    }
+
 }
