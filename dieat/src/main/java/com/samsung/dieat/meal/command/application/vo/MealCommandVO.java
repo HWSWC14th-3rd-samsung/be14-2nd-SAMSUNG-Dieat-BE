@@ -4,9 +4,11 @@ import com.samsung.dieat.meal.command.application.dto.MealCommandDTO;
 import com.samsung.dieat.meal.command.domain.aggregate.entity.Meal;
 import com.samsung.dieat.meal.command.domain.aggregate.enums.MealFoodType;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
+@Slf4j
 @Getter
 public class MealCommandVO {
     private final int userCode;
@@ -35,6 +37,7 @@ public class MealCommandVO {
                                                 f.getMealFoodType(),
                                                 f.getMealFoodCnt()))
                                             .toList();
+        log.info("DTO에서 받은 mealFoods: {}", dto.getMealFoods());
     }
 
     @Getter

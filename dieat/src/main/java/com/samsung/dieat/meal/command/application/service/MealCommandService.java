@@ -4,23 +4,26 @@ import com.samsung.dieat.meal.command.application.dto.MealCommandDTO;
 import com.samsung.dieat.meal.command.application.vo.MealCommandVO;
 import com.samsung.dieat.meal.command.domain.aggregate.entity.Meal;
 import com.samsung.dieat.meal.command.domain.aggregate.entity.MealFood;
+import com.samsung.dieat.meal.command.domain.repository.MealCommandRepository;
 import com.samsung.dieat.meal.command.domain.repository.MealJpaRepository;
 import com.samsung.dieat.meal.command.domain.repository.MealFoodJpaRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class MealCommandService {
 
+    private final MealCommandRepository mealCommandRepository;
+
     private final MealJpaRepository mealJpaRepository;
     private final MealFoodJpaRepository mealFoodJpaRepository;
-
 
     @Transactional
     public void registerMeal(MealCommandDTO dto) {
@@ -81,10 +84,8 @@ public class MealCommandService {
             }
         }
 
-        // 삭제할 항목 제거
         toDelete.forEach(mealFoodJpaRepository::delete);
 
-        // 추가할 항목 insert
         for (MealCommandVO.MealFoodVO incoming : newFoods) {
             boolean alreadyExists = existingFoods.stream().anyMatch(e ->
                     e.getMealFoodCode() == incoming.getMealFoodCode()
@@ -101,4 +102,13 @@ public class MealCommandService {
             }
         }
     }
+
+    @Transactional
+    public void deleteMeal(int mealCode) {
+        mealFoodJpaRepository.deleteByMeal_MealCode(mealCode);
+        mealJpaRepository.deleteById(mealCode);
+    }
+
+
+
 }

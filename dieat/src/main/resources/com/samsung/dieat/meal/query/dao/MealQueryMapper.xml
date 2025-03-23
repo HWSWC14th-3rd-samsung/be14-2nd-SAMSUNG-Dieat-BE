@@ -20,6 +20,7 @@
                     ofType="com.samsung.dieat.meal.query.dto.MealFoodQueryDTO">
             <result property="mealFoodCode" column="meal_food_code"/>
             <result property="mealFoodType" column="meal_food_type"/>
+            <result property="mealCode" column="meal_code"/>
             <result property="mealFoodCnt" column="meal_food_cnt"/>
         </collection>
     </resultMap>
@@ -36,8 +37,13 @@
              , m.meal_protein
              , m.meal_fat
              , m.user_code
+             , mf.meal_food_code
+             , mf.meal_food_type
+             , mf.meal_food_cnt
           FROM tbl_meal m
+          LEFT JOIN tbl_meal_food mf ON m.meal_code = mf.meal_code
          WHERE m.user_code = #{userCode}
+         ORDER BY m.meal_dt DESC
     </select>
 
     <select id="selectMealsDefault" resultMap="MealQueryResultMap"
@@ -59,7 +65,7 @@
           FROM tbl_meal m
           LEFT JOIN tbl_meal_food mf ON m.meal_code = mf.meal_code
          WHERE m.user_code = #{userCode}
-           AND m.meal_dt = #{mealDt}
+           AND m.meal_dt LIKE CONCAT('%', #{mealDt}, '%')
     </select>
 
     <select id="selectAllMeals" resultMap="MealQueryResultMap">
