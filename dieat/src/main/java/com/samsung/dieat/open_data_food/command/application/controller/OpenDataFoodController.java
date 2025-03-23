@@ -1,40 +1,35 @@
 package com.samsung.dieat.open_data_food.command.application.controller;
 
-import lombok.RequiredArgsConstructor;
-import com.samsung.dieat.open_data_food.command.application.dto.OpenDataFoodDto;
-import com.samsung.dieat.open_data_food.command.application.entity.OpenDataFood;
 import com.samsung.dieat.open_data_food.command.application.service.OpenDataFoodService;
-import org.springframework.http.HttpStatus;
+import com.samsung.dieat.open_data_food.command.dto.DeleteOpenDataFoodResponse;
+import com.samsung.dieat.open_data_food.command.dto.InsertOpenDataFoodRequest;
+import com.samsung.dieat.open_data_food.command.dto.InsertOpenDataFoodResponse;
+import com.samsung.dieat.open_data_food.command.dto.UpdateOpenDataFoodRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/command/foods")
-@RequiredArgsConstructor
+@RequestMapping("/open_data_food")
 public class OpenDataFoodController {
 
-    private final OpenDataFoodService openDataFoodService;
+    private final OpenDataFoodService service;
 
-    // 생성
+    public OpenDataFoodController(OpenDataFoodService service) {
+        this.service = service;
+    }
+
     @PostMapping
-    public ResponseEntity<OpenDataFood> create(@RequestBody OpenDataFoodDto dto) {
-        OpenDataFood created = openDataFoodService.createFood(dto);
-        return new ResponseEntity<>(created, HttpStatus.CREATED);
+    public ResponseEntity<InsertOpenDataFoodResponse> insert(@RequestBody InsertOpenDataFoodRequest request) {
+        return ResponseEntity.ok(service.insert(request));
     }
 
-    // 수정
-    @PutMapping("/{odfCode}")
-    public ResponseEntity<OpenDataFood> update(@PathVariable Integer odfCode,
-                                               @RequestBody OpenDataFoodDto dto) {
-        dto.setOdfCode(odfCode);
-        OpenDataFood updated = openDataFoodService.updateFood(dto);
-        return new ResponseEntity<>(updated, HttpStatus.OK);
+    @PutMapping
+    public ResponseEntity<InsertOpenDataFoodResponse> update(@RequestBody UpdateOpenDataFoodRequest request) {
+        return ResponseEntity.ok(service.update(request));
     }
 
-    // 삭제
-    @DeleteMapping("/{odfCode}")
-    public ResponseEntity<Void> delete(@PathVariable Integer odfCode) {
-        openDataFoodService.deleteFood(odfCode);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    @DeleteMapping("/{code}")
+    public ResponseEntity<DeleteOpenDataFoodResponse> delete(@PathVariable Integer code) {
+        return ResponseEntity.ok(service.delete(code));
     }
 }
