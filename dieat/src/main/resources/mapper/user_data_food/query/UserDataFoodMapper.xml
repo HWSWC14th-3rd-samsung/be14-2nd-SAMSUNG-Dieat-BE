@@ -47,7 +47,7 @@
         SELECT
                udf_name
           FROM samsung.tbl_user_data_food
-         WHERE udf_name LIKE CONCAT('%', #{likeName}, '%')
+         WHERE REPLACE(udf_name, ' ', '') LIKE CONCAT('%', REPLACE(#{likeName}, ' ', ''), '%')
          GROUP BY udf_name
     </select>
 
