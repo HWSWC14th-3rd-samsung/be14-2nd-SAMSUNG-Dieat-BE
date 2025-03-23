@@ -31,4 +31,9 @@ public class MealQueryServiceImpl implements MealQueryService {
     public List<MealQueryDTO> findMealsDefault(MealDefaultSelectCondition condition) {
         return mealQueryMapper.selectMealsDefault(condition);
     }
+
+    @Override
+    public List<String> findMealDatesByUserCode(int userCode) {
+        return mealQueryMapper.selectMealDatesByUserCode(userCode);
+    }
 }

@@ -29,4 +29,8 @@ public class MealFood {
 
     @Column(name = "meal_food_cnt")
     private int mealFoodCnt;
+
+    public void updateCnt(int newCnt) {
+        this.mealFoodCnt = newCnt;
+    }
 }

@@ -15,5 +15,7 @@ public interface MealQueryService {
 
     List<MealQueryDTO> findMealsDefault(MealDefaultSelectCondition condition);
 
+    List<String> findMealDatesByUserCode(int userCode);
+
 }
 

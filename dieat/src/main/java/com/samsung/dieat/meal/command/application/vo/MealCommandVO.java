@@ -1,6 +1,7 @@
 package com.samsung.dieat.meal.command.application.vo;
 
 import com.samsung.dieat.meal.command.application.dto.MealCommandDTO;
+import com.samsung.dieat.meal.command.domain.aggregate.entity.Meal;
 import com.samsung.dieat.meal.command.domain.aggregate.enums.MealFoodType;
 import lombok.Getter;
 
@@ -47,5 +48,19 @@ public class MealCommandVO {
             this.mealFoodType = mealFoodType;
             this.mealFoodCnt = mealFoodCnt;
         }
+    }
+
+    public Meal toEntity() {
+        return Meal.builder()
+                .mealDt(mealDt)
+                .mealTitle(mealTitle)
+                .mealDesc(mealDesc)
+                .mealCalories(mealCalories)
+                .mealCarbs(mealCarbs)
+                .mealSugar(mealSugar)
+                .mealProtein(mealProtein)
+                .mealFat(mealFat)
+                .userCode(userCode)
+                .build();
     }
 }

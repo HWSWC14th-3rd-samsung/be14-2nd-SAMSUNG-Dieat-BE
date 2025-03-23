@@ -12,4 +12,6 @@ public interface MealFoodJpaRepository extends JpaRepository<MealFood, MealFoodC
 
     @Query("SELECT mf FROM MealFood mf JOIN FETCH mf.meal m WHERE m.mealCode = :mealCode")
     List<MealFood> findByMealCodeWithMeal(@Param("mealCode") int mealCode);
+
+    void deleteByMeal_MealCode(int mealCode);
 }

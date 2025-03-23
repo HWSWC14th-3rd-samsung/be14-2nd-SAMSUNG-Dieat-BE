@@ -1,13 +1,13 @@
 package com.samsung.dieat.meal.query.service;
 
 import com.samsung.dieat.meal.query.dto.MealDefaultSelectCondition;
+import com.samsung.dieat.meal.query.dto.MealFoodQueryDTO;
 import com.samsung.dieat.meal.query.dto.MealQueryDTO;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-
 
 import java.util.List;
 
@@ -32,10 +32,17 @@ class MealQueryServiceTest {
         // then
         assertThat(meals).isNotNull();
         assertThat(meals).isNotEmpty();
-        assertThat(meals).allSatisfy(meal -> {
+
+        for (MealQueryDTO meal : meals) {
             assertThat(meal.getUserCode()).isEqualTo(userCode);
             assertThat(meal.getMealFoods()).isNotNull();
-        });
+
+            for (MealFoodQueryDTO food : meal.getMealFoods()) {
+                assertThat(food.getMealFoodCode()).isNotNull();
+                assertThat(food.getMealFoodType()).isNotNull();
+                assertThat(food.getMealFoodCnt()).isNotNull();
+            }
+        }
     }
 
     @Test
@@ -44,12 +51,23 @@ class MealQueryServiceTest {
         MealDefaultSelectCondition condition = new MealDefaultSelectCondition(1, "2024-01-27");
 
         // when
-        MealQueryDTO result = mealQueryService.findMealsDefault(condition);
+        List<MealQueryDTO> results = mealQueryService.findMealsDefault(condition);
 
         // then
-        assertThat(result).isNotNull();
+        assertThat(results).isNotNull();
+        assertThat(results).isNotEmpty();
+
+        MealQueryDTO result = results.get(0);
         assertThat(result.getUserCode()).isEqualTo(1);
         assertThat(result.getMealDt()).isEqualTo("2024-01-27");
-        assertThat(result.getMealFoods()).isNotNull();
+
+        List<MealFoodQueryDTO> mealFoods = result.getMealFoods();
+        assertThat(mealFoods).isNotNull();
+
+        for (MealFoodQueryDTO food : mealFoods) {
+            assertThat(food.getMealFoodCode()).isNotNull();
+            assertThat(food.getMealFoodType()).isNotNull();
+            assertThat(food.getMealFoodCnt()).isNotNull();
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.samsung.dieat.meal.command.domain.aggregate.entity;
 
+import com.samsung.dieat.meal.command.application.vo.MealCommandVO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,7 +20,7 @@ public class Meal {
     private int mealCode;
 
     @Column(name = "meal_dt")
-    private LocalDate mealDt;
+    private String mealDt;
 
     @Column(name = "meal_title")
     private String mealTitle;
@@ -45,4 +46,14 @@ public class Meal {
     @Column(name = "user_code")
     private int userCode;
 
+    public void update(MealCommandVO vo) {
+        this.mealDt = vo.getMealDt();
+        this.mealTitle = vo.getMealTitle();
+        this.mealDesc = vo.getMealDesc();
+        this.mealCalories = vo.getMealCalories();
+        this.mealCarbs = vo.getMealCarbs();
+        this.mealSugar = vo.getMealSugar();
+        this.mealProtein = vo.getMealProtein();
+        this.mealFat = vo.getMealFat();
+    }
 }

@@ -20,7 +20,7 @@ public class MealCommandRepositoryImpl implements MealCommandRepository {
     @Transactional
     public void saveMealWithFoods(MealCommandVO vo) {
         Meal meal = Meal.builder()
-                .mealDt(LocalDate.parse(vo.getMealDt()))
+                .mealDt(vo.getMealDt())
                 .mealTitle(vo.getMealTitle())
                 .mealDesc(vo.getMealDesc())
                 .mealCalories(vo.getMealCalories())
