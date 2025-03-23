@@ -5,9 +5,11 @@ import com.samsung.dieat.meal.command.domain.aggregate.entity.MealFoodCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface MealFoodJpaRepository extends JpaRepository<MealFood, MealFoodCode> {
 
     @Query("SELECT mf FROM MealFood mf JOIN FETCH mf.meal m WHERE m.mealCode = :mealCode")
