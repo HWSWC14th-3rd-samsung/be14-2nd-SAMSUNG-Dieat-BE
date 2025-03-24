@@ -254,7 +254,7 @@ CREATE TABLE `tbl_meal_food` (
                                  `meal_food_code` INT NOT NULL AUTO_INCREMENT,
                                  `meal_food_type` ENUM('OPENDATA','USERDATA') NOT NULL,
                                  `meal_code`      INT NOT NULL,
-                                 `meal_food_cnt`  INT NOT NULL CHECK ( meal_food_cnt > 0 ),
+                                 `meal_food_cnt`  FLOAT NOT NULL CHECK ( meal_food_cnt > 0 ),
                                  CONSTRAINT `PK_TBL_MEAL_FOOD`
                                      PRIMARY KEY (`meal_food_code`, `meal_food_type`, `meal_code`),
                                  CONSTRAINT `FK_tbl_meal_TO_tbl_meal_food`
