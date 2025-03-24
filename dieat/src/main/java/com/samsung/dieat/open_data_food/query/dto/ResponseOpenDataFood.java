@@ -1,21 +1,17 @@
 package com.samsung.dieat.open_data_food.query.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
+@Data
 public class ResponseOpenDataFood {
-    private Integer code;
-    private String name;
-    private Float calories;
-    private Float carbs;
-    private Float sugar;
-    private Float protein;
-    private Float fat;
-    private LocalDateTime updateDate;
+    private Integer odfCode;
+    private String odfName;
+    private Float odfCalories;
+    private Float odfCarbs;
+    private Float odfSugar;
+    private Float odfProtein;
+    private Float odfFat;
+    private LocalDateTime odfUpdateDt;
 }

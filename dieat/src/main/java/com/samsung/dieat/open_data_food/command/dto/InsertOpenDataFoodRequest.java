@@ -1,17 +1,25 @@
 package com.samsung.dieat.open_data_food.command.dto;
 
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
-//@Data
-@Getter
-@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class InsertOpenDataFoodRequest {
-    private String name;
-    private Float calories;
-    private Float carbs;
-    private Float sugar;
-    private Float protein;
-    private Float fat;
+
+    @NotNull
+    private String odfName;
+
+    private Float odfCalories;
+
+    private Float odfCarbs;
+
+    private Float odfSugar;
+
+    private Float odfProtein;
+
+    private Float odfFat;
 }

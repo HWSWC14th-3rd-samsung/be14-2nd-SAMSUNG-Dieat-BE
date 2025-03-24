@@ -34,6 +34,24 @@ INSERT INTO tbl_open_data_food (
              '푸라닭 고추마요', 253, 14.1, 4.4, 17.8, 15.1, NOW()
          );
 
+INSERT INTO tbl_open_data_food (odf_name, odf_calories, odf_carbs, odf_sugar, odf_protein, odf_fat, odf_update_dt)
+VALUES ('네네 스노윙치즈', 310.0, 17.5, 3.2, 18.9, 19.2, NOW());
+
+INSERT INTO tbl_open_data_food (odf_name, odf_calories, odf_carbs, odf_sugar, odf_protein, odf_fat, odf_update_dt)
+VALUES ('bbq 자메이카 통다리구이', 203.0, 9.3, 5.1, 25.0, 7.2, NOW());
+
+INSERT INTO tbl_open_data_food (odf_name, odf_calories, odf_carbs, odf_sugar, odf_protein, odf_fat, odf_update_dt)
+VALUES ('bhc 뿌링클', 312.0, 16.9, 2.8, 20.3, 20.0, NOW());
+
+INSERT INTO tbl_open_data_food (odf_name, odf_calories, odf_carbs, odf_sugar, odf_protein, odf_fat, odf_update_dt)
+VALUES ('굽네 볼케이노', 190.0, 6.2, 3.0, 27.0, 6.5, NOW());
+
+INSERT INTO tbl_open_data_food (odf_name, odf_calories, odf_carbs, odf_sugar, odf_protein, odf_fat, odf_update_dt)
+VALUES ('푸라닭 블랙알리오', 247.0, 13.6, 2.7, 18.5, 14.8, NOW());
+
+INSERT INTO tbl_open_data_food (odf_name, odf_calories, odf_carbs, odf_sugar, odf_protein, odf_fat, odf_update_dt)
+VALUES ('처갓집 슈프림양념', 330.0, 21.0, 6.0, 17.0, 20.5, NOW());
+
 -- ============================
 -- 🛠️ UPDATE: 이름 및 영양소 수정
 -- ============================

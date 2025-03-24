@@ -1,14 +1,12 @@
 package com.samsung.dieat.open_data_food.command.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-//@Data
-@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class DeleteOpenDataFoodResponse {
-    private String message;
-
-    public DeleteOpenDataFoodResponse(String message) {
-        this.message = message;
-    }
+    private String odfMessage;
 }

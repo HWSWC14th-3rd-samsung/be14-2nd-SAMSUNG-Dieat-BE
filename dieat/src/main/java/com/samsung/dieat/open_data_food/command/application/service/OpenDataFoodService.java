@@ -8,5 +8,5 @@ import com.samsung.dieat.open_data_food.command.dto.UpdateOpenDataFoodRequest;
 public interface OpenDataFoodService {
     InsertOpenDataFoodResponse insert(InsertOpenDataFoodRequest request);
     InsertOpenDataFoodResponse update(UpdateOpenDataFoodRequest request);
-    DeleteOpenDataFoodResponse delete(Integer code);
+    DeleteOpenDataFoodResponse delete(Integer odfCode);
 }

@@ -6,42 +6,52 @@ import com.samsung.dieat.open_data_food.command.dto.InsertOpenDataFoodRequest;
 import com.samsung.dieat.open_data_food.command.dto.InsertOpenDataFoodResponse;
 import com.samsung.dieat.open_data_food.command.dto.UpdateOpenDataFoodRequest;
 import com.samsung.dieat.open_data_food.command.entity.OpenDataFood;
+import jakarta.persistence.EntityNotFoundException;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
 @Service
+@RequiredArgsConstructor
 public class OpenDataFoodServiceImpl implements OpenDataFoodService {
 
-    private final OpenDataFoodRepository repository;
-
-    public OpenDataFoodServiceImpl(OpenDataFoodRepository repository) {
-        this.repository = repository;
-    }
+    private final OpenDataFoodRepository odfRepository;
 
     @Override
     public InsertOpenDataFoodResponse insert(InsertOpenDataFoodRequest request) {
-        OpenDataFood food = new OpenDataFood(
-                request.getName(), request.getCalories(), request.getCarbs(),
-                request.getSugar(), request.getProtein(), request.getFat(),
+        OpenDataFood odf = new OpenDataFood( null,
+                request.getOdfName(), request.getOdfCalories(), request.getOdfCarbs(),
+                request.getOdfSugar(), request.getOdfProtein(), request.getOdfFat(),
                 LocalDateTime.now()
         );
-        OpenDataFood saved = repository.save(food);
-        return new InsertOpenDataFoodResponse(saved.getCode(), "등록 완료");
+        OpenDataFood saved = odfRepository.save(odf);
+        return new InsertOpenDataFoodResponse(saved.getOdfCode(), "등록 완료");
     }
 
     @Override
     public InsertOpenDataFoodResponse update(UpdateOpenDataFoodRequest request) {
-        OpenDataFood food = repository.findById(request.getCode())
-                .orElseThrow(() -> new IllegalArgumentException("음식 정보가 존재하지 않습니다."));
-        food.update(request.getName(), request.getCalories(), request.getCarbs(),
-                request.getSugar(), request.getProtein(), request.getFat(), LocalDateTime.now());
-        return new InsertOpenDataFoodResponse(food.getCode(), "수정 완료");
+        if (request.getOdfCode() == null) {
+            throw new IllegalArgumentException("수정하려면 odfCode가 필요합니다.");
+        }
+
+        OpenDataFood target = odfRepository.findById(request.getOdfCode())
+                .orElseThrow(() -> new EntityNotFoundException("해당 ID의 데이터가 없습니다."));
+
+        if (request.getOdfName() != null) target.setOdfName(request.getOdfName());
+        if (request.getOdfCalories() != null) target.setOdfCalories(request.getOdfCalories());
+        if (request.getOdfCarbs() != null) target.setOdfCarbs(request.getOdfCarbs());
+        if (request.getOdfSugar() != null) target.setOdfSugar(request.getOdfSugar());
+        if (request.getOdfProtein() != null) target.setOdfProtein(request.getOdfProtein());
+        if (request.getOdfFat() != null) target.setOdfFat(request.getOdfFat());
+
+        OpenDataFood saved = odfRepository.save(target);
+        return new InsertOpenDataFoodResponse(saved.getOdfCode(), "수정 완료");
     }
 
     @Override
-    public DeleteOpenDataFoodResponse delete(Integer code) {
-        repository.deleteById(code);
+    public DeleteOpenDataFoodResponse delete(Integer odfCode) {
+        odfRepository.deleteById(odfCode);
         return new DeleteOpenDataFoodResponse("삭제 완료");
     }
 }
