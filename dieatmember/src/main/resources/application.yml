@@ -2,6 +2,23 @@ server:
   port: 0
 
 spring:
+  mail:
+    host: smtp.naver.com
+    port: 587
+    username: 1214alex@naver.com
+    password: Tjdwns011214@
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+          ssl.trust: smtp.naver.com
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
   application:
     name: dieat-user-service
 
@@ -39,4 +56,6 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+
 
