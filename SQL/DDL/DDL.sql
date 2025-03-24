@@ -228,7 +228,7 @@ CREATE TABLE `tbl_bookmark` (
 CREATE TABLE `tbl_user_data_food_review` (
                                              `rvw_user_code` INT NOT NULL,
                                              `udf_code`      INT NOT NULL,
-                                             `rvw_type`      ENUM('ACCURATE','UNACCURATE') NOT NULL,
+                                             `rvw_type`      ENUM('ACCURATE','INACCURATE') NOT NULL,
                                              CONSTRAINT `PK_TBL_USER_DATA_FOOD_REVIEW`
                                                  PRIMARY KEY (`rvw_user_code`, `udf_code`),
                                              CONSTRAINT `FK_tbl_user_data_food_TO_tbl_user_data_food_review_1`
@@ -251,19 +251,15 @@ CREATE TABLE `tbl_weight` (
 );
 
 CREATE TABLE `tbl_meal_food` (
-                                 `meal_food_code` INT                NOT NULL AUTO_INCREMENT,
+                                 `meal_food_code` INT NOT NULL AUTO_INCREMENT,
                                  `meal_food_type` ENUM('OPENDATA','USERDATA') NOT NULL,
-                                 `meal_code`      INT                NOT NULL,
-                                 `user_code`      INT                NOT NULL,
-                                 `meal_food_cnt`  INT                NOT NULL CHECK ( meal_food_cnt > 0 ),
+                                 `meal_code`      INT NOT NULL,
+                                 `meal_food_cnt`  FLOAT NOT NULL CHECK ( meal_food_cnt > 0 ),
                                  CONSTRAINT `PK_TBL_MEAL_FOOD`
-                                     PRIMARY KEY (`meal_food_code`, `meal_food_type`, `meal_code`, `user_code`),
-                                 CONSTRAINT `FK_tbl_meal_TO_tbl_meal_food_1`
+                                     PRIMARY KEY (`meal_food_code`, `meal_food_type`, `meal_code`),
+                                 CONSTRAINT `FK_tbl_meal_TO_tbl_meal_food`
                                      FOREIGN KEY (`meal_code`)
-                                         REFERENCES `tbl_meal` (`meal_code`),
-                                 CONSTRAINT `FK_tbl_meal_TO_tbl_meal_food_2`
-                                     FOREIGN KEY (`user_code`)
-                                         REFERENCES `tbl_meal` (`user_code`)
+                                         REFERENCES `tbl_meal` (`meal_code`)
 );
 
 CREATE TABLE `tbl_success_meal` (

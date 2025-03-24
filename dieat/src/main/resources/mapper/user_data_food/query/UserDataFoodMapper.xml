@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.samsung.dieat.user_data_food.query.dao.UserDataFoodMapper">
+    <resultMap id="returnDTO" type="com.samsung.dieat.user_data_food.query.dto.UserDataFoodDTO">
+        <id property="udfCode" column="udf_code"/>
+        <result property="udfName" column="udf_name"/>
+        <result property="udfSvSize" column="udf_sv_size"/>
+        <result property="udfUom" column="udf_uom"/>
+        <result property="udfSvUnit" column="udf_sv_unit"/>
+        <result property="udfCalories" column="udf_calories"/>
+        <result property="udfCarbs" column="udf_carbs"/>
+        <result property="udfProtein" column="udf_protein"/>
+        <result property="udfFat" column="udf_fat"/>
+        <result property="udfSugar" column="udf_sugar"/>
+        <result property="udfAccCnt" column="udf_acc_cnt"/>
+        <result property="udfInaccCnt" column="udf_inacc_cnt"/>
+        <result property="udfCreatedDt" column="udf_created_dt"/>
+        <result property="userCode" column="user_code"/>
+    </resultMap>
+    <select id="findByUdfCode" parameterType="int" resultMap="returnDTO">
+        SELECT
+            udf_code
+             , udf_name
+             , udf_sv_size
+             , udf_uom
+             , udf_sv_unit
+             , udf_calories
+             , udf_carbs
+             , udf_protein
+             , udf_fat
+             , udf_sugar
+             , udf_acc_cnt
+             , udf_inacc_cnt
+             , udf_created_dt
+             , user_code
+        FROM tbl_user_data_food
+        WHERE udf_code = #{udfCode}
+    </select>
+
+    <resultMap id="UdfName" type="com.samsung.dieat.user_data_food.query.dto.ResponseUdfName">
+        <result property="udfName" column="udf_name"/>
+    </resultMap>
+    <select id="findByMultipleKeywords" parameterType="String" resultMap="UdfName">
+        SELECT
+               udf_name
+          FROM samsung.tbl_user_data_food
+          WHERE
+            <foreach item="word" collection="keywords" separator=" AND ">
+                udf_name LIKE CONCAT('%', #{word}, '%')
+            </foreach>
+         GROUP BY udf_name
+    </select>
+
+    <resultMap id="FoodWithNickname" type="com.samsung.dieat.user_data_food.query.dto.ResponseUserDataFood">
+        <result property="udfName" column="udf_name"/>
+        <result property="udfSvSize" column="udf_sv_size"/>
+        <result property="udfUom" column="udf_uom"/>
+        <result property="udfSvUnit" column="udf_sv_unit"/>
+        <result property="udfCalories" column="udf_calories"/>
+        <result property="udfCarbs" column="udf_carbs"/>
+        <result property="udfProtein" column="udf_protein"/>
+        <result property="udfFat" column="udf_fat"/>
+        <result property="udfSugar" column="udf_sugar"/>
+        <result property="udfAccCnt" column="udf_acc_cnt"/>
+        <result property="udfInaccCnt" column="udf_inacc_cnt"/>
+        <result property="udfCreatedDt" column="udf_created_dt"/>
+        <result property="userNickname" column="user_nickname"/>
+    </resultMap>
+    <select id="findByUdfNameWithNickname" parameterType="string" resultMap="FoodWithNickname">
+     SELECT
+            f.udf_name
+          , f.udf_sv_size
+          , f.udf_uom
+          , f.udf_sv_unit
+          , f.udf_calories
+          , f.udf_carbs
+          , f.udf_protein
+          , f.udf_fat
+          , f.udf_sugar
+          , f.udf_acc_cnt
+          , f.udf_inacc_cnt
+          , f.udf_created_dt
+          , u.user_nickname
+       FROM tbl_user_data_food f
+       JOIN tbl_user_info u ON f.user_code = u.user_code
+      WHERE f.udf_name = #{udfName}
+     </select>
+</mapper>

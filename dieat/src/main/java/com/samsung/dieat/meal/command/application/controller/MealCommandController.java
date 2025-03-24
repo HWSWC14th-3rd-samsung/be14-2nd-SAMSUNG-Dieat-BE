@@ -23,16 +23,16 @@ public class MealCommandController {
         this.env = env;
     }
 
-    @GetMapping("/health")
-    public String healthCheck() {
-        return "서버 잘 돌아가는 중. 접속한 포트: " + env.getProperty("local.server.port");
-    }
+//    @GetMapping("/health")
+//    public String healthCheck() {
+//        return "서버 잘 돌아가는 중. 접속한 포트: " + env.getProperty("local.server.port");
+//    }
 
-    @GetMapping("/message")
-    public String message(@RequestHeader("firset-request") String header) {
-        log.info("넘어온 헤더값: {}", header);
-        return "메세지 넘어왔음";
-    }
+//    @GetMapping("/message")
+//    public String message(@RequestHeader("first-request") String header) {
+//        log.info("넘어온 헤더값: {}", header);
+//        return "메세지 넘어왔음";
+//    }
 
     @PostMapping("/users/{userCode}/meals/{mealCode}")
     public ResponseEntity<?> registerMeal(@PathVariable int userCode, @RequestBody MealCommandDTO dto) {
