@@ -1,4 +1,4 @@
-//package com.samsung.dieat.point.command.domain.aggregate.entity;
+package com.samsung.dieat.point.command.domain.aggregate.entity;//package com.samsung.dieat.point.command.domain.aggregate.entity;
 //
 //import com.samsung.dieat.point.command.domain.enums.PType;
 //import jakarta.persistence.*;

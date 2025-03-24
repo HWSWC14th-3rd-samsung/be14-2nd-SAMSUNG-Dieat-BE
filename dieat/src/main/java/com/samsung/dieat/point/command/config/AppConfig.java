@@ -1,4 +1,4 @@
-//package com.samsung.dieat.point.command.config;
+package com.samsung.dieat.point.command.config;//package com.samsung.dieat.point.command.config;
 //
 //
 //import com.samsung.dieat.point.command.application.dto.PointDTO;

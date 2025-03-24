@@ -47,7 +47,7 @@ public class WebSecurity {
                 authz.requestMatchers(new AntPathRequestMatcher("/health", "GET")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/users/**", "POST")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/members/**", "GET")).hasRole("USER")
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
         )
                 .authenticationManager(authenticationManager())
                 .sessionManagement(session ->
