@@ -29,7 +29,7 @@ public class CommentController {
         return ResponseEntity.ok(comment);
     }
 
-    // 댓글 삭제 (soft delete)
+    // 댓글 삭제 (Soft)
     @DeleteMapping("/{cmtCode}")
     public ResponseEntity<Void> deleteComment(@PathVariable int cmtCode) {
         commentService.deleteComment(cmtCode);
