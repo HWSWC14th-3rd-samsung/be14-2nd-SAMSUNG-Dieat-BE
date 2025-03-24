@@ -31,4 +31,10 @@ public class UserDataFoodReviewController {
         UserDataFoodReview review = reviewService.createReview(request, ReviewType.INACCURATE);
         return ResponseEntity.status(HttpStatus.CREATED).body(review);
     }
+
+    @DeleteMapping
+    public ResponseEntity<Void> deleteReview(@RequestBody UserDataFoodReviewRequest request) {
+        reviewService.deleteReview(request);
+        return ResponseEntity.noContent().build();
+    }
 }
