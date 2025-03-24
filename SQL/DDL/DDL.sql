@@ -228,7 +228,7 @@ CREATE TABLE `tbl_bookmark` (
 CREATE TABLE `tbl_user_data_food_review` (
                                              `rvw_user_code` INT NOT NULL,
                                              `udf_code`      INT NOT NULL,
-                                             `rvw_type`      ENUM('ACCURATE','UNACCURATE') NOT NULL,
+                                             `rvw_type`      ENUM('ACCURATE','INACCURATE') NOT NULL,
                                              CONSTRAINT `PK_TBL_USER_DATA_FOOD_REVIEW`
                                                  PRIMARY KEY (`rvw_user_code`, `udf_code`),
                                              CONSTRAINT `FK_tbl_user_data_food_TO_tbl_user_data_food_review_1`
