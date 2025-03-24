@@ -3,6 +3,7 @@ package com.samsung.dieat.member.command.application.service;
 import com.samsung.dieat.member.command.application.dto.UserDTO;
 import com.samsung.dieat.member.command.domain.aggregate.entity.UserEntity;
 import com.samsung.dieat.member.command.domain.repository.UserRepository;
+import com.samsung.dieat.member.security.CustomUserDetails;
 import org.bouncycastle.crypto.generators.BCrypt;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +70,11 @@ public class UserServiceImpl implements UserService {
         } else {
             grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         }
-
-        return new User(loginUser.getUserId(), loginUser.getEncryptedPwd(),  true, true, true, true, grantedAuthorities);
+        return new CustomUserDetails(
+                loginUser.getUserId(),
+                loginUser.getEncryptedPwd(),
+                loginUser.getUserCode(),
+                grantedAuthorities
+        );
     }
 }

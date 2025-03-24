@@ -54,7 +54,7 @@ public class WebSecurity {
         http.authorizeHttpRequests(authz ->
                         authz
                                 // 예시: /health 엔드포인트는 인증 없이 접근 허용
-                                .requestMatchers(new AntPathRequestMatcher("/health", "GET")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/user-data-food/**", "GET")).permitAll()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(session ->

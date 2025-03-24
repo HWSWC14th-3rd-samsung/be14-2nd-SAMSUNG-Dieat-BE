@@ -57,12 +57,19 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                                             FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
 
-        String userId = ((User)authResult.getPrincipal()).getUsername();
-        List<String> roles = authResult.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority).collect(Collectors.toList());
+        // CustomUserDetails로 올바르게 캐스팅하여 사용
+        CustomUserDetails userDetails = (CustomUserDetails) authResult.getPrincipal();
+
+        String userId = userDetails.getUsername();
+        List<String> roles = userDetails.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList());
 
         Claims claims = Jwts.claims().setSubject(userId);
         claims.put("auth", roles);
+
+        int userCode = userDetails.getUserCode();
+        claims.put("userCode", userCode);
 
         String token = Jwts.builder()
                 .setClaims(claims)
@@ -71,6 +78,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                 .compact();
 
         response.addHeader("token", token);
-
     }
+
+
 }

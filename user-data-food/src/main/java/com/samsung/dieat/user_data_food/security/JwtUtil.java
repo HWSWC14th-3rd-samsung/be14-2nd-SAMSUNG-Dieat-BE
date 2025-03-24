@@ -48,7 +48,8 @@ public class JwtUtil {
 
     public Authentication getAuthentication(String token) {
         Claims claims = parseClaims(token);
-        String userId = claims.getSubject();
+        Integer userCode = (Integer) claims.get("userCode"); // 토큰에서 userCode 추출
+
 
         Collection<GrantedAuthority> authorities;
         if (claims.get("auth") == null) {
@@ -63,11 +64,11 @@ public class JwtUtil {
         }
 
         // JWT 토큰에 담긴 정보만으로 UserDetails 객체를 생성합니다.
-        User userDetails = new User(userId, "", authorities);
+        User userDetails = new User(userCode.toString(), "", authorities);
         return new UsernamePasswordAuthenticationToken(userDetails, "", authorities);
     }
 
-    private Claims parseClaims(String token) {
+    public Claims parseClaims(String token) {
         return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token).getBody();
     }
 }

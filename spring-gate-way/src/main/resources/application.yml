@@ -32,7 +32,7 @@ spring:
             - AuthorizationHeaderFilter
 
         - id: food-data-service-get
-          uri: lb://DIEAT-USER-DATA-FOOD-SERVICE
+          uri: lb://DIEAT-USER-FOOD
           predicates:
             - Path=/user-data-food/**
             - Method=GET

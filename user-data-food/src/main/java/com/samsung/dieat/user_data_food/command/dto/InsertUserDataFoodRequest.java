@@ -3,10 +3,8 @@ package com.samsung.dieat.user_data_food.command.dto;
 import com.samsung.dieat.user_data_food.command.entity.UserDataFood;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
 public class InsertUserDataFoodRequest {
 
     @NotNull
