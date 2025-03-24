@@ -1,5 +1,5 @@
 server:
-  port: 8111
+  port: 8080
 
 spring:
   application:
@@ -8,7 +8,7 @@ spring:
   ## db config
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3307/samsung
+    url: jdbc:mariadb://localhost:3306/samsung
     username: root
     password: mariadb
 
@@ -21,6 +21,13 @@ spring:
     properties:
       hibernate:
         '[format_sql]': true
+
+mybatis:
+  mapper-locations: classpath:/com/samsung/dieat/diet_post/query/dao/*.xml
+  type-aliases-package: com.samsung.dieat.diet_post.query.dto
+  configuration:
+    map-underscore-to-camel-case: true
+
 
 
 
