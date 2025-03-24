@@ -49,7 +49,7 @@
           FROM samsung.tbl_user_data_food
           WHERE
             <foreach item="word" collection="keywords" separator=" AND ">
-                REPLACE(REPLACE(REPLACE(udf_name, '(', ''), ')', ''), ' ', '') LIKE CONCAT('%', REPLACE(REPLACE(REPLACE(#{word}, '(', ''), ')', ''), ' ', ''), '%')
+                udf_name LIKE CONCAT('%', #{word}, '%')
             </foreach>
          GROUP BY udf_name
     </select>
