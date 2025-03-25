@@ -43,10 +43,24 @@ public class WebSecurity {
         http.csrf((csrf) -> csrf.disable());
 
         http.authorizeHttpRequests(authz ->
+<<<<<<< HEAD:dieat/src/main/java/com/samsung/dieat/member/security/WebSecurity.java
                 authz.requestMatchers(new AntPathRequestMatcher("/users/**", "POST")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/members/**", "GET")).hasRole("USER")
                         .anyRequest().authenticated()
         )
+=======
+                        authz.requestMatchers(new AntPathRequestMatcher("/health", "GET")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/users/**", "POST")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/members/**", "GET")).hasRole("USER")
+                                .requestMatchers(new AntPathRequestMatcher("/meals/**", "GET")).hasRole("USER")
+                                .requestMatchers(new AntPathRequestMatcher("/meals/**", "POST")).hasRole("USER")
+                                .requestMatchers(new AntPathRequestMatcher("/meals", "GET")).hasRole("USER")
+                                .requestMatchers(new AntPathRequestMatcher("/meals", "POST")).hasRole("USER")
+
+                                .requestMatchers(new AntPathRequestMatcher("/email-verification/**")).permitAll()
+                                .anyRequest().authenticated()
+                )
+>>>>>>> 2cbde92212667ea14e50afb39161f4db0b222b19:dieatmember/src/main/java/com/samsung/dieat/member/security/WebSecurity.java
                 .authenticationManager(authenticationManager())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
