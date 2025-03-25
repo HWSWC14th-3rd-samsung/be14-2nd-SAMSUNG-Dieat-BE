@@ -16,4 +16,6 @@ public interface MealQueryMapper {
     List<MealQueryDTO> selectMealsDefault(MealDefaultSelectCondition condition);
 
     List<String> selectMealDatesByUserCode(int userCode);
+
+    List<String> selectMealByMealCode(int mealCode);
 }
