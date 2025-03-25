@@ -1,0 +1,79 @@
+server:
+  port: 8000
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      routes:
+
+        - id: user-total-post
+          uri: lb://DIEAT-TOTAL-SERVICE
+          predicates:
+            - Path=/total-service/**
+            - Method=POST
+          filters:
+            - RewritePath=/total-service/(?<segment>.*), /${segment}
+
+        - id: user-total-get
+          uri: lb://DIEAT-TOTAL-SERVICE
+          predicates:
+            - Path=/total-service/**
+            - Method=GET
+          filters:
+            - RewritePath=/total-service/(?<segment>.*), /${segment}
+#            - AuthorizationHeaderFilter
+
+        - id: user-total-put
+          uri: lb://DIEAT-TOTAL-SERVICE
+          predicates:
+            - Path=/total-service/**
+            - Method=PUT
+          filters:
+            - RewritePath=/total-service/(?<segment>.*), /${segment}
+
+        - id: user-total-delete
+          uri: lb://DIEAT-TOTAL-SERVICE
+          predicates:
+            - Path=/total-service/**
+            - Method=DELETE
+          filters:
+            - RewritePath=/total-service/(?<segment>.*), /${segment}
+            - AuthorizationHeaderFilter
+
+        - id: user-service-post
+          uri: lb://DIEAT-USER-SERVICE
+          predicates:
+            - Path=/user-service/**
+            - Method=POST
+          filters:
+            - RewritePath=/user-service/(?<segment>.*), /${segment}
+
+        - id: user-service-get
+          uri: lb://DIEAT-USER-SERVICE
+          predicates:
+            - Path=/user-service/**
+            - Method=GET
+          filters:
+            - RewritePath=/user-service/(?<segment>.*), /${segment}
+            - AuthorizationHeaderFilter
+
+        - id: food-data-service-get
+          uri: lb://DIEAT-USER-FOOD
+          predicates:
+            - Path=/user-data-food/**
+            - Method=GET
+          filters:
+            - RewritePath=/user-data-food/(?<segment>.*), /${segment}
+            - AuthorizationHeaderFilter
+
+token:
+  expiration_time: 43200000
+  secret: mc9guIbkofqAXON+dGiHxx30+27aW+oBDI+JTvWHzSxrkYSV6yfE/gpDoBXUt4N34h0W2jzU74PAaroIvRmpew==
