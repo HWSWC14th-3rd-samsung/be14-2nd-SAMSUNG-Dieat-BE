@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.samsung.dieat.meal.command.application.service.MealCommandServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-03-24T00:14:29.696Z" hostname="goyunseog-ui-MacBookPro.local" time="0.425">
+  <properties/>
+  <testcase name="식사_삭제_테스트()" classname="com.samsung.dieat.meal.command.application.service.MealCommandServiceTest" time="0.382"/>
+  <testcase name="식사_등록_테스트()" classname="com.samsung.dieat.meal.command.application.service.MealCommandServiceTest" time="0.026"/>
+  <testcase name="식사_수정_테스트()" classname="com.samsung.dieat.meal.command.application.service.MealCommandServiceTest" time="0.016"/>
+  <system-out><![CDATA[09:14:27.338 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.samsung.dieat.meal.command.application.service.MealCommandServiceTest]: MealCommandServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+09:14:27.401 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.samsung.dieat.DieatApplication for test class com.samsung.dieat.meal.command.application.service.MealCommandServiceTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.3)
+
+2025-03-24T09:14:27.661+09:00  INFO 2137 --- [    Test worker] c.s.d.m.c.a.s.MealCommandServiceTest     : Starting MealCommandServiceTest using Java 17.0.14 with PID 2137 (started by jakego in /Users/jakego/Code/swCamp/project/2. samsung/dieat)
+2025-03-24T09:14:27.662+09:00  INFO 2137 --- [    Test worker] c.s.d.m.c.a.s.MealCommandServiceTest     : The following 1 profile is active: "test"
+2025-03-24T09:14:27.952+09:00  INFO 2137 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-03-24T09:14:28.021+09:00  INFO 2137 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 2 JPA repository interfaces.
+2025-03-24T09:14:28.136+09:00  INFO 2137 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=70a9cf77-76d4-32c6-ac43-6c7d73bd5d9d
+2025-03-24T09:14:28.264+09:00  INFO 2137 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-03-24T09:14:28.293+09:00  INFO 2137 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.8.Final
+2025-03-24T09:14:28.309+09:00  INFO 2137 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-03-24T09:14:28.423+09:00  INFO 2137 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-03-24T09:14:28.437+09:00  INFO 2137 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-03-24T09:14:28.476+09:00  INFO 2137 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@46fa2a7e
+2025-03-24T09:14:28.477+09:00  INFO 2137 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-03-24T09:14:28.505+09:00  INFO 2137 --- [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.7.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-03-24T09:14:28.826+09:00  INFO 2137 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-03-24T09:14:28.870+09:00  INFO 2137 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-03-24T09:14:29.000+09:00  INFO 2137 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-03-24T09:14:29.352+09:00  WARN 2137 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-03-24T09:14:29.532+09:00  WARN 2137 --- [    Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 777894d0-0624-4e23-bbec-c2889fad4d59
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-03-24T09:14:29.542+09:00  INFO 2137 --- [    Test worker] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-03-24T09:14:29.628+09:00  INFO 2137 --- [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-03-24T09:14:29.661+09:00  INFO 2137 --- [    Test worker] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-03-24T09:14:29.671+09:00  INFO 2137 --- [    Test worker] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-03-24T09:14:29.671+09:00  INFO 2137 --- [    Test worker] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
+2025-03-24T09:14:29.672+09:00  INFO 2137 --- [    Test worker] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1742775269672 with initial instances count: 0
+2025-03-24T09:14:29.676+09:00  INFO 2137 --- [    Test worker] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application UNKNOWN with eureka with status UP
+2025-03-24T09:14:29.688+09:00  INFO 2137 --- [    Test worker] c.s.d.m.c.a.s.MealCommandServiceTest     : Started MealCommandServiceTest in 2.154 seconds (process running for 2.677)
+2025-03-24T09:14:29.955+09:00  INFO 2137 --- [    Test worker] c.s.d.m.c.application.vo.MealCommandVO   : DTO에서 받은 mealFoods: [MealCommandDTO.MealFoodDTO(mealFoodCode=201, mealFoodType=OPENDATA, mealFoodCnt=1)]
+Hibernate: insert into tbl_meal (meal_calories,meal_carbs,meal_desc,meal_dt,meal_fat,meal_protein,meal_sugar,meal_title,user_code) values (?,?,?,?,?,?,?,?,?)
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,mf1_0.meal_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 where (mf1_0.meal_food_code,mf1_0.meal_food_type) in ((?,?))
+Hibernate: select m1_0.meal_code,m1_0.meal_calories,m1_0.meal_carbs,m1_0.meal_desc,m1_0.meal_dt,m1_0.meal_fat,m1_0.meal_protein,m1_0.meal_sugar,m1_0.meal_title,m1_0.user_code from tbl_meal m1_0 where m1_0.user_code=? and m1_0.meal_dt=?
+Hibernate: insert into tbl_meal_food (meal_code,meal_food_cnt,meal_food_code,meal_food_type) values (?,?,?,?)
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,mf1_0.meal_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 left join tbl_meal m1_0 on m1_0.meal_code=mf1_0.meal_code where m1_0.meal_code=?
+Hibernate: delete from tbl_meal_food where meal_food_code=? and meal_food_type=?
+Hibernate: delete from tbl_meal where meal_code=?
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,m1_0.meal_code,m1_0.meal_calories,m1_0.meal_carbs,m1_0.meal_desc,m1_0.meal_dt,m1_0.meal_fat,m1_0.meal_protein,m1_0.meal_sugar,m1_0.meal_title,m1_0.user_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 join tbl_meal m1_0 on m1_0.meal_code=mf1_0.meal_code where m1_0.meal_code=?
+2025-03-24T09:14:30.081+09:00  INFO 2137 --- [    Test worker] c.s.d.m.c.application.vo.MealCommandVO   : DTO에서 받은 mealFoods: [MealCommandDTO.MealFoodDTO(mealFoodCode=1, mealFoodType=OPENDATA, mealFoodCnt=2), MealCommandDTO.MealFoodDTO(mealFoodCode=2, mealFoodType=OPENDATA, mealFoodCnt=1), MealCommandDTO.MealFoodDTO(mealFoodCode=3, mealFoodType=OPENDATA, mealFoodCnt=1), MealCommandDTO.MealFoodDTO(mealFoodCode=4, mealFoodType=OPENDATA, mealFoodCnt=1)]
+Hibernate: insert into tbl_meal (meal_calories,meal_carbs,meal_desc,meal_dt,meal_fat,meal_protein,meal_sugar,meal_title,user_code) values (?,?,?,?,?,?,?,?,?)
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,mf1_0.meal_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 where (mf1_0.meal_food_code,mf1_0.meal_food_type) in ((?,?))
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,mf1_0.meal_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 where (mf1_0.meal_food_code,mf1_0.meal_food_type) in ((?,?))
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,mf1_0.meal_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 where (mf1_0.meal_food_code,mf1_0.meal_food_type) in ((?,?))
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,mf1_0.meal_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 where (mf1_0.meal_food_code,mf1_0.meal_food_type) in ((?,?))
+Hibernate: select m1_0.meal_code,m1_0.meal_calories,m1_0.meal_carbs,m1_0.meal_desc,m1_0.meal_dt,m1_0.meal_fat,m1_0.meal_protein,m1_0.meal_sugar,m1_0.meal_title,m1_0.user_code from tbl_meal m1_0 where m1_0.user_code=? and m1_0.meal_dt=?
+Hibernate: update tbl_meal_food set meal_code=?,meal_food_cnt=? where meal_food_code=? and meal_food_type=?
+Hibernate: update tbl_meal_food set meal_code=?,meal_food_cnt=? where meal_food_code=? and meal_food_type=?
+Hibernate: update tbl_meal_food set meal_code=?,meal_food_cnt=? where meal_food_code=? and meal_food_type=?
+Hibernate: update tbl_meal_food set meal_code=?,meal_food_cnt=? where meal_food_code=? and meal_food_type=?
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,m1_0.meal_code,m1_0.meal_calories,m1_0.meal_carbs,m1_0.meal_desc,m1_0.meal_dt,m1_0.meal_fat,m1_0.meal_protein,m1_0.meal_sugar,m1_0.meal_title,m1_0.user_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 join tbl_meal m1_0 on m1_0.meal_code=mf1_0.meal_code where m1_0.meal_code=?
+2025-03-24T09:14:30.109+09:00  INFO 2137 --- [    Test worker] c.s.d.m.c.application.vo.MealCommandVO   : DTO에서 받은 mealFoods: [MealCommandDTO.MealFoodDTO(mealFoodCode=101, mealFoodType=USERDATA, mealFoodCnt=1)]
+Hibernate: insert into tbl_meal (meal_calories,meal_carbs,meal_desc,meal_dt,meal_fat,meal_protein,meal_sugar,meal_title,user_code) values (?,?,?,?,?,?,?,?,?)
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,mf1_0.meal_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 where (mf1_0.meal_food_code,mf1_0.meal_food_type) in ((?,?))
+Hibernate: select m1_0.meal_code,m1_0.meal_calories,m1_0.meal_carbs,m1_0.meal_desc,m1_0.meal_dt,m1_0.meal_fat,m1_0.meal_protein,m1_0.meal_sugar,m1_0.meal_title,m1_0.user_code from tbl_meal m1_0 where m1_0.user_code=? and m1_0.meal_dt=?
+2025-03-24T09:14:30.113+09:00  INFO 2137 --- [    Test worker] c.s.d.m.c.application.vo.MealCommandVO   : DTO에서 받은 mealFoods: [MealCommandDTO.MealFoodDTO(mealFoodCode=102, mealFoodType=USERDATA, mealFoodCnt=2)]
+Hibernate: update tbl_meal set meal_calories=?,meal_carbs=?,meal_desc=?,meal_dt=?,meal_fat=?,meal_protein=?,meal_sugar=?,meal_title=?,user_code=? where meal_code=?
+Hibernate: update tbl_meal_food set meal_code=?,meal_food_cnt=? where meal_food_code=? and meal_food_type=?
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,m1_0.meal_code,m1_0.meal_calories,m1_0.meal_carbs,m1_0.meal_desc,m1_0.meal_dt,m1_0.meal_fat,m1_0.meal_protein,m1_0.meal_sugar,m1_0.meal_title,m1_0.user_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 join tbl_meal m1_0 on m1_0.meal_code=mf1_0.meal_code where m1_0.meal_code=?
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,mf1_0.meal_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 where (mf1_0.meal_food_code,mf1_0.meal_food_type) in ((?,?))
+Hibernate: update tbl_meal_food set meal_code=?,meal_food_cnt=? where meal_food_code=? and meal_food_type=?
+Hibernate: delete from tbl_meal_food where meal_food_code=? and meal_food_type=?
+Hibernate: select mf1_0.meal_food_code,mf1_0.meal_food_type,m1_0.meal_code,m1_0.meal_calories,m1_0.meal_carbs,m1_0.meal_desc,m1_0.meal_dt,m1_0.meal_fat,m1_0.meal_protein,m1_0.meal_sugar,m1_0.meal_title,m1_0.user_code,mf1_0.meal_food_cnt from tbl_meal_food mf1_0 join tbl_meal m1_0 on m1_0.meal_code=mf1_0.meal_code where m1_0.meal_code=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
