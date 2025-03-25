@@ -1,4 +1,4 @@
-//package com.samsung.dieat.meal.security;
+package com.samsung.dieat.meal.security;//package com.samsung.dieat.meal.security;
 //
 //import org.springframework.security.core.Authentication;
 //import org.springframework.security.core.context.SecurityContextHolder;

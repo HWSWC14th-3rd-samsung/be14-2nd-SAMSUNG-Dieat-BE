@@ -41,4 +41,51 @@
         SELECT COUNT(*) FROM tbl_diet_post WHERE diet_isdeleted = false
     </select>
 
+
+    <!-- 영향소 범위로 조회 -->
+    <select id="searchByNutrients" parameterType="com.samsung.dieat.diet_post.query.dto.NutrientSearchRequestDto"
+            resultType="com.samsung.dieat.diet_post.query.dto.DietPostResponseDto">
+        SELECT *
+        FROM tbl_diet_post
+        WHERE diet_isdeleted = FALSE
+
+        <if test="minCalories != null">
+            AND diet_calories &gt;= #{minCalories}
+        </if>
+        <if test="maxCalories != null">
+            AND diet_calories &lt;= #{maxCalories}
+        </if>
+
+        <if test="minProtein != null">
+            AND diet_protein &gt;= #{minProtein}
+        </if>
+        <if test="maxProtein != null">
+            AND diet_protein &lt;= #{maxProtein}
+        </if>
+
+        <if test="minCarbs != null">
+            AND diet_carbs &gt;= #{minCarbs}
+        </if>
+        <if test="maxCarbs != null">
+            AND diet_carbs &lt;= #{maxCarbs}
+        </if>
+
+        <if test="minFat != null">
+            AND diet_fat &gt;= #{minFat}
+        </if>
+        <if test="maxFat != null">
+            AND diet_fat &lt;= #{maxFat}
+        </if>
+
+        <if test="minSugar != null">
+            AND diet_sugar &gt;= #{minSugar}
+        </if>
+        <if test="maxSugar != null">
+            AND diet_sugar &lt;= #{maxSugar}
+        </if>
+
+        ORDER BY diet_upload_dt DESC
+    </select>
+
+
 </mapper>
