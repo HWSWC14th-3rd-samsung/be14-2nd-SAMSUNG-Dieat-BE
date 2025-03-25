@@ -43,11 +43,11 @@ public class WebSecurity {
         http.csrf((csrf) -> csrf.disable());
 
         http.authorizeHttpRequests(authz ->
-
                 authz.requestMatchers(new AntPathRequestMatcher("/health", "GET")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/users/**", "POST")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/members/**", "GET")).hasRole("USER")
-                        .anyRequest().permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/email-verification/**")).permitAll()
+                        .anyRequest().authenticated()
         )
                 .authenticationManager(authenticationManager())
                 .sessionManagement(session ->
