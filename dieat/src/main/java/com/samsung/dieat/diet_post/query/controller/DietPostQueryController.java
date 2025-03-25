@@ -1,6 +1,7 @@
 package com.samsung.dieat.diet_post.query.controller;
 
 import com.samsung.dieat.diet_post.query.dto.DietPostResponseDto;
+import com.samsung.dieat.diet_post.query.dto.NutrientSearchRequestDto;
 import com.samsung.dieat.diet_post.query.dto.PageRequestDto;
 import com.samsung.dieat.diet_post.query.service.DietPostQueryService;
 import lombok.RequiredArgsConstructor;
@@ -29,6 +30,7 @@ public class DietPostQueryController {
         return ResponseEntity.ok(dietPostQueryService.getDietPostById(dietCode));
     }
 
+    /* 설명. 페이징 처리된 게시물 조회 */
     @GetMapping
     public Map<String, Object> getAllDietPosts(@RequestParam(defaultValue = "0") int page,
                                                @RequestParam(defaultValue = "10") int size) {
@@ -37,4 +39,11 @@ public class DietPostQueryController {
         dto.setSize(size);
         return dietPostQueryService.getAllDietPostsWithPaging(dto);
     }
+
+    /* 설명. 영양소 범위로 조회 */
+    @PostMapping("/search/nutrients")
+    public ResponseEntity<List<DietPostResponseDto>> searchByNutrients(@RequestBody NutrientSearchRequestDto dto) {
+        return ResponseEntity.ok(dietPostQueryService.searchByNutrients(dto));
+    }
+
 }

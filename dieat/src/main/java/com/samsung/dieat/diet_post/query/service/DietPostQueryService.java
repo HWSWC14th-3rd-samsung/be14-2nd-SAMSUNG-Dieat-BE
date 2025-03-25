@@ -3,6 +3,7 @@ package com.samsung.dieat.diet_post.query.service;
 import com.samsung.dieat.diet_post.query.dao.DietPostQueryMapper;
 import com.samsung.dieat.diet_post.query.dto.DietPostResponseDto;
 import com.samsung.dieat.diet_post.query.dto.DietPostListResponseDto;
+import com.samsung.dieat.diet_post.query.dto.NutrientSearchRequestDto;
 import com.samsung.dieat.diet_post.query.dto.PageRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -40,4 +41,10 @@ public class DietPostQueryService {
 
         return result;
     }
+
+    /* 설명. 영양소 범위로 조회 */
+    public List<DietPostResponseDto> searchByNutrients(NutrientSearchRequestDto dto) {
+        return dietPostQueryMapper.searchByNutrients(dto);
+    }
+
 }
