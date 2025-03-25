@@ -62,6 +62,12 @@ dependencies {
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 
+<<<<<<< HEAD
+=======
+//	runtimeOnly 'io.netty:netty-resolver-dns-native-macos:4.1.x'
+	implementation "io.netty:netty-resolver-dns-native-macos:4.1.100.Final:osx-aarch_64"
+
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
 }
 
 dependencyManagement {

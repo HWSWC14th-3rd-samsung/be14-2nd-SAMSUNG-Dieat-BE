@@ -6,7 +6,11 @@ spring:
     host: smtp.naver.com
     port: 587
     username: 1214alex@naver.com
+<<<<<<< HEAD
     password: Tjdwns011214@
+=======
+    password:
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
     properties:
       mail:
         smtp:
@@ -25,14 +29,22 @@ spring:
   ## db config
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
+<<<<<<< HEAD
     url: jdbc:mariadb://localhost:3307/samsung
+=======
+    url: jdbc:mariadb://localhost:3306/samsung
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
     username: root
     password: mariadb
 
   ## jpa config
   jpa:
     hibernate:
+<<<<<<< HEAD
       ddl-auto: create
+=======
+      ddl-auto: update
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
     show-sql: true
     database: mysql
     properties:
@@ -45,6 +57,11 @@ token:
   secret: mc9guIbkofqAXON+dGiHxx30+27aW+oBDI+JTvWHzSxrkYSV6yfE/gpDoBXUt4N34h0W2jzU74PAaroIvRmpew==
 
 
+<<<<<<< HEAD
+=======
+#admin:
+#  secret: ${admin.secret}
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
 admin:
   secret: IrKAqF/iFu/dOWF3F525uC6pPU383WJCkQBcpdamX3bXXYliYr5fK2Gasr/Lby1iktgZ877VSKhBC7DgprPX6Q==
 
@@ -57,5 +74,12 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
+<<<<<<< HEAD
 
+=======
+logging:
+  level:
+    org.springframework.security: DEBUG
+    com.samsung.dieat.member.security: DEBUG
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
 

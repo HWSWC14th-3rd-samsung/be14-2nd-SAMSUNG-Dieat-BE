@@ -4,8 +4,16 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD:user-data-food/.idea/misc.xml
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="c31b140e-721e-4e8d-958d-1a8c1a30e230" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
+=======
+<<<<<<< HEAD
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17 (2)" project-jdk-type="JavaSDK" />
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
+>>>>>>> 2cbde92212667ea14e50afb39161f4db0b222b19
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49:dieat/.idea/misc.xml
 </project>

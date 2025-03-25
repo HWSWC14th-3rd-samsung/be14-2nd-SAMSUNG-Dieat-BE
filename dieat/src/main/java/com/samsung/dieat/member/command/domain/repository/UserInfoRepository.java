@@ -1,9 +1,11 @@
 package com.samsung.dieat.member.command.domain.repository;
 
-import com.samsung.dieat.member.command.domain.aggregate.entity.UserInfoEntity;
+
+import com.samsung.dieat.member.command.domain.aggregate.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserInfoRepository extends JpaRepository<UserInfoEntity, Integer> {
+public interface UserRepository extends JpaRepository<UserEntity, Integer> {
+    UserEntity findByUserId(String userId);
 }

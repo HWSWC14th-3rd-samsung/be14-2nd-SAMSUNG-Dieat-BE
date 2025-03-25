@@ -10,7 +10,11 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
+<<<<<<< HEAD
 public interface MealFoodJpaRepository extends JpaRepository<MealFood, MealFoodCode> {
+=======
+public interface MealFoodJpaRepository extends JpaRepository<MealFood, Integer> {
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
 
     @Query("SELECT mf FROM MealFood mf JOIN FETCH mf.meal m WHERE m.mealCode = :mealCode")
     List<MealFood> findByMealCodeWithMeal(@Param("mealCode") int mealCode);
