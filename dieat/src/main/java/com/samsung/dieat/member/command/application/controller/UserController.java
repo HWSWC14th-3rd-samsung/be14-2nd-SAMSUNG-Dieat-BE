@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -67,14 +65,7 @@ public class UserController {
 
     @GetMapping("/users/{memNo}")
     public ResponseEntity<ResponseFindUserVO> getUsers(@PathVariable String memNo) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String loggedInUserId = auth.getName();
-
         UserDTO userDTO = userService.getUserById(memNo);
-
-        if (!loggedInUserId.equals(userDTO.getUserId())) {
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
-        }
 
         ResponseFindUserVO findUserVO = modelMapper.map(userDTO, ResponseFindUserVO.class);
 
