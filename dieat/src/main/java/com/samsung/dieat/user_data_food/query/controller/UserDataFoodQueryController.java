@@ -25,10 +25,10 @@ public class UserDataFoodQueryController {
         UserDataFoodDTO result = userDataFoodQueryService.getUserDataFoodByUdfCode(udfCode);
         return ResponseEntity.status(HttpStatus.OK).body(result);   // 200 + 데이터 반환
         /* 설명: 결과값이 없어도 OK를 보내는 이유
-        *   결과값이 없는 것이지 잘못된 요청이 들어온 것이 아니기 때문
-        *   하지만 어떻게 처리할 지 추가 논의 필요
-        *   1. 프론트에서 결과값이 없는 경우 처리
-        *   2. Exception을 만들어서 처리*/
+         *   결과값이 없는 것이지 잘못된 요청이 들어온 것이 아니기 때문
+         *   하지만 어떻게 처리할 지 추가 논의 필요
+         *   1. 프론트에서 결과값이 없는 경우 처리
+         *   2. Exception을 만들어서 처리*/
 
         /* 설명: Exception을 만들어서 처리하는 방법*/
         /*@GetMapping("/{udfCode}")
@@ -40,7 +40,7 @@ public class UserDataFoodQueryController {
             return ResponseEntity.ok(dto);
         }*/
         /* 설명: 컨트롤러를 위 코드로 대체
-        *   이후 아래 GlobalExceptionHandler 처리*/
+         *   이후 아래 GlobalExceptionHandler 처리*/
         /*@RestControllerAdvice
         public class GlobalExceptionHandler {
 

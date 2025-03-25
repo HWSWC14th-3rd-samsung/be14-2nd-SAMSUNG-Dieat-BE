@@ -35,10 +35,10 @@ public class MealCommandVO {
         this.mealProtein = dto.getMealProtein();
         this.mealFat = dto.getMealFat();
         this.mealFoods = dto.getMealFoods().stream()
-                                            .map(f -> new MealFoodVO(f.getMealFoodCode(),
-                                                f.getMealFoodType(),
-                                                f.getMealFoodCnt()))
-                                            .toList();
+                .map(f -> new MealFoodVO(f.getMealFoodCode(),
+                        f.getMealFoodType(),
+                        f.getMealFoodCnt()))
+                .toList();
         log.info("DTO에서 받은 mealFoods: {}", dto.getMealFoods());
     }
 
