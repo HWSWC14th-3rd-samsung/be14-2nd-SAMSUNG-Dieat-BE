@@ -17,5 +17,6 @@ public interface MealQueryService {
 
     List<String> findMealDateListByUserCode(int userCode);
 
+    List<String> findMealByMealCode(int mealCode);
 }
 

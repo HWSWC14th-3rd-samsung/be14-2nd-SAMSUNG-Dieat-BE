@@ -1,10 +1,8 @@
 package com.samsung.dieat.meal.command.domain.aggregate.entity;
 
-import com.samsung.dieat.meal.command.application.vo.MealCommandVO;
+import com.samsung.dieat.meal.command.application.dto.MealCommandDTO;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -46,7 +44,7 @@ public class Meal {
     @Column(name = "user_code")
     private int userCode;
 
-    public void update(MealCommandVO vo) {
+    public void update(MealCommandDTO vo) {
         this.mealDt = vo.getMealDt();
         this.mealTitle = vo.getMealTitle();
         this.mealDesc = vo.getMealDesc();
