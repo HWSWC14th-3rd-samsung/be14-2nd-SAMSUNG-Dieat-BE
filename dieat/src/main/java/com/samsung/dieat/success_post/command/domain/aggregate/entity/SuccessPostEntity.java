@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
+@Builder
 @Table(name = "tbl_success_post")
 public class SuccessPostEntity {
 
@@ -20,9 +21,10 @@ public class SuccessPostEntity {
     @Column(name = "succ_code")
     private int succCode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_code", nullable = false)                   // 포인트 적립 받는 회원 코드
-    private UserEntity userCode;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_code", nullable = false)                   // 포인트 적립 받는 회원 코드
+    @Column(name = "user_code")
+    private int userCode;
 
     @Column(name = "succ_title", nullable = false, length = 255)
     private String succTitle;
