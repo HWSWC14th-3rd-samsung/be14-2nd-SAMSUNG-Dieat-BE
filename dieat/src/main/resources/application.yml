@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: dieat-total-service
+    name: dieat-user-service
 
   ## db config
   datasource:
