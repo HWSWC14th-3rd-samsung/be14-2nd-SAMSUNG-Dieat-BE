@@ -37,7 +37,7 @@ public class UserController {
 
     @GetMapping("/health")
     public String status(){
-        return "살 빼!!!!" + env.getProperty("local.server.port");
+        return "살 빼!!!!" + env.getProperty("local.serve`r.port");
     }
 
     @PostMapping("users")
@@ -59,7 +59,7 @@ public class UserController {
         ResponseRegistUserVO successRegistUser = modelMapper.map(userDTO, ResponseRegistUserVO.class);
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                             .body(successRegistUser);
+                .body(successRegistUser);
 
 
 

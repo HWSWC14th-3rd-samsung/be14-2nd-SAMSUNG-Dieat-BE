@@ -27,7 +27,7 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     url: jdbc:mariadb://localhost:3306/samsung
     username: root
-    password: hosp0316!!
+    password: mariadb
 
   ## jpa config
   jpa:
@@ -45,6 +45,8 @@ token:
   secret: mc9guIbkofqAXON+dGiHxx30+27aW+oBDI+JTvWHzSxrkYSV6yfE/gpDoBXUt4N34h0W2jzU74PAaroIvRmpew==
 
 
+#admin:
+#  secret: ${admin.secret}
 admin:
   secret: IrKAqF/iFu/dOWF3F525uC6pPU383WJCkQBcpdamX3bXXYliYr5fK2Gasr/Lby1iktgZ877VSKhBC7DgprPX6Q==
 
@@ -57,5 +59,8 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-
+logging:
+  level:
+    org.springframework.security: DEBUG
+    com.samsung.dieat.member.security: DEBUG
 

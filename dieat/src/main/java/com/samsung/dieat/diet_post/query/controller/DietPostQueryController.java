@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/diet-posts")
+@RequestMapping("/diet-posts")
 @RequiredArgsConstructor
 public class DietPostQueryController {
 
@@ -37,4 +37,12 @@ public class DietPostQueryController {
         dto.setSize(size);
         return dietPostQueryService.getAllDietPostsWithPaging(dto);
     }
+
+
+    /* 설명. 영양소 범위로 조회 */
+    @PostMapping("/search/nutrients")
+    public ResponseEntity<List<DietPostResponseDto>> searchByNutrients(@RequestBody NutrientSearchRequestDto dto) {
+        return ResponseEntity.ok(dietPostQueryService.searchByNutrients(dto));
+    }
+
 }
