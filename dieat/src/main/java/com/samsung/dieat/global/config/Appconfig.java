@@ -1,4 +1,4 @@
-package com.samsung.dieat.member.command.config;
+package com.samsung.dieat.global.config;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
