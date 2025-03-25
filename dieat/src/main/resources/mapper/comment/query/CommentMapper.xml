@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.samsung.dieat.comment.query.infrastructure.CommentMapper">
+
+    <resultMap id="CommentResultMap" type="com.samsung.dieat.comment.query.application.dto.CommentResponseDTO">
+        <id property="cmtCode" column="cmt_code"/>
+        <result property="cmtConts" column="cmt_conts"/>
+        <result property="cmtCreatedDt" column="cmt_created_dt"/>
+        <result property="cmtUpdatedDt" column="cmt_updated_dt"/>
+        <result property="cmtTargetType" column="cmt_target_type"/>
+        <result property="cmtTargetCode" column="cmt_target_code"/>
+        <result property="userCode" column="user_code"/>
+    </resultMap>
+
+    <select id="findCommentsByTarget" parameterType="map" resultMap="CommentResultMap">
+        SELECT
+            cmt_code,
+            cmt_conts,
+            cmt_created_dt,
+            cmt_updated_dt,
+            cmt_target_type,
+            cmt_target_code,
+            user_code
+        FROM tbl_comment
+        WHERE cmt_target_type = #{targetType}
+          AND cmt_target_code = #{targetCode}
+          AND cmt_isdeleted = 0
+    </select>
+
+</mapper>

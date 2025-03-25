@@ -1,7 +1,10 @@
 package com.samsung.dieat.point.command.application.dto;
 
 import com.samsung.dieat.point.command.domain.enums.PType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
@@ -9,10 +12,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 public class DailyPointDTO {
     private int dPointCode;
-    private int dPointUserCode;
+    private Long dPointUserCode;
     private int dPointAmt;
     private LocalDateTime dPointRcvDt;
     private PType dPointRcvType;
