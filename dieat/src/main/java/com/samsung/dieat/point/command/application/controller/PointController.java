@@ -9,7 +9,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 public class PointController {
-
-    private Environment env;
     private ModelMapper modelMapper;
 }

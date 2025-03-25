@@ -68,6 +68,8 @@ public class WebSecurity {
                                 .requestMatchers(new AntPathRequestMatcher("/open-data-food/**", "GET")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/open-data-food", "GET")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/open-data-food/**", "POST")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/success_post/**", "POST")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/open-data-food", "POST")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/open-data-food", "POST")).permitAll()
                                 .anyRequest().authenticated()
                 )
