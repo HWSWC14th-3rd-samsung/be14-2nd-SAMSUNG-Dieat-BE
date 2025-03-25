@@ -1,37 +1,43 @@
 package com.samsung.dieat.open_data_food.command.application.controller;
 
 import com.samsung.dieat.open_data_food.command.application.service.OpenDataFoodService;
-import com.samsung.dieat.open_data_food.command.domain.repository.OpenDataFoodRepository;
-import com.samsung.dieat.open_data_food.command.dto.DeleteOpenDataFoodResponse;
-import com.samsung.dieat.open_data_food.command.dto.InsertOpenDataFoodRequest;
-import com.samsung.dieat.open_data_food.command.dto.InsertOpenDataFoodResponse;
-import com.samsung.dieat.open_data_food.command.dto.UpdateOpenDataFoodRequest;
+import com.samsung.dieat.open_data_food.command.dto.request.InsertOpenDataFoodRequest;
+import com.samsung.dieat.open_data_food.command.dto.request.UpdateOpenDataFoodRequest;
+import com.samsung.dieat.open_data_food.command.dto.response.DeleteOpenDataFoodResponse;
+import com.samsung.dieat.open_data_food.command.dto.response.InsertOpenDataFoodResponse;
+import com.samsung.dieat.open_data_food.common.dto.CommonResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/open_data_food")
+@RequestMapping("/open-data-food")
 @RequiredArgsConstructor
 public class OpenDataFoodController {
 
     private final OpenDataFoodService odfService;
-    private final OpenDataFoodRepository odfRepository;
 
     @PostMapping
-    public ResponseEntity<InsertOpenDataFoodResponse> insert(@RequestBody InsertOpenDataFoodRequest request) {
-        return ResponseEntity.ok(odfService.insert(request));
+    public ResponseEntity<CommonResponse<List<InsertOpenDataFoodResponse>>> insert(
+            @RequestBody List<InsertOpenDataFoodRequest> requests) {
+
+        List<InsertOpenDataFoodResponse> responses = odfService.insert(requests);
+        return ResponseEntity.ok(CommonResponse.success(responses));
     }
 
-    @DeleteMapping("/{code}")
-    public ResponseEntity<DeleteOpenDataFoodResponse> delete(@PathVariable Integer code) {
-        return ResponseEntity.ok(odfService.delete(code));
-    }
-
-    @PutMapping("/code/{code}")
-    public ResponseEntity<?> updateByCode(@PathVariable Integer code,
-                                          @RequestBody UpdateOpenDataFoodRequest request) {
-        request.setOdfCode(code); // body에 없어도 여기서 강제 세팅
+    @PutMapping("/update/{odfCode}")
+    public ResponseEntity<CommonResponse<InsertOpenDataFoodResponse>> update(
+            @PathVariable Integer odfCode,
+            @RequestBody UpdateOpenDataFoodRequest request) {
+        request.setOdfCode(odfCode); // ★ 여기에서 설정!
         return ResponseEntity.ok(odfService.update(request));
+    }
+
+    @DeleteMapping("/delete/{odfCode}")
+    public ResponseEntity<CommonResponse<DeleteOpenDataFoodResponse>> delete(
+            @PathVariable Integer odfCode) {
+        return ResponseEntity.ok(odfService.delete(odfCode));
     }
 }

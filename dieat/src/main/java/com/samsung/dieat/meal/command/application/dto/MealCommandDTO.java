@@ -32,5 +32,5 @@ public class MealCommandDTO {
         private int mealFoodCnt;
     }
 
-    
+
 }

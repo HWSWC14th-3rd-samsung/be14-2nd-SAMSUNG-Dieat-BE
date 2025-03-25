@@ -63,6 +63,10 @@ public class WebSecurity {
                                 .requestMatchers(new AntPathRequestMatcher("/meals/**", "GET")).permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/meals/**", "POST")).hasRole("USER")
                                 .requestMatchers(new AntPathRequestMatcher("/meals/**", "DELETE")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/open-data-food/**", "GET")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/open-data-food", "GET")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/open-data-food/**", "POST")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/open-data-food", "POST")).permitAll()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(session ->

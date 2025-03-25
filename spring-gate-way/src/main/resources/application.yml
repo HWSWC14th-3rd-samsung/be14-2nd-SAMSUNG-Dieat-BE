@@ -28,14 +28,8 @@ spring:
             - Path=/total-service/**
             - Method=GET
           filters:
-<<<<<<< HEAD
-            - RewritePath=/total-service/(?<segment>.*), /$\{segment}
-
-
-=======
             - RewritePath=/total-service/(?<segment>.*), /${segment}
 #            - AuthorizationHeaderFilter
->>>>>>> 54dec253481a35974ff18a6398bab53df709f322
 
         - id: user-total-put
           uri: lb://DIEAT-TOTAL-SERVICE
@@ -51,13 +45,8 @@ spring:
             - Path=/total-service/**
             - Method=DELETE
           filters:
-<<<<<<< HEAD
-            - RewritePath=/total-service/(?<segment>.*), /$\{segment}
-
-=======
             - RewritePath=/total-service/(?<segment>.*), /${segment}
             - AuthorizationHeaderFilter
->>>>>>> 54dec253481a35974ff18a6398bab53df709f322
 
         - id: user-service-post
           uri: lb://DIEAT-USER-SERVICE
