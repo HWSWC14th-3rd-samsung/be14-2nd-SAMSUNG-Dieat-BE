@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public interface MealQueryService {
-    
+
     List<MealQueryDTO> findAllMeals();
 
     List<MealQueryDTO> findMealsByUserCode(int userCode);

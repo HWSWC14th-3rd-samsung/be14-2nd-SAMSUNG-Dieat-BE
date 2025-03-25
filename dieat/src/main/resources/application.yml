@@ -29,6 +29,7 @@ mybatis:
     map-underscore-to-camel-case: true
 
 
+
 token:
   expiration_time: 43200000
   secret: mc9guIbkofqAXON+dGiHxx30+27aW+oBDI+JTvWHzSxrkYSV6yfE/gpDoBXUt4N34h0W2jzU74PAaroIvRmpew==
