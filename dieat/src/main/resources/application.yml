@@ -1,9 +1,9 @@
 server:
-  port: 8111
+  port: 0
 
 spring:
   application:
-    name: dieat-user-service
+    name: dieat-total-service
 
   ## db config
   datasource:

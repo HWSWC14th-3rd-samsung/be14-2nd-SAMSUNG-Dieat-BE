@@ -14,6 +14,40 @@ spring:
     gateway:
       routes:
 
+        - id: user-total-post
+          uri: lb://DIEAT-TOTAL-SERVICE
+          predicates:
+            - Path=/total-service/**
+            - Method=POST
+          filters:
+            - RewritePath=/total-service/(?<segment>.*), /$\{segment}
+
+        - id: user-total-get
+          uri: lb://DIEAT-TOTAL-SERVICE
+          predicates:
+            - Path=/total-service/**
+            - Method=GET
+          filters:
+            - RewritePath=/total-service/(?<segment>.*), /$\{segment}
+#            - AuthorizationHeaderFilter
+
+        - id: user-total-put
+          uri: lb://DIEAT-TOTAL-SERVICE
+          predicates:
+            - Path=/total-service/**
+            - Method=PUT
+          filters:
+            - RewritePath=/total-service/(?<segment>.*), /$\{segment}
+
+        - id: user-total-delete
+          uri: lb://DIEAT-TOTAL-SERVICE
+          predicates:
+            - Path=/total-service/**
+            - Method=DELETE
+          filters:
+            - RewritePath=/total-service/(?<segment>.*), /$\{segment}
+#            - AuthorizationHeaderFilter
+
         - id: user-service-post
           uri: lb://DIEAT-USER-SERVICE
           predicates:
