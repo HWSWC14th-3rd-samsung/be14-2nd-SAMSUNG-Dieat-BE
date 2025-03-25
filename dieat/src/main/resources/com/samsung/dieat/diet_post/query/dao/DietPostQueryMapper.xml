@@ -86,5 +86,4 @@
         ORDER BY diet_upload_dt DESC
     </select>
 
-
 </mapper>

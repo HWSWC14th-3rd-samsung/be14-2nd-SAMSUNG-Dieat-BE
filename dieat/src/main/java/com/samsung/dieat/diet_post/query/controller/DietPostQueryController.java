@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/diet-posts")
+@RequestMapping("/diet-posts")
 @RequiredArgsConstructor
 public class DietPostQueryController {
 
@@ -45,5 +45,4 @@ public class DietPostQueryController {
     public ResponseEntity<List<DietPostResponseDto>> searchByNutrients(@RequestBody NutrientSearchRequestDto dto) {
         return ResponseEntity.ok(dietPostQueryService.searchByNutrients(dto));
     }
-
 }

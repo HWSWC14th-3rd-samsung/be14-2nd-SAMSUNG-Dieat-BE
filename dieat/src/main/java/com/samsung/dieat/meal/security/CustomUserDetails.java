@@ -1,4 +1,4 @@
-//package com.samsung.dieat.meal.security;
+package com.samsung.dieat.meal.security;//package com.samsung.dieat.meal.security;
 //
 //import lombok.Getter;
 //import org.springframework.security.core.GrantedAuthority;
