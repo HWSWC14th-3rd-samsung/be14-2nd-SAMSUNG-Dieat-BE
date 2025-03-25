@@ -5,7 +5,10 @@ import lombok.*;
 
 import java.util.List;
 
+<<<<<<< HEAD
+=======
 @Setter
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,6 +34,9 @@ public class MealCommandDTO {
         private MealFoodType mealFoodType;
         private int mealFoodCnt;
     }
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
 }

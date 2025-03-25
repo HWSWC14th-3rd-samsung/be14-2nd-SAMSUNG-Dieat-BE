@@ -4,13 +4,19 @@ import com.samsung.dieat.meal.command.application.dto.MealCommandDTO;
 import com.samsung.dieat.meal.command.domain.aggregate.entity.Meal;
 import com.samsung.dieat.meal.command.domain.aggregate.enums.MealFoodType;
 import lombok.Getter;
+<<<<<<< HEAD
+=======
 import lombok.Setter;
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
 @Slf4j
+<<<<<<< HEAD
+=======
 @Setter
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
 @Getter
 public class MealCommandVO {
     private final int userCode;
@@ -35,6 +41,15 @@ public class MealCommandVO {
         this.mealProtein = dto.getMealProtein();
         this.mealFat = dto.getMealFat();
         this.mealFoods = dto.getMealFoods().stream()
+<<<<<<< HEAD
+                                            .map(f -> new MealFoodVO(f.getMealFoodCode(),
+                                                f.getMealFoodType(),
+                                                f.getMealFoodCnt()))
+                                            .toList();
+        log.info("DTO에서 받은 mealFoods: {}", dto.getMealFoods());
+    }
+
+=======
                 .map(f -> new MealFoodVO(f.getMealFoodCode(),
                         f.getMealFoodType(),
                         f.getMealFoodCnt()))
@@ -47,6 +62,7 @@ public class MealCommandVO {
     }
 
     @Setter
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
     @Getter
     public static class MealFoodVO {
         private final int mealFoodCode;
