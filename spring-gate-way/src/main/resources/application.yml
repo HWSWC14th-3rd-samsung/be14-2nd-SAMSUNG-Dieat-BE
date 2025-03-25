@@ -20,7 +20,7 @@ spring:
             - Path=/total-service/**
             - Method=POST
           filters:
-            - RewritePath=/total-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/total-service/(?<segment>.*), /${segment}
 
         - id: user-total-get
           uri: lb://DIEAT-TOTAL-SERVICE
@@ -28,9 +28,14 @@ spring:
             - Path=/total-service/**
             - Method=GET
           filters:
+<<<<<<< HEAD
             - RewritePath=/total-service/(?<segment>.*), /$\{segment}
 
 
+=======
+            - RewritePath=/total-service/(?<segment>.*), /${segment}
+#            - AuthorizationHeaderFilter
+>>>>>>> 54dec253481a35974ff18a6398bab53df709f322
 
         - id: user-total-put
           uri: lb://DIEAT-TOTAL-SERVICE
@@ -38,7 +43,7 @@ spring:
             - Path=/total-service/**
             - Method=PUT
           filters:
-            - RewritePath=/total-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/total-service/(?<segment>.*), /${segment}
 
         - id: user-total-delete
           uri: lb://DIEAT-TOTAL-SERVICE
@@ -46,8 +51,13 @@ spring:
             - Path=/total-service/**
             - Method=DELETE
           filters:
+<<<<<<< HEAD
             - RewritePath=/total-service/(?<segment>.*), /$\{segment}
 
+=======
+            - RewritePath=/total-service/(?<segment>.*), /${segment}
+            - AuthorizationHeaderFilter
+>>>>>>> 54dec253481a35974ff18a6398bab53df709f322
 
         - id: user-service-post
           uri: lb://DIEAT-USER-SERVICE
@@ -55,7 +65,7 @@ spring:
             - Path=/user-service/**
             - Method=POST
           filters:
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/user-service/(?<segment>.*), /${segment}
 
         - id: user-service-get
           uri: lb://DIEAT-USER-SERVICE
@@ -63,7 +73,7 @@ spring:
             - Path=/user-service/**
             - Method=GET
           filters:
-            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - RewritePath=/user-service/(?<segment>.*), /${segment}
             - AuthorizationHeaderFilter
 
         - id: food-data-service-get
@@ -72,7 +82,7 @@ spring:
             - Path=/user-data-food/**
             - Method=GET
           filters:
-            - RewritePath=/user-data-food/(?<segment>.*), /$\{segment}
+            - RewritePath=/user-data-food/(?<segment>.*), /${segment}
             - AuthorizationHeaderFilter
 
 token:
