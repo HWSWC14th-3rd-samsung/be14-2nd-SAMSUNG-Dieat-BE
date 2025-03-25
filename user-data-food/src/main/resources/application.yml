@@ -1,0 +1,48 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: dieat-user-food
+
+  ## db config
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/samsung
+    username: root
+    password: hosp0316!!
+
+  ## jpa config
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+    properties:
+      hibernate:
+        '[format_sql]': true
+
+  ## mybatis config
+mybatis:
+  mapper-locations: classpath:/mapper/**/**/*.xml
+#    configuration:
+#      map-underscore-to-camel-case: true
+
+
+token:
+  expiration_time: 43200000
+  secret: mc9guIbkofqAXON+dGiHxx30+27aW+oBDI+JTvWHzSxrkYSV6yfE/gpDoBXUt4N34h0W2jzU74PAaroIvRmpew==
+
+
+admin:
+  secret: IrKAqF/iFu/dOWF3F525uC6pPU383WJCkQBcpdamX3bXXYliYr5fK2Gasr/Lby1iktgZ877VSKhBC7DgprPX6Q==
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
