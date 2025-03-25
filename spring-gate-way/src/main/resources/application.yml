@@ -14,6 +14,8 @@ spring:
     gateway:
       routes:
 
+<<<<<<< HEAD
+=======
         - id: user-total-post
           uri: lb://DIEAT-TOTAL-SERVICE
           predicates:
@@ -48,13 +50,18 @@ spring:
             - RewritePath=/total-service/(?<segment>.*), /${segment}
             - AuthorizationHeaderFilter
 
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
         - id: user-service-post
           uri: lb://DIEAT-USER-SERVICE
           predicates:
             - Path=/user-service/**
             - Method=POST
           filters:
+<<<<<<< HEAD
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+=======
             - RewritePath=/user-service/(?<segment>.*), /${segment}
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
 
         - id: user-service-get
           uri: lb://DIEAT-USER-SERVICE
@@ -62,7 +69,11 @@ spring:
             - Path=/user-service/**
             - Method=GET
           filters:
+<<<<<<< HEAD
+            - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+=======
             - RewritePath=/user-service/(?<segment>.*), /${segment}
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
             - AuthorizationHeaderFilter
 
         - id: food-data-service-get
@@ -71,7 +82,11 @@ spring:
             - Path=/user-data-food/**
             - Method=GET
           filters:
+<<<<<<< HEAD
+            - RewritePath=/user-data-food/(?<segment>.*), /$\{segment}
+=======
             - RewritePath=/user-data-food/(?<segment>.*), /${segment}
+>>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
             - AuthorizationHeaderFilter
 
 token:
