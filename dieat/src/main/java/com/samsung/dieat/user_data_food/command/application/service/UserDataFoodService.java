@@ -5,6 +5,7 @@ import com.samsung.dieat.user_data_food.command.entity.UserDataFood;
 import com.samsung.dieat.user_data_food.command.infrastructure.UserDataFoodRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,4 +29,7 @@ public class UserDataFoodService {
         userDataFoodRepository.delete(userDataFood);
     }
 
+    public UserDetails loadUserByUsername(String userId) {
+        return null;
+    }
 }

@@ -1,0 +1,50 @@
+package com.samsung.dieat.security;
+
+import com.samsung.dieat.user_data_food.command.application.service.UserDataFoodService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+
+@Slf4j
+@Component
+public class JwtAuthenticationProvider implements AuthenticationProvider {
+
+    private final UserDataFoodService userDataFoodService;
+    private final PasswordEncoder passwordEncoder;
+
+    @Autowired
+    public JwtAuthenticationProvider(UserDataFoodService userDataFoodService, PasswordEncoder passwordEncoder) {
+        this.userDataFoodService = userDataFoodService;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String userId = authentication.getName();
+        String userPwd = (String)authentication.getCredentials();
+
+        UserDetails userDetails = userDataFoodService.loadUserByUsername(userId);
+
+        if(!passwordEncoder.matches(userPwd, userDetails.getPassword())) {
+            throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
+        }
+
+        return new UsernamePasswordAuthenticationToken(
+                userDetails,
+                null,
+                userDetails.getAuthorities()
+        );
+    }
+
+    @Override
+    public boolean supports(Class<?> authentication) {
+        return UsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication);
+    }
+}

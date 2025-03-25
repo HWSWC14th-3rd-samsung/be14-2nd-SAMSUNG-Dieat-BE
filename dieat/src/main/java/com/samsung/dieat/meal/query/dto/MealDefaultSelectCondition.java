@@ -1,9 +1,6 @@
 package com.samsung.dieat.meal.query.dto;
 
-
-
 import lombok.*;
-
 
 @NoArgsConstructor
 @AllArgsConstructor

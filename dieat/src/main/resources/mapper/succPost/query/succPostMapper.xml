@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.samsung.dieat.success_post.query.dao.SuccPostMapper">
+    <resultMap id="succPostQueryResultMap" type="com.samsung.dieat.success_post.query.dto.SuccPostQueryDTO">
+        <result property="succCode" column="succ_code"/>
+        <result property="userCode" column="user_code"/>
+        <result property="succTitle" column="succ_title"/>
+        <result property="succConts" column="succ_conts"/>
+        <result property="succCreatedDt" column="succ_created_dt"/>
+        <result property="succViewCnt" column="succ_view_cnt"/>
+        <result property="succViewCnt" column="succ_view_cnt"/>
+        <result property="succLikeCnt" column="succ_like_cnt"/>
+        <result property="succCmtCnt" column="succ_cmt_cnt"/>
+        <result property="succTerm" column="succ_term"/>
+    </resultMap>
+
+    <select id="getSuccPostForUserCode" resultType="com.samsung.dieat.success_post.query.dto.SuccPostQueryDTO">
+        SELECT
+            succ_code AS succCode,
+            user_code AS userCode,
+            succ_title AS succTitle,
+            succ_conts AS succConts,
+            succ_created_dt AS succCreatedDt,
+            succ_view_cnt AS succViewCnt,
+            succ_like_cnt AS succLikeCnt,
+            succ_cmt_cnt AS succCmtCnt,
+            succ_term AS succTerm
+        FROM tbl_success_post
+        WHERE user_code = #{userCode}
+        ORDER BY succ_created_dt DESC
+    </select>
+
+    <select id="getSuccPostForTitle" resultType="com.samsung.dieat.success_post.query.dto.SuccPostQueryDTO">
+        SELECT
+            succ_code AS succCode,
+            user_code AS userCode,
+            succ_title AS succTitle,
+            succ_conts AS succConts,
+            succ_created_dt AS succCreatedDt,
+            succ_view_cnt AS succViewCnt,
+            succ_like_cnt AS succLikeCnt,
+            succ_cmt_cnt AS succCmtCnt,
+            succ_term AS succTerm
+        FROM tbl_success_post
+        WHERE succ_title = #{succTitle}
+    </select>
+</mapper>
