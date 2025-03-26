@@ -4,81 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="903cfdb1-060e-44f4-905d-1fb0b0b2fb5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/dto/DietPostDetailResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/dto/DietPostFoodDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/dto/NutrientSearchConditionDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/dto/NutrientSearchRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/security/AuthUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/security/CustomUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/security/JwtFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/security/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/security/WebSecurity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/member/command/domain/aggregate/entity/UserEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/member/command/domain/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/security/CommonUserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/security/CustomUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/security/JwtAuthenticationProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/security/JwtFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/security/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/security/WebSecurity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/resources/mapper/open_data_food/query/OpenDataFoodMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/command/application/controller/DietPostCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/command/application/controller/DietPostCommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/controller/DietPostQueryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/controller/DietPostQueryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/dao/DietPostQueryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/dao/DietPostQueryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/dto/DietPostListResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/dto/DietPostListResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/service/DietPostQueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/diet_post/query/service/DietPostQueryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/like/command/application/controller/LikeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/like/command/application/controller/LikeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/controller/MealCommandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/controller/MealCommandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/dto/MealCommandDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/dto/MealCommandDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/entity/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/service/MealCommandService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/service/MealCommandService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/service/MealCommandServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/service/MealCommandServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/vo/MealCommandVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/application/vo/MealCommandVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/domain/aggregate/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/domain/aggregate/entity/Meal.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/domain/aggregate/entity/Meal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/domain/repository/MealCommandRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/domain/repository/MealCommandRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/domain/repository/MealFoodJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/domain/repository/MealFoodJpaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/domain/service/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/command/infrastructure/service/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/controller/MealQueryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/controller/MealQueryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/dao/MealQueryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/dao/MealQueryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/dao/MealQueryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/dao/MealQueryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/dto/MealDefaultSelectCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/dto/MealDefaultSelectCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/service/MealQueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/service/MealQueryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/service/MealQueryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/meal/query/service/MealQueryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/command/application/controller/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/command/application/dto/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/command/application/entity/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/command/application/service/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/command/domain/aggregate/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/command/domain/repository/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/command/domain/service/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/command/infrastructure/service/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/query/controller/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/query/dao/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/query/dto/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/open_data_food/query/service/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/user_data_food/command/application/service/UserDataFoodService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/user_data_food/command/application/service/UserDataFoodService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/resources/com/samsung/dieat/diet_post/query/dao/DietPostQueryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/resources/com/samsung/dieat/diet_post/query/dao/DietPostQueryMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/test/java/com/samsung/dieat/DieatApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/test/java/com/samsung/dieat/meal/command/application/service/MealCommandServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/test/java/com/samsung/dieat/meal/query/service/MealQeuryServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieatmember/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../dieatmember/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieatmember/src/main/java/com/samsung/dieat/member/command/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieatmember/src/main/java/com/samsung/dieat/member/command/application/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieatmember/src/main/java/com/samsung/dieat/member/command/application/dto/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieatmember/src/main/java/com/samsung/dieat/member/command/application/service/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieatmember/src/main/java/com/samsung/dieat/member/command/domain/aggregate/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieatmember/src/main/java/com/samsung/dieat/member/command/domain/aggregate/entity/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieatmember/src/main/java/com/samsung/dieat/member/security/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieatmember/src/main/java/com/samsung/dieat/member/security/JwtUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieatmember/src/main/java/com/samsung/dieat/member/security/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieatmember/src/main/java/com/samsung/dieat/member/security/WebSecurity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieatmember/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../dieatmember/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-    </list>
+    <list default="true" id="903cfdb1-060e-44f4-905d-1fb0b0b2fb5f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,9 +64,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.SpringGateWayApplication.executor": "Run",
-    "git-widget-placeholder": "d339f28b",
+    "git-widget-placeholder": "dev",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/jiwon/Project/backup/spring-gate-way",
+    "last_opened_file_path": "/Users/jiwon/Project/dieat/spring-gate-way",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -183,6 +109,7 @@
       <workItem from="1742889234492" duration="2189000" />
       <workItem from="1742920395880" duration="4550000" />
       <workItem from="1742939642519" duration="7040000" />
+      <workItem from="1742985415853" duration="624000" />
     </task>
     <servers />
   </component>
