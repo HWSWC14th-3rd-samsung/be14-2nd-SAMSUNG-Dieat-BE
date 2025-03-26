@@ -1,7 +1,11 @@
 package com.samsung.dieat.user_data_food.query.controller;
 
+import com.samsung.dieat.user_data_food.query.dto.ResponseUdfName;
+import com.samsung.dieat.user_data_food.query.dto.ResponseUserDataFood;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,23 +20,15 @@ public class UserDataFoodQueryController {
 
     private final UserDataFoodQueryService userDataFoodQueryService;
 
-<<<<<<< HEAD
-    @GetMapping("/{udfCode}")
-    public UserDataFoodDTO getUserDataFood(@PathVariable int udfCode) {
-        System.out.println(udfCode);
-        return userDataFoodQueryService.getUserDataFoodByUdfCode(udfCode);
-=======
     @GetMapping("/code/{udfCode}")
     public ResponseEntity<UserDataFoodDTO> getUserDataFoodByUdfCode(@PathVariable int udfCode) {
         UserDataFoodDTO result = userDataFoodQueryService.getUserDataFoodByUdfCode(udfCode);
         return ResponseEntity.status(HttpStatus.OK).body(result);   // 200 + 데이터 반환
         /* 설명: 결과값이 없어도 OK를 보내는 이유
-
-         *   결과값이 없는 것이지 잘못된 요청이 들어온 것이 아니기 때문
-         *   하지만 어떻게 처리할 지 추가 논의 필요
-         *   1. 프론트에서 결과값이 없는 경우 처리
-         *   2. Exception을 만들어서 처리*/
-
+        *   결과값이 없는 것이지 잘못된 요청이 들어온 것이 아니기 때문
+        *   하지만 어떻게 처리할 지 추가 논의 필요
+        *   1. 프론트에서 결과값이 없는 경우 처리
+        *   2. Exception을 만들어서 처리*/
 
         /* 설명: Exception을 만들어서 처리하는 방법*/
         /*@GetMapping("/{udfCode}")
@@ -45,7 +41,6 @@ public class UserDataFoodQueryController {
         }*/
         /* 설명: 컨트롤러를 위 코드로 대체
         *   이후 아래 GlobalExceptionHandler 처리*/
-
         /*@RestControllerAdvice
         public class GlobalExceptionHandler {
 
@@ -54,6 +49,21 @@ public class UserDataFoodQueryController {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
             }
         }*/
->>>>>>> 2cbde92212667ea14e50afb39161f4db0b222b19
     }
+
+    @GetMapping("/like/{likeName}")
+    public ResponseEntity<List<ResponseUdfName>> getUserDataFoodByLikeName(@PathVariable String likeName) {
+        List<ResponseUdfName> result = userDataFoodQueryService.getUserDataFoodByLikeName(likeName);
+        if (result.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.OK).build();    // 검색 결과가 없어도 OK
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @GetMapping("/name/{udfName}")
+    public ResponseEntity<List<ResponseUserDataFood>> getUserDataFoodWithNickname(@PathVariable String udfName) {
+        List<ResponseUserDataFood> result = userDataFoodQueryService.getUserDataFoodWithNickname(udfName);
+        return ResponseEntity.ok(result);
+    }
+
 }

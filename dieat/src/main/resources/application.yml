@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: dieat-user-service
+    name: dieat-total-service
 
   ## db config
   datasource:
@@ -27,7 +27,6 @@ mybatis:
   mapper-locations: classpath:/mapper/**/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
-
 
 
 token:

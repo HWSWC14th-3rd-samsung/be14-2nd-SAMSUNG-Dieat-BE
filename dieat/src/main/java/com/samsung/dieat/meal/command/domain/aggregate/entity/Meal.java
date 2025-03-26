@@ -1,18 +1,9 @@
 package com.samsung.dieat.meal.command.domain.aggregate.entity;
 
-<<<<<<< HEAD
-import com.samsung.dieat.meal.command.application.vo.MealCommandVO;
-import jakarta.persistence.*;
-import lombok.*;
-
-import java.time.LocalDate;
-
-=======
 import com.samsung.dieat.meal.command.application.dto.MealCommandDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
->>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
 @Entity
 @Getter
 @NoArgsConstructor
@@ -53,11 +44,7 @@ public class Meal {
     @Column(name = "user_code")
     private int userCode;
 
-<<<<<<< HEAD
-    public void update(MealCommandVO vo) {
-=======
     public void update(MealCommandDTO vo) {
->>>>>>> 7dc9ca04fa32cdffef3b9e9dcadca0d1f7233d49
         this.mealDt = vo.getMealDt();
         this.mealTitle = vo.getMealTitle();
         this.mealDesc = vo.getMealDesc();

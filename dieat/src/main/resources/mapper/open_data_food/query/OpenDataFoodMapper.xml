@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.samsung.dieat.open_data_food.query.dao.mapper.OpenDataFoodMapper">
+
+    <resultMap id="odfMap" type="com.samsung.dieat.open_data_food.query.dto.response.ResponseOpenDataFood">
+        <id property="odfCode" column="odf_code"/>
+        <result property="odfName" column="odf_name"/>
+        <result property="odfCalories" column="odf_calories"/>
+        <result property="odfCarbs" column="odf_carbs"/>
+        <result property="odfProtein" column="odf_protein"/>
+        <result property="odfFat" column="odf_fat"/>
+        <result property="odfSugar" column="odf_sugar"/>
+        <result property="odfUpdatedDt" column="odf_updated_dt"/>
+    </resultMap>
+
+    <select id="findByOdfCode" parameterType="int" resultMap="odfMap">
+        SELECT
+            odf_code, odf_name, odf_calories, odf_carbs,
+            odf_protein, odf_fat, odf_sugar, odf_update_dt
+        FROM tbl_open_data_food
+        WHERE odf_code = #{odfCode}
+    </select>
+
+    <select id="findAll" resultMap="odfMap">
+--         findAll 쿼리는 parameterType="int" 제거해도 OK (파라미터 안 받으니까)
+        SELECT
+            odf_code, odf_name, odf_calories, odf_carbs,
+            odf_protein, odf_fat, odf_sugar, odf_update_dt
+        FROM tbl_open_data_food
+    </select>
+
+    <select id="findByMultipleKeywords" parameterType="String" resultMap="odfMap">
+        SELECT
+        odf_code, odf_name, odf_calories, odf_carbs,
+        odf_protein, odf_fat, odf_sugar, odf_update_dt
+        FROM tbl_open_data_food
+        WHERE
+        <foreach item="word" collection="keywords" separator=" AND ">
+            odf_name LIKE CONCAT('%', #{word}, '%')
+        </foreach>
+    </select>
+</mapper>

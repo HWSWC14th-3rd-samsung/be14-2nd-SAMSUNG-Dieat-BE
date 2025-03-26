@@ -6,11 +6,22 @@
 <mapper namespace="com.samsung.dieat.diet_post.query.dao.DietPostQueryMapper">
 
     <!-- 전체 게시글 조회 -->
-    <select id="findAll" resultType="com.samsung.dieat.diet_post.query.dto.DietPostResponseDto">
-        SELECT *
-        FROM tbl_diet_post
-        WHERE diet_isdeleted = FALSE
-        ORDER BY diet_upload_dt DESC
+    <select id="findAll" resultType="com.samsung.dieat.diet_post.query.dto.DietPostListResponseDto">
+        SELECT
+            d.diet_code,
+            d.diet_title,
+            d.diet_calories,
+            d.diet_carbs,
+            d.diet_sugar,
+            d.diet_protein,
+            d.diet_fat,
+            d.diet_view_cnt,
+            DATE_FORMAT(d.diet_upload_dt, '%Y-%m-%d %H:%i:%s') AS diet_upload_dt,
+            u.user_nickname
+        FROM tbl_diet_post d
+                 JOIN tbl_user_info u ON d.user_code = u.user_code
+        WHERE d.diet_isdeleted = FALSE
+        ORDER BY d.diet_upload_dt DESC
     </select>
 
     <!-- 단일 게시글 조회 -->
@@ -24,15 +35,20 @@
     <!-- 전체 게시글 페이징 조회 -->
     <select id="findAllWithPaging" resultType="com.samsung.dieat.diet_post.query.dto.DietPostListResponseDto">
         SELECT
-            diet_code,
-            diet_title,
-            diet_conts,
-            diet_calories,
-            diet_view_cnt,
-            DATE_FORMAT(diet_upload_dt, '%Y-%m-%d %H:%i:%s') AS diet_upload_dt
-        FROM tbl_diet_post
-        WHERE diet_isdeleted = false
-        ORDER BY diet_upload_dt DESC
+            d.diet_code,
+            d.diet_title,
+            d.diet_calories,
+            d.diet_carbs,
+            d.diet_sugar,
+            d.diet_protein,
+            d.diet_fat,
+            d.diet_view_cnt,
+            DATE_FORMAT(d.diet_upload_dt, '%Y-%m-%d %H:%i:%s') AS diet_upload_dt,
+            u.user_nickname
+        FROM tbl_diet_post d
+                 JOIN tbl_user_info u ON d.user_code = u.user_code
+        WHERE d.diet_isdeleted = false
+        ORDER BY d.diet_upload_dt DESC
             LIMIT #{size} OFFSET #{offset}
     </select>
 
@@ -40,7 +56,6 @@
     <select id="countAll" resultType="int">
         SELECT COUNT(*) FROM tbl_diet_post WHERE diet_isdeleted = false
     </select>
-
 
     <!-- 영향소 범위로 조회 -->
     <select id="searchByNutrients" parameterType="com.samsung.dieat.diet_post.query.dto.NutrientSearchRequestDto"
@@ -85,6 +100,120 @@
         </if>
 
         ORDER BY diet_upload_dt DESC
+    </select>
+
+    <!-- 단일 게시글 + 음식 정보 조회 -->
+    <select id="findDetailById" resultMap="DietPostDetailMap">
+        SELECT
+            dp.diet_code,
+            dp.diet_title,
+            dp.diet_conts,
+            dp.diet_calories,
+            dp.diet_view_cnt,
+            dp.diet_upload_dt,
+            ui.user_nickname,
+
+            df.diet_food_type,
+            df.diet_food_cnt,
+
+            CASE
+                WHEN df.diet_food_type = 'OPENDATA' THEN odf.odf_name
+                ELSE udf.udf_name
+                END AS food_name,
+
+            CASE
+                WHEN df.diet_food_type = 'OPENDATA' THEN odf.odf_calories
+                ELSE udf.udf_calories
+                END AS calories,
+
+            CASE
+                WHEN df.diet_food_type = 'OPENDATA' THEN odf.odf_protein
+                ELSE udf.udf_protein
+                END AS protein,
+
+            CASE
+                WHEN df.diet_food_type = 'OPENDATA' THEN odf.odf_carbs
+                ELSE udf.udf_carbs
+                END AS carbs,
+
+            CASE
+                WHEN df.diet_food_type = 'OPENDATA' THEN odf.odf_fat
+                ELSE udf.udf_fat
+                END AS fat,
+
+            CASE
+                WHEN df.diet_food_type = 'OPENDATA' THEN odf.odf_sugar
+                ELSE udf.udf_sugar
+                END AS sugar
+
+        FROM tbl_diet_post dp
+                 JOIN tbl_user_info ui ON dp.user_code = ui.user_code
+                 LEFT JOIN tbl_diet_food df ON dp.diet_code = df.diet_code
+                 LEFT JOIN tbl_open_data_food odf ON df.diet_food_type = 'OPENDATA' AND df.diet_food_code = odf.odf_code
+                 LEFT JOIN tbl_user_data_food udf ON df.diet_food_type = 'USERDATA' AND df.diet_food_code = udf.udf_code
+        WHERE dp.diet_code = #{dietCode}
+    </select>
+
+    <resultMap id="DietPostDetailMap" type="com.samsung.dieat.diet_post.query.dto.DietPostDetailResponseDto">
+        <id property="dietCode" column="diet_code"/>
+        <result property="dietTitle" column="diet_title"/>
+        <result property="dietConts" column="diet_conts"/>
+        <result property="dietCalories" column="diet_calories"/>
+        <result property="dietViewCnt" column="diet_view_cnt"/>
+        <result property="dietUploadDt" column="diet_upload_dt"/>
+        <result property="userNickname" column="user_nickname"/>
+        <collection property="foodList" ofType="com.samsung.dieat.diet_post.query.dto.DietPostFoodDto">
+            <result property="foodName" column="food_name"/>
+            <result property="foodType" column="diet_food_type"/>
+            <result property="foodCount" column="diet_food_cnt"/>
+            <result property="calories" column="calories"/>
+            <result property="protein" column="protein"/>
+            <result property="carbs" column="carbs"/>
+            <result property="fat" column="fat"/>
+            <result property="sugar" column="sugar"/>
+        </collection>
+    </resultMap>
+
+    <select id="searchDietPosts" resultType="com.samsung.dieat.diet_post.query.dto.DietPostListResponseDto" parameterType="map">
+        SELECT
+        dp.diet_code,
+        dp.diet_title,
+        dp.diet_view_cnt,
+        dp.diet_upload_dt,
+        dp.diet_calories,
+        dp.diet_carbs,
+        dp.diet_sugar,
+        dp.diet_protein,
+        dp.diet_fat,
+        ui.user_nickname
+        FROM tbl_diet_post dp
+        JOIN tbl_user_info ui ON dp.user_code = ui.user_code
+        WHERE dp.diet_isdeleted = FALSE
+
+        <!-- 식단 제목 키워드 검색 -->
+        <if test="keywords != null">
+            <foreach item="word" collection="keywords" separator=" AND ">
+                AND dp.diet_title LIKE CONCAT('%', #{word}, '%')
+            </foreach>
+        </if>
+
+        <!-- 영양소 조건 필터 -->
+        <if test="minCalories != null"> AND dp.diet_calories &gt;= #{minCalories} </if>
+        <if test="maxCalories != null"> AND dp.diet_calories &lt;= #{maxCalories} </if>
+
+        <if test="minProtein != null"> AND dp.diet_protein &gt;= #{minProtein} </if>
+        <if test="maxProtein != null"> AND dp.diet_protein &lt;= #{maxProtein} </if>
+
+        <if test="minCarbs != null"> AND dp.diet_carbs &gt;= #{minCarbs} </if>
+        <if test="maxCarbs != null"> AND dp.diet_carbs &lt;= #{maxCarbs} </if>
+
+        <if test="minFat != null"> AND dp.diet_fat &gt;= #{minFat} </if>
+        <if test="maxFat != null"> AND dp.diet_fat &lt;= #{maxFat} </if>
+
+        <if test="minSugar != null"> AND dp.diet_sugar &gt;= #{minSugar} </if>
+        <if test="maxSugar != null"> AND dp.diet_sugar &lt;= #{maxSugar} </if>
+
+        ORDER BY dp.diet_upload_dt DESC
     </select>
 
 

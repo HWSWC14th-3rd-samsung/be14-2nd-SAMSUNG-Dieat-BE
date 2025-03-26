@@ -19,7 +19,7 @@ public class OpenDataFoodQueryController {
     /**
      * 전체 조회
      */
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<CommonResponse<List<ResponseOpenDataFood>>> findAll() {
         List<ResponseOpenDataFood> result = odfQueryService.findAll();
         return ResponseEntity.ok(CommonResponse.success(result));

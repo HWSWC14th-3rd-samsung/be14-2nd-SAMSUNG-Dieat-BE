@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$USER_HOME$/Downloads/backup 4/SQL/DUMMY_Data/tbl_free_post.sql" dialect="MariaDB" />
+    <file url="file://$USER_HOME$/Downloads/tbl_diet_food_inserts.sql" dialect="MariaDB" />
+  </component>
+</project>
