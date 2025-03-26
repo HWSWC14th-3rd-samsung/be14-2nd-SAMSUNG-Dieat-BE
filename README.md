@@ -66,6 +66,8 @@
 | 배열/추천 | Python 배열 로직 개발 | D | 2일 |
 | 테스트 및 배포 | 통합 테스트 및 Docker 배포 | 전원 | 2일 |
 
+![Image](https://github.com/user-attachments/assets/6808b82c-db38-4f6d-a898-5f2dde3c66dc)
+
 ---
 
 ## 📋 요구사항 명세서 (Summary)
