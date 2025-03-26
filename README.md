@@ -26,8 +26,7 @@
 | 추천 (Recommendation) | 사용자 맞추 식단 추천 알고리즘 적용 |
 
 
-![브레인라이팅 - 03. Context Deduction.jpg](attachment:6cabe9ca-9869-4460-a379-e57833b042cc:브레인라이팅_-_03._Context_Deduction.jpg)
-
+![Image](https://github.com/user-attachments/assets/47ca0dda-cf9b-46e4-8ac7-c08e98b87c28)
 > 📌 각 도메인은 독립적인 Bounded Context로 나누며, Aggregate Root를 기준으로 엔터트리 관계를 구성했습니다.
 
 ---
