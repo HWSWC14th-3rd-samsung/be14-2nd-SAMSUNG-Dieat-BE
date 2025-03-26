@@ -138,6 +138,9 @@
 ## 🛠️ 물리 모델링 (DB 스키마 일반)
 ![](https://github.com/user-attachments/assets/f5747103-2739-4348-bff5-d747374618b5)
 
+## 논리 모델링
+![](https://github.com/user-attachments/assets/7cbcb938-bdf0-42ca-b377-417305ccda4d)
+
 ---
 
 ## 🗂️ WBS (Work Breakdown Structure)
@@ -155,6 +158,138 @@
 | 식단 기록 | 날짜별 음식 정보 기록 |
 | 식단 배열 | 영양소 섬치량 배열 제공 |
 | 식단 추천 | 현재 상황에 맞는 음식 제안 |
+
+---
+
+## 단위 테스트 결과
+<details>
+  <summary>
+    Meal
+  </summary>
+  <img src="https://github.com/user-attachments/assets/fee5a422-efa5-4e0a-978e-d26a56ad1dc8">
+</details>
+
+<details>
+  <summary>
+    Open Data Foor
+  </summary>
+  <img src="https://github.com/user-attachments/assets/ef85ac21-2532-4100-8f00-7eded75e3029">
+</details>
+
+<details>
+  <summary>
+    Diet Post
+  </summary>
+  <img src="https://github.com/user-attachments/assets/917c373b-bf24-41b7-a510-36b944d55399">
+</details>
+
+<details>
+  <summary>
+    Success Post
+  </summary>
+  <img src="https://github.com/user-attachments/assets/bfea5f96-4f2e-4efe-a981-4b5eea274f3c">
+</details>
+
+<details>
+  <summary>
+    User Data Food
+  </summary>
+  <img src="https://github.com/user-attachments/assets/41d34c3d-95c5-4019-b618-a8106045830f">
+  <img src="https://github.com/user-attachments/assets/b55bc7d3-3955-4229-8931-a037d8cb3623">
+</details>
+
+---
+
+## 🕊️ POSTMAN
+<details>
+  <summary>이미지 1</summary>
+  <img src="https://github.com/user-attachments/assets/8f4e9263-5951-40ec-862f-4bb1750c6e76">
+</details>
+
+<details>
+  <summary>이미지 2</summary>
+  <img src="https://github.com/user-attachments/assets/d4c42cc2-e7e2-4f88-8fb7-738f77951ad4">
+</details>
+
+<details>
+  <summary>이미지 3</summary>
+  <img src="https://github.com/user-attachments/assets/8d8fa8a5-7681-4a41-8ee7-f4818a70f15f">
+</details>
+
+<details>
+  <summary>이미지 4</summary>
+  <img src="https://github.com/user-attachments/assets/b4d2a3f2-a2b7-4038-840e-072432740d9a">
+</details>
+
+<details>
+  <summary>이미지 5</summary>
+  <img src="https://github.com/user-attachments/assets/031c2679-f316-489b-9288-dbb035cb0d6b">
+</details>
+
+<details>
+  <summary>이미지 6</summary>
+  <img src="https://github.com/user-attachments/assets/49848e3b-e0b8-4be4-a1f4-3a392cb5c002">
+</details>
+
+<details>
+  <summary>이미지 7</summary>
+  <img src="https://github.com/user-attachments/assets/d70a7fe0-4685-46e3-ae65-f6fc32ae31a7">
+</details>
+
+<details>
+  <summary>이미지 8</summary>
+  <img src="https://github.com/user-attachments/assets/a1c8c9da-7067-41b7-b625-42fc67f0642d">
+</details>
+
+<details>
+  <summary>이미지 9</summary>
+  <img src="https://github.com/user-attachments/assets/6d3627fd-6db2-401c-a93d-a621896e3d87">
+</details>
+
+<details>
+  <summary>이미지 10</summary>
+  <img src="https://github.com/user-attachments/assets/85ec0094-56ff-4492-a4ae-2ba62cb5a443">
+</details>
+
+<details>
+  <summary>이미지 11</summary>
+  <img src="https://github.com/user-attachments/assets/824a8de7-803c-4a79-a646-f1984b5b6b76">
+</details>
+
+<details>
+  <summary>이미지 12</summary>
+  <img src="https://github.com/user-attachments/assets/e845a1de-0d0e-4353-80f5-7673d5fb455c">
+</details>
+
+<details>
+  <summary>이미지 13</summary>
+  <img src="https://github.com/user-attachments/assets/771769b6-f567-49cc-a286-0bdca76fdc19">
+</details>
+
+<details>
+  <summary>이미지 14</summary>
+  <img src="https://github.com/user-attachments/assets/8f6aa988-b7a5-4d45-80e8-82ae792ba337">
+</details>
+
+<details>
+  <summary>이미지 15</summary>
+  <img src="https://github.com/user-attachments/assets/2ea6adfb-87d4-4f5e-9077-2336b43bf299">
+</details>
+
+<details>
+  <summary>이미지 16</summary>
+  <img src="https://github.com/user-attachments/assets/92918f28-73e3-4aa2-bb05-66607035f009">
+</details>
+
+<details>
+  <summary>이미지 17</summary>
+  <img src="https://github.com/user-attachments/assets/8bc895b5-f891-4eb7-8c50-a813e3cb8de9">
+</details>
+
+<details>
+  <summary>이미지 18</summary>
+  <img src="https://github.com/user-attachments/assets/7ab950bd-56ab-47d0-90b4-8bd1209afdac">
+</details>
 
 ---
 
