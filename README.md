@@ -50,7 +50,7 @@
 ---
 
 ## 🛠️ 물리 모델링 (DB 스키마 일반)
-![삼성erd수정 (1).png](attachment:6634d2ca-f2f1-4d4f-b77c-98be723b29b9:ee6bd0ca-9524-4935-94ff-073af97c8fc5.png)
+![Image](https://github.com/user-attachments/assets/89991876-9469-46eb-9d3c-1264ac2b9999)
 
 ```
 
