@@ -47,14 +47,13 @@ public class JwtUtil {
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
 
-        // roles에서 첫 번째 값을 가져와 role로 사용
         String role = roles.isEmpty() ? "" : roles.get(0);
 
         CustomUserDetails userDetails = new CustomUserDetails(
-                claims.getSubject(), // userId (subject)
-                "", // password는 비워두거나 적절한 값을 넣어야 할 수 있음
+                claims.getSubject(),
+                "",
                 userCode,
-                role, // 첫 번째 role을 사용
+                role,
                 authorities
         );
 

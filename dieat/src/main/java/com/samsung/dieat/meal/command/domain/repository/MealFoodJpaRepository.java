@@ -13,10 +13,5 @@ import java.util.List;
 @Repository
 public interface MealFoodJpaRepository extends JpaRepository<MealFood, Integer> {
 
-    @Query("SELECT mf FROM MealFood mf JOIN FETCH mf.meal m WHERE m.mealCode = :mealCode")
-    List<MealFood> findByMealCodeWithMeal(@Param("mealCode") int mealCode);
-
-    void deleteByMeal_MealCode(int mealCode);
-
     void deleteAllByMeal(Meal meal);
 }
