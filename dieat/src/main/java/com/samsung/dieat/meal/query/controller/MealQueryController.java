@@ -104,20 +104,4 @@ public class MealQueryController {
 
         return ResponseEntity.ok(meal);
     }
-//
-//    @GetMapping("/meals/{mealCode}")
-//    public List<MealQueryDTO> findMealsDefault(@PathVariable int userCode, @PathVariable String mealDt) {
-//        MealDefaultSelectCondition condition = new MealDefaultSelectCondition(userCode, mealDt);
-//        return mealQueryService.findMealsDefault(condition);
-//    }
-//
-//    @GetMapping("/meals/datelist")
-//    public List<String> findMealDateListByUserCode(@PathVariable int userCode) {
-//        return mealQueryService.findMealDateListByUserCode(userCode);
-//    }
-//
-//    @GetMapping("/allMeals")
-//    public List<MealQueryDTO> findAllMeals() {
-//        return mealQueryService.findAllMeals();
-//    }
 }

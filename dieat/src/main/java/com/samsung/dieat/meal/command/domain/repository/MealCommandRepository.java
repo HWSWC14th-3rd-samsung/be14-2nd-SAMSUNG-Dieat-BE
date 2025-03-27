@@ -12,6 +12,4 @@ public interface MealCommandRepository {
     void deleteMealFoodByMealCode(int mealCode);
 
     void deleteMealByMealCode(int mealCode);
-
-
 }

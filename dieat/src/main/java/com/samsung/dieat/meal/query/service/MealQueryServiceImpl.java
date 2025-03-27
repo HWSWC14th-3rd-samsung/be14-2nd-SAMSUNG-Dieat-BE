@@ -45,29 +45,4 @@ public class MealQueryServiceImpl implements MealQueryService {
         return mealQueryRepository.findMealByMealCodeAndUserCode(mealCode, userCode);
     }
 
-
-//    @Override
-//    public List<MealQueryDTO> findAllMeals() {
-//        return mealQueryMapper.selectAllMeals();
-//    }
-//
-//    @Override
-//    public List<MealQueryDTO> findMealsByUserCode(int userCode) {
-//        return mealQueryMapper.selectMealsByUserCode(userCode);
-//    }
-//
-//    @Override
-//    public List<MealQueryDTO> findMealsDefault(MealDefaultSelectCondition condition) {
-//        return mealQueryMapper.selectMealsDefault(condition);
-//    }
-//
-//    @Override
-//    public List<String> findMealDateListByUserCode(int userCode) {
-//        return mealQueryMapper.selectMealDatesByUserCode(userCode);
-//    }
-//
-//    @Override
-//    public List<String> findMealByMealCode(int mealCode) {
-//        return mealQueryMapper.selectMealByMealCode(mealCode);
-//    }
 }

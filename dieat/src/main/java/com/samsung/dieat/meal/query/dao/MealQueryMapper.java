@@ -11,16 +11,6 @@ import java.util.List;
 @Mapper
 public interface MealQueryMapper {
 
-//    List<MealQueryDTO> selectAllMeals();
-//
-//    List<MealQueryDTO> selectMealsByUserCode(int userCode);
-//
-//    List<MealQueryDTO> selectMealsDefault(MealDefaultSelectCondition condition);
-//
-//    List<String> selectMealDatesByUserCode(int userCode);
-//
-//    List<String> selectMealByMealCode(int mealCode);
-
     // 식사 전체 조회
     List<MealQueryDTO> selectMealsByUserCode(@Param("userCode") int userCode);
 
