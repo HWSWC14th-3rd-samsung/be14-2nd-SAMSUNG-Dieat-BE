@@ -201,83 +201,60 @@
 ---
 
 ## SWAGGER
-- user-data-food-controller
-  <details>
-    <summary>
-      
-    </summary>
-  </details>
-<img src="https://github.com/user-attachments/assets/c8c6f6bb-2ea9-4e70-b8a3-313d8f6333c6" />
-
-- user-data-food-query-controller
-  <details>
-    <summary>
-      <img src="https://github.com/user-attachments/assets/a8222efc-7db4-456d-ba9b-9720ec966108" />
-    </summary>
-  </details>
-
-- user-data-food-review-controller
-  <details>
-    <summary>
-      <img src="https://github.com/user-attachments/assets/f04b8ad7-11cb-4484-b884-cec60a2f9af5" />
-    </summary>
-  </details>
-
-- open-data-food-controller
 <details>
-    <summary>
-      <img src="https://github.com/user-attachments/assets/4a72b568-c6a4-44e8-8d5f-0d2260f5922f" />
-    </summary>
-  </details>
+  <summary>user-data-food-controller</summary>
+  <img src="https://github.com/user-attachments/assets/c8c6f6bb-2ea9-4e70-b8a3-313d8f6333c6" />
+</details>
 
-- open-data-food-query-controller
 <details>
-    <summary>
-      <img src="https://github.com/user-attachments/assets/6b88bf8a-4b47-4465-9ed7-b8c867bad2ff" />
-    </summary>
-  </details>
+  <summary>user-data-food-query-controller</summary>
+    <img src="https://github.com/user-attachments/assets/a8222efc-7db4-456d-ba9b-9720ec966108" />
+</details>
 
-- diet-post-command-controller
 <details>
-    <summary>
-      <img src="https://github.com/user-attachments/assets/bf8871bd-47d5-4ba7-9406-45e5ee25a017" />
-    </summary>
-  </details>
+  <summary>user-data-food-review-controller</summary>
+    <img src="https://github.com/user-attachments/assets/f04b8ad7-11cb-4484-b884-cec60a2f9af5" />
+</details>
+
+<details>
+  <summary>open-data-food-controller</summary>
+    <img src="https://github.com/user-attachments/assets/4a72b568-c6a4-44e8-8d5f-0d2260f5922f" />
+</details>
+
+<details>
+  <summary>open-data-food-query-controller</summary>
+    <img src="https://github.com/user-attachments/assets/6b88bf8a-4b47-4465-9ed7-b8c867bad2ff" />
+</details>
+
+<details>
+  <summary>diet-post-command-controller</summary>
+    <img src="https://github.com/user-attachments/assets/bf8871bd-47d5-4ba7-9406-45e5ee25a017" />
+</details>
   
-- diet-post-query-controller
 <details>
-    <summary>
-      <img src="https://github.com/user-attachments/assets/ff6561cc-4378-4455-a5b7-f671804c7f7d" />
-    </summary>
-  </details>
+  <summary>diet-post-query-controller</summary>
+    <img src="https://github.com/user-attachments/assets/ff6561cc-4378-4455-a5b7-f671804c7f7d" />
+</details>
 
-- meal-command-controller
 <details>
-    <summary>
-      <img src="https://github.com/user-attachments/assets/31043e90-c16a-421b-9a41-bdcd87a5b26f" />
-    </summary>
-  </details>
+  <summary>meal-command-controller</summary>
+    <img src="https://github.com/user-attachments/assets/31043e90-c16a-421b-9a41-bdcd87a5b26f" />
+</details>
 
-- meal-query-controller
 <details>
-    <summary>
-      <img src="https://github.com/user-attachments/assets/e6b2f06d-4e22-407f-aa01-f7fb7f21e178" />
-    </summary>
-  </details>
+  <summary>meal-query-controller</summary>
+    <img src="https://github.com/user-attachments/assets/e6b2f06d-4e22-407f-aa01-f7fb7f21e178" />
+</details>
   
-- comment-controller
 <details>
-    <summary>
-      <img src="https://github.com/user-attachments/assets/86301813-8338-4b06-92df-e2d9505dfb20">
-    </summary>
-  </details>
+  <summary>comment-controller</summary>
+    <img src="https://github.com/user-attachments/assets/86301813-8338-4b06-92df-e2d9505dfb20">
+</details>
   
-- comment-query-controller
 <details>
-    <summary>
-      <img src="https://github.com/user-attachments/assets/916871c2-12f1-4201-b82e-f3e6008c1e1b" />
-    </summary>
-  </details>
+  <summary>comment-query-controller</summary>
+    <img src="https://github.com/user-attachments/assets/916871c2-12f1-4201-b82e-f3e6008c1e1b" />
+</details>
   
 ---
 
