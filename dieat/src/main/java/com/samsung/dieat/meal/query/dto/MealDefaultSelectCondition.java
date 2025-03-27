@@ -2,6 +2,8 @@ package com.samsung.dieat.meal.query.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -9,5 +11,6 @@ import lombok.*;
 @ToString
 public class MealDefaultSelectCondition {
     private int userCode;
-    private String mealDt;
+    private String mealDtLike;
+    private List<String> keywordList;
 }

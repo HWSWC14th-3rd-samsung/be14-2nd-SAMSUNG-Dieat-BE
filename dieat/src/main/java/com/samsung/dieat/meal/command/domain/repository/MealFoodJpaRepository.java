@@ -1,5 +1,6 @@
 package com.samsung.dieat.meal.command.domain.repository;
 
+import com.samsung.dieat.meal.command.domain.aggregate.entity.Meal;
 import com.samsung.dieat.meal.command.domain.aggregate.entity.MealFood;
 import com.samsung.dieat.meal.command.domain.aggregate.entity.MealFoodCode;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,4 +17,6 @@ public interface MealFoodJpaRepository extends JpaRepository<MealFood, Integer> 
     List<MealFood> findByMealCodeWithMeal(@Param("mealCode") int mealCode);
 
     void deleteByMeal_MealCode(int mealCode);
+
+    void deleteAllByMeal(Meal meal);
 }

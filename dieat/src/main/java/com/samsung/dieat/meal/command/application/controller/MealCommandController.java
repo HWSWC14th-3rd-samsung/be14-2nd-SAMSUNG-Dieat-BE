@@ -27,13 +27,12 @@ public class MealCommandController {
     // 식사 등록
     @PostMapping("/meals")
     public ResponseEntity<?> registerMeal(@RequestBody MealCommandDTO dto, HttpServletRequest request) {
-        // JWT 토큰에서 유저 정보 추출
+
         String token = request.getHeader("Authorization").substring(7); // Bearer <token>
         if (jwtUtil.validateToken(token)) {
             CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            int authenticatedUserCode = userDetails.getUserCode(); // 인증된 유저의 userCode 가져오기
+            int authenticatedUserCode = userDetails.getUserCode();
 
-            // 인증된 userCode와 MealCommandDTO를 사용하여 등록 처리
             mealCommandService.registerMeal(authenticatedUserCode, dto);
             return ResponseEntity.status(HttpStatus.CREATED).body("식사 등록 완료");
         }
@@ -48,7 +47,6 @@ public class MealCommandController {
             CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             int authenticatedUserCode = userDetails.getUserCode();
 
-            // mealCode와 인증된 userCode를 사용하여 수정 처리
             mealCommandService.updateMeal(authenticatedUserCode, mealCode, dto);
             return ResponseEntity.ok("식사 수정 완료");
         }
@@ -63,7 +61,6 @@ public class MealCommandController {
             CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             int authenticatedUserCode = userDetails.getUserCode();
 
-            // mealCode와 인증된 userCode를 사용하여 삭제 처리
             mealCommandService.deleteMeal(authenticatedUserCode, mealCode);
             return ResponseEntity.ok("식사 삭제 완료");
         }

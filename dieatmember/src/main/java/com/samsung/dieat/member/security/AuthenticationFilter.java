@@ -10,28 +10,27 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 @Slf4j
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
-    private Environment env;
+    private final Environment env;
 
-    public AuthenticationFilter(AuthenticationManager authenticationManager,Environment env) {
+    public AuthenticationFilter(AuthenticationManager authenticationManager, Environment env) {
         super(authenticationManager);
         this.env = env;
     }
@@ -57,7 +56,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                                             FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
 
-        // CustomUserDetails로 올바르게 캐스팅하여 사용
         CustomUserDetails userDetails = (CustomUserDetails) authResult.getPrincipal();
 
         String userId = userDetails.getUsername();
@@ -67,18 +65,18 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
         Claims claims = Jwts.claims().setSubject(userId);
         claims.put("auth", roles);
+        claims.put("userCode", userDetails.getUserCode());
 
-        int userCode = userDetails.getUserCode();
-        claims.put("userCode", userCode);
+        claims.setId(UUID.randomUUID().toString());
 
         String token = Jwts.builder()
                 .setClaims(claims)
+                .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(env.getProperty("token.expiration_time"))))
                 .signWith(SignatureAlgorithm.HS512, env.getProperty("token.secret"))
                 .compact();
 
         response.addHeader("token", token);
+        response.addHeader("Authorization", "Bearer " + token); // 추가 (선택사항)
     }
-
-
 }
