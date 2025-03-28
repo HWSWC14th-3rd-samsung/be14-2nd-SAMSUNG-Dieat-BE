@@ -26,7 +26,6 @@ public class MealQueryController {
 
     @GetMapping
     public ResponseEntity<?> getMyMeals(HttpServletRequest request) {
-        String token = request.getHeader("Authorization").substring(7); // Bearer <token>
 
         if (!SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
@@ -41,7 +40,6 @@ public class MealQueryController {
 
     @GetMapping("/list")
     public ResponseEntity<?> getMealDates(HttpServletRequest request) {
-        String token = request.getHeader("Authorization").substring(7);
 
         if (!SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
@@ -60,8 +58,6 @@ public class MealQueryController {
             @RequestParam(value = "keywordList", required = false) String keywordListRaw,
             HttpServletRequest request
     ) {
-        String token = request.getHeader("Authorization").substring(7);
-
         if (!SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
         }
@@ -87,8 +83,6 @@ public class MealQueryController {
             @PathVariable int mealCode,
             HttpServletRequest request
     ) {
-        String token = request.getHeader("Authorization").substring(7);
-
         if (!SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
         }

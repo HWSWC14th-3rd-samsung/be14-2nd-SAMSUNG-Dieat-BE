@@ -28,7 +28,8 @@ public class MealCommandController {
     @PostMapping("/meals")
     public ResponseEntity<?> registerMeal(@RequestBody MealCommandDTO dto, HttpServletRequest request) {
 
-        String token = request.getHeader("Authorization").substring(7); // Bearer <token>
+        String token = request.getHeader("Authorization").substring(7);
+
         if (jwtUtil.validateToken(token)) {
             CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             int authenticatedUserCode = userDetails.getUserCode();
@@ -42,7 +43,7 @@ public class MealCommandController {
     // 식사 수정
     @PutMapping("/meals/{mealCode}")
     public ResponseEntity<?> updateMeal(@PathVariable int mealCode, @RequestBody MealCommandDTO dto, HttpServletRequest request) {
-        String token = request.getHeader("Authorization").substring(7); // Bearer <token>
+        String token = request.getHeader("Authorization").substring(7);
         if (jwtUtil.validateToken(token)) {
             CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             int authenticatedUserCode = userDetails.getUserCode();
