@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -70,9 +71,11 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
         int userCode = userDetails.getUserCode();
         claims.put("userCode", userCode);
+        claims.setId(UUID.randomUUID().toString());
 
         String token = Jwts.builder()
                 .setClaims(claims)
+                .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + Long.parseLong(env.getProperty("token.expiration_time"))))
                 .signWith(SignatureAlgorithm.HS512, env.getProperty("token.secret"))
                 .compact();
