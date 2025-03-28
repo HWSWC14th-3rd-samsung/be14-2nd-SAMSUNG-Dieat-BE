@@ -8,15 +8,17 @@ import java.util.List;
 
 
 public interface MealQueryService {
-    
-    List<MealQueryDTO> findAllMeals();
 
-    List<MealQueryDTO> findMealsByUserCode(int userCode);
+    // 식사 전체 조회
+    List<MealQueryDTO> getMealsByUserCode(int authenticatedUserCode);
 
-    List<MealQueryDTO> findMealsDefault(MealDefaultSelectCondition condition);
+    // 식사 목록 조회
+    List<String> getMealDatesByUserCode(int userCode);
 
-    List<String> findMealDateListByUserCode(int userCode);
+    // 식사 검색
+    List<MealQueryDTO> searchMeals(MealDefaultSelectCondition condition);
 
-    List<String> findMealByMealCode(int mealCode);
+    // 단일 식사 조회
+    MealQueryDTO getMealByMealCodeAndUserCode(int mealCode, int userCode);
 }
 

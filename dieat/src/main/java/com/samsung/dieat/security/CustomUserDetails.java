@@ -13,11 +13,11 @@ public class CustomUserDetails implements UserDetails {
 
     private String username;
     private String password;
-    private Integer userCode;  // Integer로 수정
+    private int userCode;
     private String role;
     private Collection<? extends GrantedAuthority> authorities;
 
-    // 수정된 생성자
+
     public CustomUserDetails(String username, String password, Integer userCode, String role, Collection<? extends GrantedAuthority> authorities) {
         this.username = username;
         this.password = password;
@@ -26,5 +26,4 @@ public class CustomUserDetails implements UserDetails {
         this.authorities = authorities;
     }
 
-    // 나머지 메소드들
 }
