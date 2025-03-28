@@ -8,6 +8,6 @@ import lombok.ToString;
 @Setter
 @ToString
 public class bookMarkCategoryDTO {
-    private String bookMarkCategoryName;
+    private String bmCtgyName;
     private int userCode;
 }

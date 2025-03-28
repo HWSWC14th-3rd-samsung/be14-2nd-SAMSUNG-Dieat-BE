@@ -10,6 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ResponseRegistCategoryVO {
-    int categoryCode;
-    String categoryName;
+    int bmCtgyCode;
+    String bmCtgyName;
 }
