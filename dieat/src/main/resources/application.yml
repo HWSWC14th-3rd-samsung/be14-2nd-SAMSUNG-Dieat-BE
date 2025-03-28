@@ -8,7 +8,7 @@ spring:
   ## db config
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/samsung
+    url: jdbc:mariadb://localhost:3307/samsung
     username: root
     password: mariadb
 

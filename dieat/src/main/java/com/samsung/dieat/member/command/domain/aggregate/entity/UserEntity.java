@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity  // 이 어노테이션을 추가
-@Table(name = "tbl_user")
+@Table(name = "tbl_personal_info")
 public class UserEntity {
 
     @Id
