@@ -129,7 +129,7 @@ CREATE TABLE `tbl_success_post` (
 
 CREATE TABLE `tbl_meal` (
                             `meal_code`     INT          NOT NULL AUTO_INCREMENT,
-                            `meal_dt`       DATETIME  NOT NULL,
+                            `meal_dt`       VARCHAR(50)  NOT NULL,
                             `meal_title`    VARCHAR(255) NOT NULL,
                             `meal_desc`     VARCHAR(255) NULL,
                             `meal_calories` FLOAT        NOT NULL DEFAULT 0 CHECK (meal_calories >= 0),
