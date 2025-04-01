@@ -60,6 +60,10 @@ CREATE TABLE `tbl_user_info` (
                                  `user_nickname`    VARCHAR(255) NOT NULL,
                                  `user_susp_end_dt` DATETIME     NULL,
                                  `user_rpt_cnt`     INT          NOT NULL DEFAULT 0,
+                                 `user_authority`   VARCHAR(20)  NOT NULL DEFAULT 'USER',
+                                 `user_goal_weight` INT          NOT NULL DEFAULT 0,
+                                 `user_start_weight`INT          NOT NULL DEFAULT 0,
+  
                                  CONSTRAINT `PK_TBL_USER_INFO`
                                      PRIMARY KEY (`user_code`),
                                  UNIQUE KEY `UK_TBL_USER_INFO_NICKNAME` (`user_nickname`),
@@ -114,6 +118,8 @@ CREATE TABLE `tbl_success_post` (
                                     `succ_term`       VARCHAR(50)  NOT NULL,
                                     `succ_isdeleted`  BOOLEAN      NOT NULL DEFAULT FALSE,
                                     `user_code`       INT          NOT NULL,
+                                    `succ_start_date` DATETIME     NOT NULL,
+                                    `succ_end_date`   DATETIME     NOT NULL,
                                     CONSTRAINT `PK_TBL_SUCCESS_POST`
                                         PRIMARY KEY (`succ_code`),
                                     CONSTRAINT `FK_tbl_user_info_TO_tbl_success_post_1`
@@ -123,7 +129,7 @@ CREATE TABLE `tbl_success_post` (
 
 CREATE TABLE `tbl_meal` (
                             `meal_code`     INT          NOT NULL AUTO_INCREMENT,
-                            `meal_dt`       VARCHAR(50)  NOT NULL,
+                            `meal_dt`       DATETIME  NOT NULL,
                             `meal_title`    VARCHAR(255) NOT NULL,
                             `meal_desc`     VARCHAR(255) NULL,
                             `meal_calories` FLOAT        NOT NULL DEFAULT 0 CHECK (meal_calories >= 0),
