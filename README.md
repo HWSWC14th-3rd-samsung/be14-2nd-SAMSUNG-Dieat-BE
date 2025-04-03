@@ -1,4 +1,4 @@
-[//]: # (# be14-2nd-SAMSUNG-Dieat-BE)
+![image](https://github.com/user-attachments/assets/d2f7e641-16ff-4654-813e-4fac081cee84)![image](https://github.com/user-attachments/assets/2206a4bb-860a-42f1-a53d-b4c7b4b9c6e1)[//]: # (# be14-2nd-SAMSUNG-Dieat-BE)
 
 [//]: ![](https://github.com/user-attachments/assets/a5362d12-edad-4d7c-921b-e2766741756b)
 ![](https://github.com/user-attachments/assets/2906b038-99fe-464b-acef-16372fa2078f)
@@ -6,10 +6,15 @@
 ---
 
 # 팀원 소개
-| ![img](![image](https://github.com/user-attachments/assets/adab149c-7670-42b2-baa6-f7049c543e4b)
-) | ![img]() | ![img]() | ![img]() | ![img]() | ![img]() |
+| ![image](https://github.com/user-attachments/assets/d89e69c4-b747-480d-9008-d587ecf6ec7b)
+ | ![image](https://github.com/user-attachments/assets/a684658d-343f-4747-9eec-b0c8bd0fb01d)
+ | ![image](https://github.com/user-attachments/assets/35814dc7-10b2-48bc-8cab-817e2a9b4b21)
+ | ![image](https://github.com/user-attachments/assets/01553124-15de-4f76-91cb-9bdf6cf21283)
+ | ![image](https://github.com/user-attachments/assets/2f6470be-866e-49f3-b9b4-4abf91cccb01)
+ | ![image](https://github.com/user-attachments/assets/9f2aecb5-4cd9-468f-968c-cfc97f0ee471)
+ |
 | --- | --- | --- | --- | --- | --- |
-| 이성준 | 박지원 | 고윤석 | 고도연 | 권민수 | 강수지 |
+| 강수지 | 고도연 | 고윤석 | 권민수 | 박지원 | 이성준 |
 
 ---
 
