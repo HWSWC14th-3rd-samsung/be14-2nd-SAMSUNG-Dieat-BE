@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d2f7e641-16ff-4654-813e-4fac081cee84)![image](https://github.com/user-attachments/assets/2206a4bb-860a-42f1-a53d-b4c7b4b9c6e1)[//]: # (# be14-2nd-SAMSUNG-Dieat-BE)
+# (# be14-2nd-SAMSUNG-Dieat-BE)
 
 [//]: ![](https://github.com/user-attachments/assets/a5362d12-edad-4d7c-921b-e2766741756b)
 ![](https://github.com/user-attachments/assets/2906b038-99fe-464b-acef-16372fa2078f)
