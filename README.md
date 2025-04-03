@@ -158,6 +158,8 @@
 | 식단 기록 | 날짜별 음식 정보 기록 |
 | 식단 배열 | 영양소 섬치량 배열 제공 |
 | 식단 추천 | 현재 상황에 맞는 음식 제안 |
+![image](https://github.com/user-attachments/assets/3d6159ec-6847-449e-b710-921f7bd6073d)
+
 
 ---
 
@@ -200,7 +202,7 @@
 
 ---
 
-## SWAGGER
+## API 명세서
 <details>
   <summary>user-data-food-controller</summary>
   <img src="https://github.com/user-attachments/assets/c8c6f6bb-2ea9-4e70-b8a3-313d8f6333c6" />
