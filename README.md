@@ -6,9 +6,12 @@
 ---
 
 # 팀원 소개
-| ![강수지](https://github.com/user-attachments/assets/d89e69c4-b747-480d-9008-d587ecf6ec7b) | ![고도연](https://github.com/user-attachments/assets/a684658d-343f-4747-9eec-b0c8bd0fb01d) | ![고윤석](https://github.com/user-attachments/assets/35814dc7-10b2-48bc-8cab-817e2a9b4b21) | ![권민수](https://github.com/user-attachments/assets/01553124-15de-4f76-91cb-9bdf6cf21283) | ![박지원](https://github.com/user-attachments/assets/2f6470be-866e-49f3-b9b4-4abf91cccb01) | ![이성준](https://github.com/user-attachments/assets/9f2aecb5-4cd9-468f-968c-cfc97f0ee471) |
+| ![강수지](https://github.com/user-attachments/assets/d89e69c4-b747-480d-9008-d587ecf6ec7b) | ![고도연](https://github.com/user-attachments/assets/a684658d-343f-4747-9eec-b0c8bd0fb01d) | ![고윤석](https://github.com/user-attachments/assets/35814dc7-10b2-48bc-8cab-817e2a9b4b21) | ![권민수](https://github.com/user-attachments/assets/01553124-15de-4f76-91cb-9bdf6cf21283) | ![박지원](https://github.com/user-attachments/assets/2f6470be-866e-49f3-b9b4-4abf91cccb01) | ![이성준](https://github.com/user-attachments/assets/f264b005-3b62-4cc2-9415-bb996f5a7d89) |
 | --- | --- | --- | --- | --- | --- |
 | 강수지 | 고도연 | 고윤석 | 권민수 | 박지원 | 이성준 |
+
+
+
 
 ---
 
