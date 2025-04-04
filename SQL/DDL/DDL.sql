@@ -63,6 +63,7 @@ CREATE TABLE `tbl_user_info` (
                                  `user_authority`   VARCHAR(20)  NOT NULL DEFAULT 'USER',
                                  `user_goal_weight` INT          NOT NULL DEFAULT 0,
                                  `user_start_weight`INT          NOT NULL DEFAULT 0,
+                                 `user_goal_calories` INT        NOT NULL DEFAULT 0,
   
                                  CONSTRAINT `PK_TBL_USER_INFO`
                                      PRIMARY KEY (`user_code`),
