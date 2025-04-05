@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="903cfdb1-060e-44f4-905d-1fb0b0b2fb5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/command/domain/aggregate/entity/Subscribe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/command/domain/aggregate/entity/SubscribeId.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/command/application/entity/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/command/domain/aggregate/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/command/domain/repository/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/resources/application.yml" afterDir="false" />
-    </list>
+    <list default="true" id="903cfdb1-060e-44f4-905d-1fb0b0b2fb5f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

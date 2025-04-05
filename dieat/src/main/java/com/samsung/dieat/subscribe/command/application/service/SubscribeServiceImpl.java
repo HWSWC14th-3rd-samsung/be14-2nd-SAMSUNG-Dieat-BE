@@ -27,4 +27,12 @@ public class SubscribeServiceImpl implements SubscribeService {
             subscribeRepository.save(new Subscribe(requesterUserCode, targetUserCode));
         }
     }
+
+    @Override
+    public void unsubscribe(Integer requesterUserCode, Integer targetUserCode) {
+        SubscribeId id = new SubscribeId(requesterUserCode, targetUserCode);
+        if (subscribeRepository.existsById(id)) {
+            subscribeRepository.deleteById(id);
+        }
+    }
 }

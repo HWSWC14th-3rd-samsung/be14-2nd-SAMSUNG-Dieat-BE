@@ -38,4 +38,22 @@ public class SubscribeController {
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
     }
+
+    @DeleteMapping
+    public ResponseEntity<?> unsubscribe(@RequestParam("targetUserCode") Integer targetUserCode,
+                                         HttpServletRequest request) {
+        String token = request.getHeader("Authorization").substring(7);
+
+        if (jwtUtil.validateToken(token)) {
+            CustomUserDetails userDetails =
+                    (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            Integer userCode = userDetails.getUserCode();
+
+            subscribeService.unsubscribe(userCode, targetUserCode);
+            return ResponseEntity.ok("구독 취소 완료");
+        }
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
+    }
+
 }
