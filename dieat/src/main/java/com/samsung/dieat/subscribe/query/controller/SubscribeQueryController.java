@@ -6,6 +6,7 @@ import com.samsung.dieat.subscribe.query.dto.SubscribedPostVO;
 import com.samsung.dieat.subscribe.query.dto.SubscribedUserVO;
 import com.samsung.dieat.subscribe.query.service.SubscribePostQueryService;
 import com.samsung.dieat.subscribe.query.service.SubscribeQueryService;
+import com.samsung.dieat.subscribe.query.service.SubscribeUserPostQueryService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -20,14 +21,18 @@ public class SubscribeQueryController {
 
     private final SubscribeQueryService subscribeQueryService;
     private final SubscribePostQueryService subscribePostQueryService;
+    private final SubscribeUserPostQueryService subscribeUserPostQueryService;
+
     private final JwtUtil jwtUtil;
 
     @Autowired
     public SubscribeQueryController(SubscribeQueryService subscribeQueryService,
                                     JwtUtil jwtUtil,
-                                    SubscribePostQueryService subscribePostQueryService) {
+                                    SubscribePostQueryService subscribePostQueryService,
+                                    SubscribeUserPostQueryService subscribeUserPostQueryService) {
         this.subscribeQueryService = subscribeQueryService;
         this.subscribePostQueryService = subscribePostQueryService;
+        this.subscribeUserPostQueryService = subscribeUserPostQueryService;
         this.jwtUtil = jwtUtil;
     }
 
@@ -62,4 +67,9 @@ public class SubscribeQueryController {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
     }
 
+    @GetMapping("/user")
+    public ResponseEntity<List<SubscribedPostVO>> getPostsByUser(@RequestParam("userCode") int userCode) {
+        List<SubscribedPostVO> posts = subscribeUserPostQueryService.getPostsByUserCode(userCode);
+        return ResponseEntity.ok(posts);
+    }
 }
