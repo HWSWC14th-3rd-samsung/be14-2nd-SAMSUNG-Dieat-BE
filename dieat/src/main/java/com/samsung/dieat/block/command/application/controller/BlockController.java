@@ -29,16 +29,27 @@ public class BlockController {
         String token = request.getHeader("Authorization").substring(7);
 
         if (jwtUtil.validateToken(token)) {
-            System.out.println("토큰 까기 성공");
             CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             int authenticatedUserCode = userDetails.getUserCode();
-
             blockService.registerBlock(authenticatedUserCode, dto.getTargetUserCode());
             return ResponseEntity.status(HttpStatus.CREATED).body("차단 완료");
-        }else{
-            System.out.println("토큰 까기 실패");
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
     }
+
+    @DeleteMapping
+    public ResponseEntity<?> cancelBlock(@RequestBody BlockRequestDTO dto, HttpServletRequest request) {
+        String token = request.getHeader("Authorization").substring(7);
+
+        if (jwtUtil.validateToken(token)) {
+            CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            int authenticatedUserCode = userDetails.getUserCode();
+
+            blockService.cancelBlock(authenticatedUserCode, dto.getTargetUserCode());
+            return ResponseEntity.ok("차단 해제 완료");
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
+    }
+
 }
 

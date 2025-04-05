@@ -25,5 +25,16 @@ public class BlockServiceImpl implements BlockService {
             blockRepository.save(block);
         }
     }
+
+    @Override
+    public void cancelBlock(Integer requesterUserCode, Integer targetUserCode) {
+        BlockId id = new BlockId(requesterUserCode, targetUserCode);
+
+        if (blockRepository.existsById(id)) {
+            blockRepository.deleteById(id);
+        }
+        // 차단되어 있지 않은 경우에 대해 예외처리 안함
+    }
+
 }
 
