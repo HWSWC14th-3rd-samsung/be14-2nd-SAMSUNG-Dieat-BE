@@ -5,13 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="903cfdb1-060e-44f4-905d-1fb0b0b2fb5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/dao/SubscribeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/dto/SubscribedUserVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/service/SubscribeQueryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/controller/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/resources/mapper/subscribe/query/SubscribeMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/dao/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/dto/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/service/.gitkeep" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/dao/SubscribePostMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/dto/SubscribedPostVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/service/SubscribePostQueryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dieat/src/main/resources/mapper/subscribe/query/SubscribePostMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/controller/SubscribeQueryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/controller/SubscribeQueryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dieatmember/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../dieatmember/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
