@@ -1,5 +1,6 @@
 package com.samsung.dieat.notice_post.query.controller;
 
+import com.samsung.dieat.notice_post.query.dto.NoticePostDetailVO;
 import com.samsung.dieat.notice_post.query.dto.NoticePostVO;
 import com.samsung.dieat.notice_post.query.service.NoticePostQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,11 @@ public class NoticePostQueryController {
     public ResponseEntity<List<NoticePostVO>> getAllNotices() {
         List<NoticePostVO> list = noticePostQueryService.getAllNotices();
         return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/{noticeCode}")
+    public ResponseEntity<NoticePostDetailVO> getNoticeByNoticeCode(@PathVariable("noticeCode") int noticeCode) {
+        NoticePostDetailVO result=noticePostQueryService.getNoticeDetail(noticeCode);
+        return ResponseEntity.ok(result);
     }
 }

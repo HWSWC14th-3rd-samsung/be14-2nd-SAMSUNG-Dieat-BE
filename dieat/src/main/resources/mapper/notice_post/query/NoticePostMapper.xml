@@ -8,7 +8,6 @@
     <resultMap id="NoticePostResultMap" type="com.samsung.dieat.notice_post.query.dto.NoticePostVO">
         <id property="notiCode" column="noti_code"/>
         <result property="notiTitle" column="noti_title"/>
-        <result property="notiConts" column="noti_conts"/>
         <result property="notiCreatedDt" column="noti_created_dt"/>
         <result property="notiViewCnt" column="noti_view_cnt"/>
         <result property="notiUpdatedDt" column="noti_updated_dt"/>
@@ -18,12 +17,32 @@
         SELECT
             noti_code,
             noti_title,
-            noti_conts,
             noti_created_dt,
             noti_view_cnt,
             noti_updated_dt
         FROM tbl_notice_post
         ORDER BY noti_code DESC
+    </select>
+
+    <resultMap id="NoticePostDetailResultMap" type="com.samsung.dieat.notice_post.query.dto.NoticePostDetailVO">
+        <result property="notiCode" column="noti_code"/>
+        <result property="notiTitle" column="noti_title"/>
+        <result property="notiConts" column="noti_conts"/>
+        <result property="notiCreatedDt" column="noti_created_dt"/>
+        <result property="notiViewCnt" column="noti_view_cnt"/>
+        <result property="notiUpdatedDt" column="noti_updated_dt"/>
+    </resultMap>
+
+    <select id="selectNoticePostByCode" resultMap="NoticePostDetailResultMap">
+        SELECT
+            noti_code,
+            noti_title,
+            noti_conts,
+            noti_created_dt,
+            noti_view_cnt,
+            noti_updated_dt
+        FROM tbl_notice_post
+        WHERE noti_code = #{notiCode}
     </select>
 
 </mapper>
