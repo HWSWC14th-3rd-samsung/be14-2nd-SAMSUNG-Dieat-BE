@@ -1,6 +1,7 @@
 package com.samsung.dieat.notice_post.command.application.controller;
 
 import com.samsung.dieat.notice_post.command.application.dto.NoticePostRequestDTO;
+import com.samsung.dieat.notice_post.command.application.dto.NoticePostUpdateDTO;
 import com.samsung.dieat.notice_post.command.application.service.NoticePostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -22,4 +23,12 @@ public class NoticePostController {
         noticePostService.registerNotice(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body("공지사항 등록 완료");
     }
+
+    @PutMapping("/{noticeCode}")
+    public ResponseEntity<String> updateNotice(@PathVariable int noticeCode,
+                                               @RequestBody NoticePostUpdateDTO dto) {
+        noticePostService.updateNotice(noticeCode, dto);
+        return ResponseEntity.ok("공지사항 수정 완료");
+    }
+
 }
