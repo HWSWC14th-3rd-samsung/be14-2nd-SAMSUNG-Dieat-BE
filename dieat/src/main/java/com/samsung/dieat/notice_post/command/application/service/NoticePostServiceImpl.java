@@ -42,4 +42,12 @@ public class NoticePostServiceImpl implements NoticePostService {
         noticePostRepository.save(post);
     }
 
+    @Override
+    public void deleteNotice(int noticeCode) {
+        NoticePost post = noticePostRepository.findById(noticeCode)
+                .orElseThrow(() -> new IllegalArgumentException("해당 공지사항이 존재하지 않습니다."));
+
+        noticePostRepository.delete(post);
+    }
+
 }

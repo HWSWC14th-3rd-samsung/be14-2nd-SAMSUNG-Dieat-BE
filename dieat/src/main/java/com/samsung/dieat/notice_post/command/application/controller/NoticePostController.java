@@ -31,4 +31,11 @@ public class NoticePostController {
         return ResponseEntity.ok("공지사항 수정 완료");
     }
 
+    @DeleteMapping("/{noticeCode}")
+    public ResponseEntity<String> deleteNotice(@PathVariable int noticeCode) {
+        noticePostService.deleteNotice(noticeCode);
+        return ResponseEntity.ok("공지사항 삭제 완료");
+    }
+
+
 }

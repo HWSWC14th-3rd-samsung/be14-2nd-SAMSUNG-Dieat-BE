@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="903cfdb1-060e-44f4-905d-1fb0b0b2fb5f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/controller/NoticePostController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/dto/NoticePostRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/service/NoticePostService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/service/NoticePostServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/domain/aggregate/entity/NoticePost.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/domain/repository/NoticePostRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/controller/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/dto/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/service/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/domain/aggregate/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/domain/repository/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieatmember/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../dieatmember/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/controller/NoticePostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/controller/NoticePostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/service/NoticePostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/service/NoticePostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/service/NoticePostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/command/application/service/NoticePostServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
