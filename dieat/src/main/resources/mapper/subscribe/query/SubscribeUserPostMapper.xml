@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.samsung.dieat.subscribe.query.dao.SubscribeUserPostMapper">
+
+    <resultMap id="UserPostResultMap" type="com.samsung.dieat.subscribe.query.dto.SubscribedPostVO">
+        <result property="title" column="title"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="viewCount" column="view_cnt"/>
+        <result property="commentCount" column="cmt_cnt"/>
+        <result property="likeCount" column="like_cnt"/>
+        <result property="nickname" column="user_nickname"/>
+        <result property="postCode" column="post_code"/>
+        <result property="postType" column="post_type"/>
+    </resultMap>
+
+    <select id="selectPostsByUserCode" resultMap="UserPostResultMap">
+        (
+            SELECT
+                f.free_title AS title,
+                f.free_created_dt AS created_at,
+                f.free_view_cnt AS view_cnt,
+                f.free_cmt_cnt AS cmt_cnt,
+                f.free_like_cnt AS like_cnt,
+                u.user_nickname,
+                f.free_code AS post_code,
+                'FREE' AS post_type
+            FROM tbl_free_post f
+                     JOIN tbl_user_info u ON f.user_code = u.user_code
+            WHERE f.user_code = #{userCode}
+              AND f.free_isdeleted = 0
+        )
+        UNION ALL
+        (
+            SELECT
+                d.diet_title AS title,
+                d.diet_upload_dt AS created_at,
+                d.diet_view_cnt AS view_cnt,
+                d.diet_cmt_cnt AS cmt_cnt,
+                d.diet_like_cnt AS like_cnt,
+                u.user_nickname,
+                d.diet_code AS post_code,
+                'DIET' AS post_type
+            FROM tbl_diet_post d
+                     JOIN tbl_user_info u ON d.user_code = u.user_code
+            WHERE d.user_code = #{userCode}
+              AND d.diet_isdeleted = 0
+        )
+        UNION ALL
+        (
+            SELECT
+                s.succ_title AS title,
+                s.succ_created_dt AS created_at,
+                s.succ_view_cnt AS view_cnt,
+                s.succ_cmt_cnt AS cmt_cnt,
+                s.succ_like_cnt AS like_cnt,
+                u.user_nickname,
+                s.succ_code AS post_code,
+                'SUCCESS' AS post_type
+            FROM tbl_success_post s
+                     JOIN tbl_user_info u ON s.user_code = u.user_code
+            WHERE s.user_code = #{userCode}
+              AND s.succ_isdeleted = 0
+        )
+        ORDER BY created_at DESC
+    </select>
+</mapper>

@@ -37,7 +37,8 @@
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="samsung@localhost [3]" uuid="b501367d-72a9-445a-aa60-0e058cd6a02b">
+
+    <data-source source="LOCAL" name="samsung@localhost [3]" uuid="9eb93dd2-dc12-456d-9e8f-e17f7c40d766">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
