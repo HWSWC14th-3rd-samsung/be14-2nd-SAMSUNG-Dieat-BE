@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.samsung.dieat.subscribe.query.dao.SubscribeMapper">
+
+    <resultMap id="SubscribedUserResultMap" type="com.samsung.dieat.subscribe.query.dto.SubscribedUserVO">
+        <result property="userCode" column="user_code"/>
+        <result property="nickname" column="user_nickname"/>
+    </resultMap>
+
+    <select id="selectSubscribedUsersByUserCode" resultMap="SubscribedUserResultMap">
+        SELECT
+            u.user_code,
+            u.user_nickname
+        FROM
+            tbl_subscribe s
+                JOIN
+            tbl_user_info u ON s.subs_tg_user_code = u.user_code
+        WHERE
+            s.subs_user_code = #{userCode}
+    </select>
+
+</mapper>
