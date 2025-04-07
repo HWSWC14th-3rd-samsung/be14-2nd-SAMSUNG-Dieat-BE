@@ -5,22 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="903cfdb1-060e-44f4-905d-1fb0b0b2fb5f" name="Changes" comment="">
-<!--  -->
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/dao/SubscribeUserPostMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/service/SubscribeUserPostQueryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/resources/mapper/subscribe/query/SubscribeUserPostMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/controller/SubscribeQueryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/controller/SubscribeQueryController.java" afterDir="false" />
+  <!-- block 브랜치 변경사항 -->
+  <change afterPath="$PROJECT_DIR$/../dieat/.idea/sqldialects.xml" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/block/query/controller/BlockQueryController.java" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/block/query/dao/BlockMapper.java" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/block/query/dto/BlockedUserVO.java" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/block/query/service/BlockQueryService.java" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/resources/mapper/block/query/BlockMapper.xml" afterDir="false" />
 
-<!--        -->
-      <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/dto/NoticePostDetailVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/controller/NoticePostQueryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/controller/NoticePostQueryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/dao/NoticePostMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/dao/NoticePostMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/dto/NoticePostVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/dto/NoticePostVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/service/NoticePostQueryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/service/NoticePostQueryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dieat/src/main/resources/mapper/notice_post/query/NoticePostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../dieat/src/main/resources/mapper/notice_post/query/NoticePostMapper.xml" afterDir="false" />
-<!--  -->
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+  <!-- dev 브랜치 변경사항 -->
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/dao/SubscribeUserPostMapper.java" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/service/SubscribeUserPostQueryService.java" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/resources/mapper/subscribe/query/SubscribeUserPostMapper.xml" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/subscribe/query/controller/SubscribeQueryController.java" afterDir="false" />
+
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/controller/NoticePostQueryController.java" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/dao/NoticePostMapper.java" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/dto/NoticePostVO.java" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/java/com/samsung/dieat/notice_post/query/service/NoticePostQueryService.java" afterDir="false" />
+  <change afterPath="$PROJECT_DIR$/../dieat/src/main/resources/mapper/notice_post/query/NoticePostMapper.xml" afterDir="false" />
+
+  <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+</list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,8 +87,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.SpringGateWayApplication.executor": "Run",
+    "git-widget-placeholder": "block",
     "git-widget-placeholder": "subscribe",
-
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/jiwon/Project/backup/spring-gate-way",
     "node.js.detected.package.eslint": "true",

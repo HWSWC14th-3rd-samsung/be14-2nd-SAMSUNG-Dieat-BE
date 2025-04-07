@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.samsung.dieat.block.query.dao.BlockMapper">
+    <resultMap id="BlockedUserResultMap" type="com.samsung.dieat.block.query.dto.BlockedUserVO">
+        <result property="nickname" column="user_nickname"/>
+    </resultMap>
+
+    <select id="selectBlockedUsersByUserCode" resultMap="BlockedUserResultMap">
+        SELECT
+               u.user_nickname
+          FROM tbl_block b
+          JOIN tbl_user_info u
+            ON b.blc_tg_user_code = u.user_code
+         WHERE b.blc_user_code = #{userCode}
+    </select>
+
+</mapper>
