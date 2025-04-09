@@ -22,15 +22,9 @@ public class MealQueryController {
 
     private final MealQueryService mealQueryService;
 
-
-
+    // 전체 조회
     @GetMapping
-    public ResponseEntity<?> getMyMeals(HttpServletRequest request) {
-
-        if (!SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
-        }
-
+    public ResponseEntity<?> getMyMeals() {
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         int authenticatedUserCode = userDetails.getUserCode();
 
@@ -38,13 +32,9 @@ public class MealQueryController {
         return ResponseEntity.ok(meals);
     }
 
+    // 식사가 존재하는 날짜 목록 조회
     @GetMapping("/list")
-    public ResponseEntity<?> getMealDates(HttpServletRequest request) {
-
-        if (!SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
-        }
-
+    public ResponseEntity<?> getMealDates() {
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         int authenticatedUserCode = userDetails.getUserCode();
 
@@ -52,16 +42,12 @@ public class MealQueryController {
         return ResponseEntity.ok(mealDates);
     }
 
+    // 조건 검색
     @GetMapping("/search")
     public ResponseEntity<?> searchMeals(
             @RequestParam(value = "mealDtLike", required = false) String mealDtLike,
-            @RequestParam(value = "keywordList", required = false) String keywordListRaw,
-            HttpServletRequest request
+            @RequestParam(value = "keywordList", required = false) String keywordListRaw
     ) {
-        if (!SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
-        }
-
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         int authenticatedUserCode = userDetails.getUserCode();
 
@@ -78,20 +64,13 @@ public class MealQueryController {
         return ResponseEntity.ok(searchResults);
     }
 
+    // 단일 식사 조회
     @GetMapping("/{mealCode}")
-    public ResponseEntity<?> getSingleMeal(
-            @PathVariable int mealCode,
-            HttpServletRequest request
-    ) {
-        if (!SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
-        }
-
+    public ResponseEntity<?> getSingleMeal(@PathVariable int mealCode) {
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         int authenticatedUserCode = userDetails.getUserCode();
 
         MealQueryDTO meal = mealQueryService.getMealByMealCodeAndUserCode(mealCode, authenticatedUserCode);
-
         if (meal == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("식사를 찾을 수 없습니다.");
         }

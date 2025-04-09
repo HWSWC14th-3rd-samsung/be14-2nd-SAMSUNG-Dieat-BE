@@ -16,55 +16,39 @@ import jakarta.servlet.http.HttpServletRequest;
 public class MealCommandController {
 
     private final MealCommandService mealCommandService;
-    private final JwtUtil jwtUtil;
 
     @Autowired
-    public MealCommandController(MealCommandService mealCommandService, JwtUtil jwtUtil) {
+    public MealCommandController(MealCommandService mealCommandService) {
         this.mealCommandService = mealCommandService;
-        this.jwtUtil = jwtUtil;
     }
 
     // 식사 등록
     @PostMapping("/meals")
-    public ResponseEntity<?> registerMeal(@RequestBody MealCommandDTO dto, HttpServletRequest request) {
+    public ResponseEntity<?> registerMeal(@RequestBody MealCommandDTO dto) {
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        int authenticatedUserCode = userDetails.getUserCode();
 
-        String token = request.getHeader("Authorization").substring(7);
-
-        if (jwtUtil.validateToken(token)) {
-            CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            int authenticatedUserCode = userDetails.getUserCode();
-
-            mealCommandService.registerMeal(authenticatedUserCode, dto);
-            return ResponseEntity.status(HttpStatus.CREATED).body("식사 등록 완료");
-        }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
+        mealCommandService.registerMeal(authenticatedUserCode, dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body("식사 등록 완료");
     }
 
     // 식사 수정
     @PutMapping("/meals/{mealCode}")
-    public ResponseEntity<?> updateMeal(@PathVariable int mealCode, @RequestBody MealCommandDTO dto, HttpServletRequest request) {
-        String token = request.getHeader("Authorization").substring(7);
-        if (jwtUtil.validateToken(token)) {
-            CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            int authenticatedUserCode = userDetails.getUserCode();
+    public ResponseEntity<?> updateMeal(@PathVariable int mealCode, @RequestBody MealCommandDTO dto) {
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        int authenticatedUserCode = userDetails.getUserCode();
 
-            mealCommandService.updateMeal(authenticatedUserCode, mealCode, dto);
-            return ResponseEntity.ok("식사 수정 완료");
-        }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
+        mealCommandService.updateMeal(authenticatedUserCode, mealCode, dto);
+        return ResponseEntity.ok("식사 수정 완료");
     }
 
     // 식사 삭제
     @DeleteMapping("/meals/{mealCode}")
-    public ResponseEntity<?> deleteMeal(@PathVariable int mealCode, HttpServletRequest request) {
-        String token = request.getHeader("Authorization").substring(7); // Bearer <token>
-        if (jwtUtil.validateToken(token)) {
-            CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            int authenticatedUserCode = userDetails.getUserCode();
+    public ResponseEntity<?> deleteMeal(@PathVariable int mealCode) {
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        int authenticatedUserCode = userDetails.getUserCode();
 
-            mealCommandService.deleteMeal(authenticatedUserCode, mealCode);
-            return ResponseEntity.ok("식사 삭제 완료");
-        }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("토큰 인증 실패");
+        mealCommandService.deleteMeal(authenticatedUserCode, mealCode);
+        return ResponseEntity.ok("식사 삭제 완료");
     }
 }
